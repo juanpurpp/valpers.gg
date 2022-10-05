@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "description": "Backend para valpers.gg",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanpurpp/valpers.gg.git"
+  },
+  "keywords": [
+    "Web",
+    "page",
+    "valorant"
+  ],
+  "author": "Juan Sandoval, Dieter Heim, Sebastian Araus, José Velásquezw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanpurpp/valpers.gg/issues"
+  },
+  "homepage": "https://github.com/juanpurpp/valpers.gg#readme"
+}
