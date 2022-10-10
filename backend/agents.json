@@ -1,0 +1,99 @@
+{
+    "Agents":[
+        {
+            "ID": "01",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "02",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "03",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "04",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "05",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "06",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "07",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "08",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "09",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "10",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "11",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "12",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "13",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "14",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "15",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "16",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "17",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "18",
+            "name": "Astra",
+            "category": "Controlador"
+        },
+        {
+            "ID": "19",
+            "name": "Astra",
+            "category": "Controlador"
+        }
+    ]
+}
