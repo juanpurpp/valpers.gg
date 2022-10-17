@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "agents": "node agents.js",
     "maps": "node maps.js",
-    "ranks": "node rank.js"
+    "ranks": "node rank.js",
+    "match": "node match.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
