@@ -11,6 +11,8 @@ const connectDB = async () => {
         console.log('MongoDB connected!!');
         console.log('Add Maps')
         await addMap();
+        //await findMaps();
+        //await findMap("Pearl");
         mongoose.disconnect()
     } catch (err) {
         console.log('Failed to connect to MongoDB', err);
@@ -38,5 +40,13 @@ dataMap = require('./maps.json')
 const addMap = async ()=>{
     await Maps.deleteMany({});
     await Maps.insertMany(dataMap.Maps);
+}
+const findMaps = async ()=>{
+    maps = await Maps.find({})
+    console.log(maps)
+}
+const findMap = async(nombre)=>{
+    map = await Maps.findOne({name: nombre})
+    console.log(map)
 }
 connectDB();

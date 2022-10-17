@@ -7,92 +7,92 @@
         },
         {
             "ID": "02",
-            "name": "Astra",
-            "category": "Controlador"
+            "name": "Breach",
+            "category": "Iniciador"
         },
         {
             "ID": "03",
-            "name": "Astra",
+            "name": "Brimstone",
             "category": "Controlador"
         },
         {
             "ID": "04",
-            "name": "Astra",
+            "name": "Chamber",
             "category": "Controlador"
         },
         {
             "ID": "05",
-            "name": "Astra",
+            "name": "Cypher",
             "category": "Controlador"
         },
         {
             "ID": "06",
-            "name": "Astra",
+            "name": "Fade",
             "category": "Controlador"
         },
         {
             "ID": "07",
-            "name": "Astra",
+            "name": "Jett",
             "category": "Controlador"
         },
         {
             "ID": "08",
-            "name": "Astra",
+            "name": "Kay/o",
             "category": "Controlador"
         },
         {
             "ID": "09",
-            "name": "Astra",
+            "name": "Killjoy",
             "category": "Controlador"
         },
         {
             "ID": "10",
-            "name": "Astra",
+            "name": "Neon",
             "category": "Controlador"
         },
         {
             "ID": "11",
-            "name": "Astra",
+            "name": "Omen",
             "category": "Controlador"
         },
         {
             "ID": "12",
-            "name": "Astra",
+            "name": "Phoenix",
             "category": "Controlador"
         },
         {
             "ID": "13",
-            "name": "Astra",
+            "name": "Raze",
             "category": "Controlador"
         },
         {
             "ID": "14",
-            "name": "Astra",
+            "name": "Reyna",
             "category": "Controlador"
         },
         {
             "ID": "15",
-            "name": "Astra",
+            "name": "Sage",
             "category": "Controlador"
         },
         {
             "ID": "16",
-            "name": "Astra",
+            "name": "Skye",
             "category": "Controlador"
         },
         {
             "ID": "17",
-            "name": "Astra",
+            "name": "Sova",
             "category": "Controlador"
         },
         {
             "ID": "18",
-            "name": "Astra",
+            "name": "Viper",
             "category": "Controlador"
         },
         {
             "ID": "19",
-            "name": "Astra",
+            "name": "Yoru",
             "category": "Controlador"
         }
     ]
