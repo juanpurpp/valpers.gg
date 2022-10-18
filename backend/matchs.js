@@ -1,23 +1,5 @@
 const { mongoose, Schema, model } = require('mongoose');
  
-
-const server = '127.0.0.1:27017';
-const database = 'match';
-
-const connectDB = async () => {
-    try {
-        await mongoose.connect(`mongodb://${server}/${database}`)
-
-        console.log('MongoDB connected!!');
-        console.log('Add Match')
-        await addMatch();
-        await findMatch("001");
-        mongoose.disconnect()
-    } catch (err) {
-        console.log('Failed to connect to MongoDB', err);
-    }
-} ;
-
 const MatchSchema = new Schema(
     {
         map:{
@@ -60,18 +42,19 @@ const MatchSchema = new Schema(
     },
     { timestamps: true },
 )
-
 Match = model('match', MatchSchema)
 
 dataMatch = require('./match.json')
+module.exports = {
+    addMatch: addMatch = async ()=>{
+        await Match.deleteMany({});
+        await Match.insertMany(dataMatch.Match);
+    },
 
-const addMatch = async ()=>{
-    await Match.deleteMany({});
-    await Match.insertMany(dataMatch.Match);
+    findMatch : findMatch = async (idMatch)=>{
+        return await Match.findOne({id: idMatch})
+    },
+    find : find = async ()=>{
+        return await Match.find()
+    }
 }
-
-const findMatch = async (idMatch)=>{
-    match = await Match.findOne({id: idMatch})
-    console.log(match)
-}
-connectDB();

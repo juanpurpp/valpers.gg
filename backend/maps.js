@@ -1,24 +1,6 @@
 const { mongoose, Schema, model } = require('mongoose');
  
 
-const server = '127.0.0.1:27017';
-const database = 'maps';
-
-const connectDB = async () => {
-    try {
-        await mongoose.connect(`mongodb://${server}/${database}`)
-
-        console.log('MongoDB connected!!');
-        console.log('Add Maps')
-        await addMap();
-        //await findMaps();
-        //await findMap("Pearl");
-        mongoose.disconnect()
-    } catch (err) {
-        console.log('Failed to connect to MongoDB', err);
-    }
-} ;
-
 const MapSchema = new Schema(
     {
         ID:{
@@ -35,18 +17,21 @@ const MapSchema = new Schema(
 
 Maps = model('maps', MapSchema)
 
-dataMap = require('./maps.json')
-
-const addMap = async ()=>{
+const addMaps = async ()=>{
     await Maps.deleteMany({});
-    await Maps.insertMany(dataMap.Maps);
+    await Maps.insertMany(dataRank.Ranks);
 }
-const findMaps = async ()=>{
-    maps = await Maps.find({})
-    console.log(maps)
+
+dataMap = require('./maps.json')
+module.exports = {
+    addMap : addMap = async ()=>{
+        await Maps.deleteMany({});
+        await Maps.insertMany(dataMap.Maps);
+    },
+    find : find= async ()=>{
+        return await Maps.find({})
+    },
+    findMap : findMap = async(nombre)=>{
+        return await Maps.findOne({name: nombre})
+    }
 }
-const findMap = async(nombre)=>{
-    map = await Maps.findOne({name: nombre})
-    console.log(map)
-}
-connectDB();
