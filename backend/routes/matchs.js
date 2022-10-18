@@ -1,12 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../matchs.js');
+/**
+ *      /matchs
+ *      Control sobre las matchs que se están trabajando en la página:
+ */
 
-router.get('/', function(req, res, _){
+/**
+ *      GET http://localost:3000/matchs Obtener las matchs que se estan trabajando o trabajaron
+ *      Parametros: id (opcional) - Regresa una match por su id
+ */
+router.get('/', function(req, res, _){ 
     if(req.query.id == null){
         db.find().then(result =>{
             res.json(result);
-            console.log(result +"\nid="+req.query.id)
+            console.log("GET match id="+req.query.id)
+            console.log(result);
         });
     }
     else{
