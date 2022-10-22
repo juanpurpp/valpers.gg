@@ -36,9 +36,12 @@ const MatchSchema = new Schema(
             }
         },
         id:{
-            type: String,
-            unique: true,
-        }
+            type: Number,
+            unique: true
+        },
+        ready:{
+            type: Boolean
+        },
     },
     { timestamps: true },
 )
@@ -46,15 +49,24 @@ Match = model('match', MatchSchema)
 
 dataMatch = require('./match.json')
 module.exports = {
-    addMatch: addMatch = async ()=>{
-        await Match.deleteMany({});
-        await Match.insertMany(dataMatch.Match);
-    },
-
-    findMatch : findMatch = async (idMatch)=>{
+    findOne : findOne = async (idMatch)=>{
         return await Match.findOne({id: idMatch})
     },
     find : find = async ()=>{
         return await Match.find()
+    },
+    add : add = async(data)=>{
+        return await Match.insertMany(data)
+    },
+    del : del = async(idMatch)=>{
+        return await Match.findOneAndDelete({id: idMatch})
+    },
+    update : update = async(idMatch, data)=>{
+        return await Match.findOneAndUpdate({id: idMatch},{Match: data})
+    },
+    maxId : maxId = async()=>{
+        await Match.findOne().sort('-id').exec(function(err, Match){
+            return Match.id 
+        });
     }
 }

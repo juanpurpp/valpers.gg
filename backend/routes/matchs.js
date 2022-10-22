@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../matchs.js');
 /**
  *      /matchs
- *      Control sobre las matchs que se están trabajando en la página:
+ *      Control sobre las matchs que se estï¿½n trabajando en la pï¿½gina:
  */
 
 /**
