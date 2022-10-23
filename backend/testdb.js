@@ -20,49 +20,49 @@ var testMatchFunctions = function(){
     let newid = 0;
     dbmatchs.maxId().then(result =>{
         console.log('result es '+result)
-        newid = result.matchid +1
+        newid = result.id +1
         console.log('pasa xd '+ newid)
-    console.log('result newid cargado como '+ newid);
-    data=[{
-        "matchid": newid,
-        "map": "Split", 
-        "ready": false,
-        "team1": [
-            {
-                "jugador":[
-                    {
-                        "name": "Juanpurpp",
-                        "agent": "Reyna",
-                        "rank": "Plata 1"
-                    },
-                    {
-                        "name": "NicoSad",
-                        "agent": "Neon",
-                        "rank": "Plata 1"
-                    }
-                ]
-            }
-        ],
-        "team2": [
-            {
-                "jugador":[
-                    {
-                        "name": "Happy8",
-                        "agent": "Chamber",
-                        "rank": "Plata 1"
-                    },
-                    {
-                        "name": "Franso",
-                        "agent": "Fade",
-                        "rank": "Plata 1"
-                    }
-                ]
-            }
-        ],
-    }]
-    console.log('testing add');
-    
-    dbmatchs.add(data)
+        console.log('result newid cargado como '+ newid);
+        data=[{
+            "id": newid,
+            "map": "Split", 
+            "ready": false,
+            "team1": [
+                {
+                    "jugador":[
+                        {
+                            "name": "Juanpurpp",
+                            "agent": "Reyna",
+                            "rank": "Plata 1"
+                        },
+                        {
+                            "name": "NicoSad",
+                            "agent": "Neon",
+                            "rank": "Plata 1"
+                        }
+                    ]
+                }
+            ],
+            "team2": [
+                {
+                    "jugador":[
+                        {
+                            "name": "Happy8",
+                            "agent": "Chamber",
+                            "rank": "Plata 1"
+                        },
+                        {
+                            "name": "Franso",
+                            "agent": "Fade",
+                            "rank": "Plata 1"
+                        }
+                    ]
+                }
+            ],
+        }]
+        console.log('testing add');
+        
+        dbmatchs.add(data)
     })
 }
 testMatchFunctions();

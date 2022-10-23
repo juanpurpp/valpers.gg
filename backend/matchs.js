@@ -35,7 +35,7 @@ const MatchSchema = new Schema(
                 }
             }
         },
-        matchid:{
+        id:{
             type: Number,
             unique: true
         },
@@ -66,6 +66,6 @@ module.exports = {
     },
     maxId : maxId = async() => {
         let res;
-        return await Match.findOne().sort('-matchid')
+        return await Match.findOne().sort('-id')
     }
 }
