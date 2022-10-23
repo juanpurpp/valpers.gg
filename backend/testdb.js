@@ -1,4 +1,4 @@
-const { mongoose, Schema, model } = require('mongoose');
+const {mongoose} = require('mongoose');
 const server = '127.0.0.1:27017';
 const database = 'testdb';
 
@@ -8,7 +8,6 @@ const connectDB = async () => {
     try {
         await mongoose.connect(`mongodb://${server}/${database}`)
         console.log('MongoDB connected!!');
-        testMatchFunction();
         console.log('5');
     } catch (err) {
         console.log('Failed to connect to MongoDB', err);
@@ -16,50 +15,50 @@ const connectDB = async () => {
 };
 
 connectDB();
-
 var testMatchFunction = function(){
-    console.log('1'),
+    console.log("1"),
     data=[{
-        'id': 1, 
-        'maps': 'Split', 
         'ready': false,
-        'team1': [
+        "id": 3, 
+        "map": "Split", 
+        "ready": false,
+        "team1": [
             {
-                'jugador':[
+                "jugador":[
                     {
-                        'name': 'Juanpurpp',
-                        'agent': 'Reyna'
+                        "name": "Juanpurpp",
+                        "agent": "Reyna",
+                        "rank": "Plata 1"
                     },
                     {
-                        'name': 'NicoSad',
-                        'agent': 'Neon'
+                        "name": "NicoSad",
+                        "agent": "Neon",
+                        "rank": "Plata 1"
                     }
                 ]
             }
         ],
-        'team2': [
+        "team2": [
             {
-                'jugador':[
+                "jugador":[
                     {
-                        'name': 'Happy8',
-                        'agent': 'Chamber'
+                        "name": "Happy8",
+                        "agent": "Chamber",
+                        "rank": "Plata 1"
                     },
                     {
-                        'name': 'Franso',
-                        'agent': 'Fade'
+                        "name": "Franso",
+                        "agent": "Fade",
+                        "rank": "Plata 1"
                     }
                 ]
             }
         ],
     }]
     console.log('2'),
-    dbmatchs.add(data)
-    
+    dbmatchs.add(data)  
     console.log('3')
-    mongoose.disconnect()
-    
     console.log('4')
 }
 
-
-
+testMatchFunction();

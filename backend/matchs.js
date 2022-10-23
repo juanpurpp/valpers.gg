@@ -41,7 +41,7 @@ const MatchSchema = new Schema(
         },
         ready:{
             type: Boolean
-        },
+        }
     },
     { timestamps: true },
 )
