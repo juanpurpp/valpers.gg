@@ -35,7 +35,7 @@ const MatchSchema = new Schema(
                 }
             }
         },
-        id:{
+        matchid:{
             type: Number,
             unique: true
         },
@@ -64,9 +64,8 @@ module.exports = {
     update : update = async(idMatch, data)=>{
         return await Match.findOneAndUpdate({id: idMatch},{Match: data})
     },
-    maxId : maxId = async()=>{
-        await Match.findOne().sort('-id').exec(function(err, Match){
-            return Match.id 
-        });
+    maxId : maxId = async() => {
+        let res;
+        return await Match.findOne().sort('-matchid')
     }
 }

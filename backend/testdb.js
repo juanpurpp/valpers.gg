@@ -8,17 +8,23 @@ const connectDB = async () => {
     try {
         await mongoose.connect(`mongodb://${server}/${database}`)
         console.log('MongoDB connected!!');
-        console.log('5');
     } catch (err) {
         console.log('Failed to connect to MongoDB', err);
     }
 };
 
 connectDB();
-var testMatchFunction = function(){
-    console.log("1"),
+
+var testMatchFunctions = function(){
+    console.log('testing maxid');
+    let newid = 0;
+    dbmatchs.maxId().then(result =>{
+        console.log('result es '+result)
+        newid = result.matchid +1
+        console.log('pasa xd '+ newid)
+    console.log('result newid cargado como '+ newid);
     data=[{
-        "id": 3, 
+        "matchid": newid,
         "map": "Split", 
         "ready": false,
         "team1": [
@@ -54,10 +60,9 @@ var testMatchFunction = function(){
             }
         ],
     }]
-    console.log('2'),
-    dbmatchs.add(data)  
-    console.log('3')
-    console.log('4')
+    console.log('testing add');
+    
+    dbmatchs.add(data)
+    })
 }
-
-testMatchFunction();
+testMatchFunctions();
