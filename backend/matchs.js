@@ -62,7 +62,7 @@ module.exports = {
         return await Match.findOneAndDelete({id: idMatch})
     },
     update : update = async(idMatch, data)=>{
-        return await Match.findOneAndUpdate({id: idMatch},{Match: data})
+        return await Match.updateOne({id: idMatch},data)
     },
     maxId : maxId = async() => {
         return await Match.findOne().sort('-id');
