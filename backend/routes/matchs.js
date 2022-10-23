@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< Updated upstream
 var db = require('../matchs.js');
 /**
  *      /matchs
@@ -27,3 +28,14 @@ router.get('/', function(req, res, _){
 });
 
 module.exports = router;
+=======
+router.post('/', function (req, res) {
+    /* parametros posibles
+        id: La id de la match
+
+    */
+});
+router.get('/', function(req, res, _){
+});
+module.exports = router
+>>>>>>> Stashed changes
