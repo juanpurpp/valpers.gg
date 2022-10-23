@@ -65,7 +65,6 @@ module.exports = {
         return await Match.findOneAndUpdate({id: idMatch},{Match: data})
     },
     maxId : maxId = async() => {
-        let res;
-        return await Match.findOne().sort('-id')
+        return await Match.findOne().sort('-id');
     }
 }
