@@ -18,7 +18,6 @@ connectDB();
 var testMatchFunction = function(){
     console.log("1"),
     data=[{
-        'ready': false,
         "id": 3, 
         "map": "Split", 
         "ready": false,
