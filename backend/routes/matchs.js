@@ -17,7 +17,7 @@ router.get('/', async(req, res, _)=>{
         console.log("GET match id="+req.query.id)
     }
     else{   
-        res.json(await db.find().then);
+        res.json(await db.find());
     }
 });
 
