@@ -72,8 +72,8 @@ router.put('/', async(req, res, _) => {
     catch(e){
         console.log(e)
     }
-    //res.send('Resource updated')
-    res.json(req.body)
+    res.send('Resource updated')
+    //res.json(req.body)
 });
 module.exports = router
 
