@@ -114,3 +114,65 @@ var testUpdate = async function(){
     console.log('actualizando el '+ num);
     await dbmatchs.update(num,data)
 }
+sample =
+    {
+        "id": 5,
+        "map": "Haven", 
+        "ready": false,
+        "team1":
+        [
+            {
+                "name": "Player1",
+                "agent": "Reyna",
+                "rank": "Plata 1"
+            },
+            {
+                "name": "shalalala",
+                "agent": "Omen",
+                "rank": "Plata 2"
+            },
+            {
+                "name": "AntiJuanpurpp",
+                "agent": "Reyna",
+                "rank": "Hierro 1"
+            },
+            {
+                "name": "dios",
+                "agent": "Reyna",
+                "rank": "Inmortal 1"
+            },
+            {
+                "name": "nose",
+                "agent": "Reyna",
+                "rank": "Plata 2"
+            } 
+        ],
+        "team2":
+        [
+            {
+                "name": "ultradios",
+                "agent": "Reyna",
+                "rank": "Plata 1"
+            },
+            {
+                "name": "lolaso",
+                "agent": "Omen",
+                "rank": "Plata 2"
+            },
+            {
+                "name": "rosel",
+                "agent": "Reyna",
+                "rank": "Ascendente 1"
+            },
+            {
+                "name": "alfarazaso",
+                "agent": "Reyna",
+                "rank": "Hierro 2"
+            },
+            {
+                "name": "kenznit",
+                "agent": "Reyna",
+                "rank": "Oro 2"
+            }     
+        ]
+    }

@@ -5,7 +5,7 @@ const { mongoose, Schema, model } = require('mongoose');
 const AgentSchema = new Schema(
     {
         ID:{
-            type: Integer,
+            type: Number,
             unique: true,
         },
         name:{

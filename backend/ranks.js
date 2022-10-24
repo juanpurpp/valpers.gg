@@ -7,7 +7,7 @@ const database = 'ranks';
 const RankSchema = new Schema(
     {
         ID:{
-            type: Integer,
+            type: Number,
             unique: true,
         },
         name:{
