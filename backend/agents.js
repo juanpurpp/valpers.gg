@@ -1,7 +1,7 @@
 const { mongoose, Schema, model } = require('mongoose');
  
 
-
+//Se hace el esquema de la base de datos y los atributos que tiene
 const AgentSchema = new Schema(
     {
         ID:{
@@ -21,12 +21,10 @@ const AgentSchema = new Schema(
 
 Agents = model('agents', AgentSchema)
 
+//Se ingresa el archivo que contiene los datos que se guardaran 
 dataAgent = require('./agents.json')
 
-const addAgents = async ()=>{
-    await Agents.deleteMany({});
-    await Agents.insertMany(dataRank.Ranks);
-}
+//Se exportan las funciones que se ocuparan en el backend
 module.exports = {
     addAgent : addAgent = async ()=>{
         await Agents.deleteMany({});

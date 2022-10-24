@@ -1,5 +1,6 @@
 const { mongoose, Schema, model } = require('mongoose');
  
+//Se hace el esquema de la base de datos y los atributos que tiene
 const MatchSchema = new Schema(
     {
         map:{
@@ -41,7 +42,9 @@ const MatchSchema = new Schema(
 )
 Match = model('match', MatchSchema)
 
-dataMatch = require('./match.json')
+//dataMatch = require('./match.json')
+
+//Se exportan las funciones que se ocuparan en el backend
 module.exports = {
     findOne : findOne = async (idMatch)=>{
         return await Match.findOne({id: idMatch})

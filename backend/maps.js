@@ -1,6 +1,6 @@
 const { mongoose, Schema, model } = require('mongoose');
  
-
+//Se hace el esquema de la base de datos y los atributos que tiene
 const MapSchema = new Schema(
     {
         ID:{
@@ -17,12 +17,10 @@ const MapSchema = new Schema(
 
 Maps = model('maps', MapSchema)
 
-const addMaps = async ()=>{
-    await Maps.deleteMany({});
-    await Maps.insertMany(dataRank.Ranks);
-}
-
+//Se ingresa el archivo que contiene los datos que se guardaran 
 dataMap = require('./maps.json')
+
+//Se exportan las funciones que se ocuparan en el backend
 module.exports = {
     addMap : addMap = async ()=>{
         await Maps.deleteMany({});
