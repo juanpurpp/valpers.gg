@@ -21,11 +21,11 @@ const connectDB = async () => {
 
 connectDB();
 
-var testMatchFunctions = async () =>{
+var testAdd = async () =>{
     console.log('testing maxid');
     let newid = (await dbmatchs.maxId()).id +1
     console.log('nueva id será ' + newid);
-    data=[{
+    data={
         "id": newid,
         "map": "Split", 
         "ready": false,
@@ -61,11 +61,12 @@ var testMatchFunctions = async () =>{
                 ]
             }
         ],
-    }]
+    }
     console.log('testing add');
 
     dbmatchs.add(data)
 }
+testAdd()
 var testDel = async function(){
     let num = 26
     console.log('borrando el '+num)
@@ -113,4 +114,3 @@ var testUpdate = async function(){
     console.log('actualizando el '+ num);
     await dbmatchs.update(num,data)
 }
-testUpdate();

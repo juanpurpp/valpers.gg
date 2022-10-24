@@ -56,7 +56,7 @@ module.exports = {
         return await Match.find()
     },
     add : add = async(data)=>{
-        return await Match.insertMany(data)
+        return await Match.create(data)
     },
     del : del = async(idMatch)=>{
         return await Match.findOneAndDelete({id: idMatch})
