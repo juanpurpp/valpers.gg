@@ -53,7 +53,9 @@ router.post('/', async(req, res) => {
 router.put('/', async(req, res, _) => {
     /**
      *      PUT http://localost:3000/matchs actualiza una match
-     *      Parametros: balanced (opcional) true/false - balancea el grupo
+     *      Parametros: 
+     *          -balanced (opcional) true/false - balancea el grupo
+     *          -choosemap (opcional) true/false - Elige un mapa de los mapas seleccionados
      *      
      */
     if(req.query.balanced){
@@ -62,7 +64,7 @@ router.put('/', async(req, res, _) => {
         req.body.team1 = balancedteams.splice(req.body.team1.length)
         req.body.team2 = balancedteams.splice(-req.body.team2.length)
     }
-    
+    if(req.query.choosemap) req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
     console.log(req.body)
     try{
         await db.update(req.body.id, req.body)
@@ -70,12 +72,15 @@ router.put('/', async(req, res, _) => {
     catch(e){
         console.log(e)
     }
-    res.send('Resource updated')
-    //res.json(req.body)
+    //res.send('Resource updated')
+    res.json(req.body)
 });
 module.exports = router
 
 var rankToNumber = function(rank){
+    /**
+     * Combierte un rango a un valor numerico
+     */
     var res = -1;
     ranks.forEach(elem =>{
         if(elem.name == rank) res = elem.ID
@@ -83,6 +88,10 @@ var rankToNumber = function(rank){
     return res
 }
 var balance = function(players){
+    /**
+     * Balancea un array de players, retorna a un arreglo intercalado de bueno con malo.
+     * Dividir el retorno a la mitad dará dos teams balanceados
+     */
     players.forEach(r => {
         for(var i = 0; i<players.length-1; i++){
             if(rankToNumber(players[i].rank)>rankToNumber(players[i+1].rank)){
