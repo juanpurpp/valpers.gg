@@ -1,4 +1,5 @@
-<template> 
+<template>
+
     <el-row :gutter="20" >
 
         <el-col :span="7" :name="B">
@@ -82,11 +83,9 @@
         </div>
         </el-col>
         <el-col :span="8" :offset="1" >
-            <div class="grid-content bg-puerple-dark">
-                <el-button >Ingresar jugadores</el-button>
-            </div>
             <div>
-                <el-button color="#f5447e">Start</el-button>
+      <el-button @click="$router.push('game')">Start</el-button>
+  <router-view/>
             </div>  
         </el-col>
         <el-col :span="7" :offset="1" :name="R">
@@ -173,37 +172,34 @@
         </el-col>
     </el-row>
   </template>
+  <Script setup>
+
+    
+    </Script>
 <script>
+    import { ref } from 'vue'
+
+    const value = ref('')
+    const options = []
+    
+    const inputBjugador1 = ref('')
+    const inputBjugador2 = ref('')
+    const inputBjugador3 = ref('')
+    const inputBjugador4 = ref('')
+    const inputBjugador5 = ref('')
+    
+    const inputRJugador1 = ref('')
+    const inputRJugador2 = ref('')
+    const inputRJugador3 = ref('')
+    const inputRJugador4 = ref('')
+    const inputRJugador5 = ref('')
+    
 export default {
     name: 'ContentP',
     props:{
     }
 };
 </script>
-
-<Script setup>
-import { ref } from 'vue'
-
-const inputBjugador1 = ref('')
-const inputBjugador2 = ref('')
-const inputBjugador3 = ref('')
-const inputBjugador4 = ref('')
-const inputBjugador5 = ref('')
-
-const inputRJugador1 = ref('')
-const inputRJugador2 = ref('')
-const inputRJugador3 = ref('')
-const inputRJugador4 = ref('')
-const inputRJugador5 = ref('')
-
-</Script>
-<Script setup>
-import { ref } from 'vue'
-
-const value = ref('')
-const options = [],
-  },
-</Script>
 
 <style scoped>
 h3 {

@@ -1,36 +1,7 @@
 <template>
-  <div>
-    <div class="common-layout">
-    <el-container>
-      <el-header>
-        <HeaderP></HeaderP>
-      </el-header>
-      <el-main>
-     <MidP></MidP>
-      </el-main>
-      <el-main>
-
-      <ContentP></ContentP>
-
-      </el-main>
-    </el-container>
-  </div>
-  </div>
+  <router-view/>
 </template>
-
 <script>
-import MidP from './components/Mid.vue'
-import HeaderP from './components/Header.vue'
-import ContentP from './components/Content.vue'
-
-export default {
-  name: 'App',
-  components: {
-    MidP,
-    HeaderP,
-    ContentP
-  }
-}
 </script>
 
 <style>
