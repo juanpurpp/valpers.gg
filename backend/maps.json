@@ -1,35 +1,35 @@
 {
     "Maps":[
         {
-            "ID":"01",
+            "ID":1,
             "name":"Ascent"
         },
         {
-            "ID":"02",
+            "ID":2,
             "name":"Bind"
         },
         {
-            "ID":"03",
+            "ID":3,
             "name":"Breeze"
         },
         {
-            "ID":"04",
+            "ID":4,
             "name":"Fracture"
         },
         {
-            "ID":"05",
+            "ID":5,
             "name":"Haven"
         },
         {
-            "ID":"06",
+            "ID":6,
             "name":"Icebox"
         },
         {
-            "ID":"07",
+            "ID":7,
             "name":"Pearl"
         },
         {
-            "ID":"08",
+            "ID":8,
             "name":"Split"
         }
     ]

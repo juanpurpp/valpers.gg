@@ -4,7 +4,7 @@ const { mongoose, Schema, model } = require('mongoose');
 const MapSchema = new Schema(
     {
         ID:{
-            type: String,
+            type: Integer,
             unique: true,
         },
         name:{

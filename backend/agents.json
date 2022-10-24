@@ -1,97 +1,97 @@
 {
     "Agents":[
         {
-            "ID": "01",
+            "ID":0,
             "name": "Astra",
             "category": "Controlador"
         },
         {
-            "ID": "02",
+            "ID":1,
             "name": "Breach",
             "category": "Iniciador"
         },
         {
-            "ID": "03",
+            "ID":2,
             "name": "Brimstone",
             "category": "Controlador"
         },
         {
-            "ID": "04",
+            "ID":3,
             "name": "Chamber",
             "category": "Controlador"
         },
         {
-            "ID": "05",
+            "ID":4,
             "name": "Cypher",
             "category": "Controlador"
         },
         {
-            "ID": "06",
+            "ID":5,
             "name": "Fade",
             "category": "Controlador"
         },
         {
-            "ID": "07",
+            "ID":6,
             "name": "Jett",
             "category": "Controlador"
         },
         {
-            "ID": "08",
+            "ID":7,
             "name": "Kay/o",
             "category": "Controlador"
         },
         {
-            "ID": "09",
+            "ID":8,
             "name": "Killjoy",
             "category": "Controlador"
         },
         {
-            "ID": "10",
+            "ID":9,
             "name": "Neon",
             "category": "Controlador"
         },
         {
-            "ID": "11",
+            "ID":10,
             "name": "Omen",
             "category": "Controlador"
         },
         {
-            "ID": "12",
+            "ID":11,
             "name": "Phoenix",
             "category": "Controlador"
         },
         {
-            "ID": "13",
+            "ID":12,
             "name": "Raze",
             "category": "Controlador"
         },
         {
-            "ID": "14",
+            "ID":13,
             "name": "Reyna",
             "category": "Controlador"
         },
         {
-            "ID": "15",
+            "ID":14,
             "name": "Sage",
             "category": "Controlador"
         },
         {
-            "ID": "16",
+            "ID":15,
             "name": "Skye",
             "category": "Controlador"
         },
         {
-            "ID": "17",
+            "ID":16,
             "name": "Sova",
             "category": "Controlador"
         },
         {
-            "ID": "18",
+            "ID":17,
             "name": "Viper",
             "category": "Controlador"
         },
         {
-            "ID": "19",
+            "ID":18,
             "name": "Yoru",
             "category": "Controlador"
         }
