@@ -1,127 +1,127 @@
 {
     "Ranks":[
         {
-            "ID":"01",
+            "ID":0,
             "name":"Hierro 1",
             "img":"./img/hierro-1.jpg"
         },
         {
-            "ID":"02",
+            "ID":1,
             "name":"Hierro 2",
             "img":"./img/hierro-2.jpg"
         },
         {
-            "ID":"03",
+            "ID":2,
             "name":"Hierro 3",
             "img":"./img/hierro-3.jpg"
         },
         {
-            "ID":"04",
+            "ID":3,
             "name":"Bronce 1",
             "img":"./img/bronce-1.jpg"
         },
         {
-            "ID":"05",
+            "ID":4,
             "name":"Bronce 2",
             "img":"./img/bronce-2.jpg"
         },
         {
-            "ID":"06",
+            "ID":5,
             "name":"Bronce 3",
             "img":"./img/bronce-3.jpg"
         },
         {
-            "ID":"07",
+            "ID":6,
             "name":"Plata 1",
             "img":"./img/plata-1.jpg"
         },
         {
-            "ID":"08",
+            "ID":7,
             "name":"Plata 2",
             "img":"./img/plata-2.jpg"
         },
         {
-            "ID":"09",
+            "ID":8,
             "name":"Plata 3",
             "img":"./img/plata-3.jpg"
         },
         {
-            "ID":"10",
+            "ID":9,
             "name":"Oro 1",
             "img":"./img/oro-1.jpg"
         },
         {
-            "ID":"11",
+            "ID":10,
             "name":"Oro 2",
             "img":"./img/oro-2.jpg"
         },
         {
-            "ID":"12",
+            "ID":11,
             "name":"Oro 3",
             "img":"./img/oro-3.jpg"
         },
         {
-            "ID":"13",
+            "ID":12,
             "name":"Platino 1",
             "img":"./img/platino-1.jpg"
         },
         {
-            "ID":"14",
+            "ID":13,
             "name":"Platino 2",
             "img":"./img/platino-2.jpg"
         },
         {
-            "ID":"15",
+            "ID":14,
             "name":"Platino 3",
             "img":"./img/platino-3.jpg"
         },
         {
-            "ID":"16",
+            "ID":15,
             "name":"Diamante 1",
             "img":"./img/diamante-1.jpg"
         },
         {
-            "ID":"17",
+            "ID":16,
             "name":"Diamante 2",
             "img":"./img/diamante-2.jpg"
         },
         {
-            "ID":"18",
+            "ID":17,
             "name":"Diamante 3",
             "img":"./img/diamante-3.jpg"
         },
         {
-            "ID":"19",
+            "ID":18,
             "name":"Ascendente 1",
             "img":"./img/asendente-1.jpg"
         },
         {
-            "ID":"20",
+            "ID":19,
             "name":"Ascendente 2",
             "img":"./img/asendente-2.jpg"
         },
         {
-            "ID":"21",
+            "ID":20,
             "name":"Ascendente 3",
             "img":"./img/asendente-3.jpg"
         },
         {
-            "ID":"22",
+            "ID":21,
             "name":"Inmortal 1",
             "img":"./img/inmortal-1.jpg"
         },
         {
-            "ID":"23",
+            "ID":22,
             "name":"Inmortal 2",
             "img":"./img/inmortal-2.jpg"
         },
         {
-            "ID":"24",
+            "ID":23,
             "name":"Inmortal 3",
             "img":"./img/inmortal-3.jpg"
         },
         {
-            "ID":"25",
+            "ID":24,
             "name":"Radiante",
             "img":"./img/radiante.jpg"
         }
