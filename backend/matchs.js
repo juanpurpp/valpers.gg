@@ -5,36 +5,30 @@ const MatchSchema = new Schema(
         map:{
             type: String
         },
-        team1:{
+        team1:[{
             type: Array,
-            jugador:{
-                type: String,
-                name:{
-                    type: String
-                },
-                agent:{
-                    type: String
-                },
-                rank:{
-                    type: String
-                }
+            name:{
+                type: String
+            },
+            agent:{
+                type: String
+            },
+            rank:{
+                type: String
             }
-        },
-        team2:{
+        }],
+        team2:[{
             type: Array,
-            jugador:{
-                type: String,
-                name:{
-                    type: String
-                },
-                agent:{
-                    type: String
-                },
-                rank:{
-                    type: String
-                }
+            name:{
+                type: String
+            },
+            agent:{
+                type: String
+            },
+            rank:{
+                type: String
             }
-        },
+        }],
         id:{
             type: Number,
             unique: true
