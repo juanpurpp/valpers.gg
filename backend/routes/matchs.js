@@ -29,6 +29,7 @@ module.exports = router;
 router.post('/', async(req, res) => {
     /**
     *       POST http://localost:3000/matchs crea una nueva resource vacia con id
+    *       Sin parametros
     *      
     */
     var nid = 0;
@@ -48,7 +49,7 @@ router.post('/', async(req, res) => {
     db.add(data)
     console.log('added')
     console.log(data)
-    res.send('Resource created')
+    res.json(data)
 });
 router.put('/', async(req, res, _) => {
     /**
@@ -58,8 +59,8 @@ router.put('/', async(req, res, _) => {
      *          -choosemap (opcional) true/false - Elige un mapa de los mapas seleccionados
      *      
      */
-    if(req.query.balanced){
-        console.log('balanced')
+    if(req.query.balance){
+        console.log('balance')
         balancedteams = balance(req.body.team1.concat(req.body.team2))
         req.body.team1 = balancedteams.splice(req.body.team1.length)
         req.body.team2 = balancedteams.splice(-req.body.team2.length)
