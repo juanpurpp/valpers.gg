@@ -11,7 +11,7 @@ José Velásquez<br/>
 <br/><br/><br/><br/>
 Material:
 
-<a title="Documentación API REST PDF" href="https://drive.google.com/file/d/1YfqxyKQ3IlEuOzJiJX93Do5-AzdpdYiG/view?usp=sharing"><img src="http://www.ugelcp.gob.pe/assets/img/iconos/icono-pdf.png" alt="Documentación API REST" width="20" height="20"/></a>   Documentación de la API REST en PDF
+<a title="Documentación API REST PDF" href="https://drive.google.com/file/d/1yWeeq6z5fyxg6Xb2z2U7KBMohC7zD2Ke/view?usp=sharing"><img src="http://www.ugelcp.gob.pe/assets/img/iconos/icono-pdf.png" alt="Documentación API REST" width="20" height="20"/></a>   Documentación de la API REST en PDF
 
 <a title="Imagenes, bocetos y mockups visuales" href="https://drive.google.com/drive/folders/1_YqJD4KR7wAOTSrf14zK8uLj_ugnZOCb?usp=sharing"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Icons8_flat_folder.svg/2048px-Icons8_flat_folder.svg.png" alt="Imagenes, bocetos y mockups visuales" width="20" height="20"/></a>   Archivos de visualización (frontend)
 
