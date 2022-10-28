@@ -4,6 +4,7 @@ const { mongoose, Schema, model, connect } = require('mongoose');
 const server = '127.0.0.1:27017';
 const database = 'ranks';
 
+//Se hace el esquema de la base de datos y los atributos que tiene
 const RankSchema = new Schema(
     {
         ID:{
@@ -22,14 +23,10 @@ const RankSchema = new Schema(
 )
 Ranks = model('ranks', RankSchema)
 
-const addRanks = async ()=>{
-    await Ranks.deleteMany({});
-    await Ranks.insertMany(dataRank.Ranks);
-}
-
-
+//Se ingresa el archivo que contiene los datos que se guardaran 
 dataRank = require('./rank.json')
 
+//Se exportan las funciones que se ocuparan en el backend
 module.exports = {
     addRank : addRank = async ()=>{
         await Ranks.deleteMany({});

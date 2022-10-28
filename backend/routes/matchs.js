@@ -16,8 +16,9 @@ router.get('/', async(req, res, _) => {
      *      GET http://localost:3000/matchs Obtener las matchs que se estan trabajando o trabajaron
      *      Parametros: id (opcional) - Regresa una match por su id
      */
-    if(req.query.id == null){     
-        res.json(await db.find());
+    if(req.query.id != null){     
+        res.json(await db.findOne(req.query.id));
+
         console.log("GET match id="+req.query.id)
     }
     else{   
@@ -91,7 +92,7 @@ var rankToNumber = function(rank){
 var balance = function(players){
     /**
      * Balancea un array de players, retorna a un arreglo intercalado de bueno con malo.
-     * Dividir el retorno a la mitad dará dos teams balanceados
+     * Dividir el retorno a la mitad darï¿½ dos teams balanceados
      */
     players.forEach(r => {
         for(var i = 0; i<players.length-1; i++){
