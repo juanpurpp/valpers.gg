@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "agents": "node agents.js",
+    "maps": "node maps.js",
+    "ranks": "node rank.js",
+    "match": "node match.js",
+    "testdb": "node testdb.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "mongoose": "^6.6.5",
+    "morgan": "~1.9.1"
+  },
+  "description": "Backend para Valpers.gg",
+  "main": "app.js",
+  "author": "Juan Sandoval, Dieter Heim",
+  "license": "ISC"
+}

@@ -2,10 +2,10 @@
 
     <el-row :gutter="20" >
 
-        <el-col :span="7" :name="B">
+        <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
-        <el-input v-model="inputBjugador1" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="BJ1">
+        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="BJ1">
         <el-option-group
             v-for="group in options"
             :key="group.label"
@@ -19,9 +19,9 @@
         />
          </el-option-group>
         </el-select>
-        
-        <el-input v-model="inputBjugador2" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="BJ2">
+        -->
+        <el-input v-model="inputJugador1" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="BJ2">
         <el-option-group
             v-for="group in options"
             :key="group.label"
@@ -34,9 +34,9 @@
             :value="item.value"
         />
          </el-option-group>
-        </el-select>
-        <el-input v-model="inputBjugador3" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="BJ3">
+        </el-select>-->
+        <el-input v-model="inputJugador2" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="BJ3">
         <el-option-group
             v-for="group in options"
             :key="group.label"
@@ -49,9 +49,9 @@
             :value="item.value"
         />
          </el-option-group>
-        </el-select>
-        <el-input v-model="inputBjugador4" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="BJ4">
+        </el-select>-->
+        <el-input v-model="inputJugador3" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="BJ4">
         <el-option-group
             v-for="group in options"
             :key="group.label"
@@ -64,9 +64,9 @@
             :value="item.value"
         />
          </el-option-group>
-        </el-select>
-        <el-input v-model="inputBjugador5" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="BJ5">
+        </el-select>-->
+        <el-input v-model="inputJugador4" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="BJ5">
         <el-option-group
             v-for="group in options"
             :key="group.label"
@@ -79,21 +79,20 @@
             :value="item.value"
         />
          </el-option-group>
-        </el-select>
+        </el-select>-->
         </div>
         </el-col>
         <el-col :span="8" :offset="1" >
             <div>
-      <el-button @click="$router.push('game')">Start</el-button>
+      <el-button @click="$router.push('game');sendInfo()">Start</el-button>
   <router-view/>
             </div>  
         </el-col>
-        <el-col :span="7" :offset="1" :name="R">
+        <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
 
-        <el-input v-model="inputRJugador1" placeholder="Nombre de jugador" />
-
-        <el-select v-model="value" placeholder="Rango" value-key="RJ1">
+        <el-input v-model="inputJugador5" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="RJ1">
     <el-option-group
       v-for="group in options"
       :key="group.label"
@@ -106,10 +105,9 @@
         :value="item.value"
       />
     </el-option-group>
-  </el-select>
-
-        <el-input v-model="inputRJugador2" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="RJ2">
+  </el-select>-->
+        <el-input v-model="inputJugador6" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="RJ2">
     <el-option-group
       v-for="group in options"
       :key="group.label"
@@ -122,9 +120,9 @@
         :value="item.value"
       />
     </el-option-group>
-  </el-select>
-        <el-input v-model="inputRJugador3" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="RJ3">
+  </el-select>-->
+        <el-input v-model="inputJugador7" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="RJ3">
     <el-option-group
       v-for="group in options"
       :key="group.label"
@@ -137,9 +135,9 @@
         :value="item.value"
       />
     </el-option-group>
-  </el-select>
-        <el-input v-model="inputRJugador4" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="RJ4">
+  </el-select>-->
+        <el-input v-model="inputJugador8" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="RJ4">
     <el-option-group
       v-for="group in options"
       :key="group.label"
@@ -152,9 +150,9 @@
         :value="item.value"
       />
     </el-option-group>
-  </el-select>
-        <el-input v-model="inputRJugador5" placeholder="Nombre de jugador" />
-        <el-select v-model="value" placeholder="Rango" value-key="RJ5">
+  </el-select>-->
+        <el-input v-model="inputJugador9" placeholder="Nombre de jugador" />
+        <!--<el-select v-model="value" placeholder="Rango" value-key="RJ5">
     <el-option-group
       v-for="group in options"
       :key="group.label"
@@ -167,38 +165,91 @@
         :value="item.value"
       />
     </el-option-group>
-  </el-select>
+  </el-select>-->
       </div>
         </el-col>
     </el-row>
   </template>
-  <Script setup>
+  <script setup>
+import { ref } from 'vue'
+import axios from 'axios'
 
-    
-    </Script>
-<script>
-    import { ref } from 'vue'
+const inputJugador0 = ref()
+const inputJugador1 = ref()
+const inputJugador2 = ref()
+const inputJugador3 = ref()
+const inputJugador4 = ref()
+const inputJugador5 = ref()
+const inputJugador6 = ref()
+const inputJugador7 = ref()
+const inputJugador8 = ref()
+const inputJugador9 = ref()
 
-    const value = ref('')
-    const options = []
-    
-    const inputBjugador1 = ref('')
-    const inputBjugador2 = ref('')
-    const inputBjugador3 = ref('')
-    const inputBjugador4 = ref('')
-    const inputBjugador5 = ref('')
-    
-    const inputRJugador1 = ref('')
-    const inputRJugador2 = ref('')
-    const inputRJugador3 = ref('')
-    const inputRJugador4 = ref('')
-    const inputRJugador5 = ref('')
-    
-export default {
-    name: 'ContentP',
-    props:{
+const sendInfo = async()=>{
+  try {const resp = await axios
+.put('http://localhost:3000/matchs',
+{
+  id: 1,
+  map: "Haven",
+  ready: false,
+  team1:
+  [
+      {
+          name: inputJugador0.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador1.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador2.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador3.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador4.value,
+          rank: "Plata 1"
+      },
+  ],
+  team2:
+  [
+      {
+          name: inputJugador5.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador6.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador7.value,
+          rank: "Plata 1"
+      },
+      {
+          name: inputJugador8.value,
+        rank: "Plata 1"
+      },
+      {
+          name: inputJugador9.value,
+          rank: "Plata 1"
+      }
+  ]
     }
-};
+)
+console.log(resp.data)
+console.log(resp.body)
+console.log("peticion realizada")
+}catch(err){
+  console.error(err)
+}
+
+}
+
+
 </script>
 
 <style scoped>

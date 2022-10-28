@@ -1,0 +1,40 @@
+{
+    "Match":[
+        {
+        "map": "Split",
+        "team1": [
+            {
+                "jugador": [
+                    {
+                    "name": "jugador1",
+                    "agent": "agent1",
+                    "rank": "rank1"
+                    },
+                    {
+                    "name": "jugador2",
+                    "agent": "agent2",
+                    "rank": "rank2"
+                    }
+                ]
+            }
+        ],
+        "team2": [
+            {
+                "jugador": [
+                    {
+                    "name": "jugador1",
+                    "agent": "agent1",
+                    "rank": "rank1"
+                    },
+                    {
+                    "name": "jugador2",
+                    "agent": "agent2",
+                    "rank": "rank2"
+                    }
+                ]
+            }
+        ],
+        "id": "001"
+        }
+    ]
+}
