@@ -241,7 +241,6 @@ const sendInfo = async()=>{
     }
 )
 console.log(resp.data)
-console.log(resp.body)
 console.log("peticion realizada")
 }catch(err){
   console.error(err)
