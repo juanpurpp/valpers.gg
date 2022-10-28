@@ -18,37 +18,37 @@
         {
             "ID":3,
             "name": "Chamber",
-            "category": "Controlador"
+            "category": "Centinela"
         },
         {
             "ID":4,
             "name": "Cypher",
-            "category": "Controlador"
+            "category": "Centinela"
         },
         {
             "ID":5,
             "name": "Fade",
-            "category": "Controlador"
+            "category": "Iniciador"
         },
         {
             "ID":6,
             "name": "Jett",
-            "category": "Controlador"
+            "category": "Duelista"
         },
         {
             "ID":7,
             "name": "Kay/o",
-            "category": "Controlador"
+            "category": "Iniciador"
         },
         {
             "ID":8,
             "name": "Killjoy",
-            "category": "Controlador"
+            "category": "Centinela"
         },
         {
             "ID":9,
             "name": "Neon",
-            "category": "Controlador"
+            "category": "Duelista"
         },
         {
             "ID":10,
@@ -58,32 +58,32 @@
         {
             "ID":11,
             "name": "Phoenix",
-            "category": "Controlador"
+            "category": "Duelista"
         },
         {
             "ID":12,
             "name": "Raze",
-            "category": "Controlador"
+            "category": "Duelista"
         },
         {
             "ID":13,
             "name": "Reyna",
-            "category": "Controlador"
+            "category": "Duelista"
         },
         {
             "ID":14,
             "name": "Sage",
-            "category": "Controlador"
+            "category": "Centinela"
         },
         {
             "ID":15,
             "name": "Skye",
-            "category": "Controlador"
+            "category": "Iniciador"
         },
         {
             "ID":16,
             "name": "Sova",
-            "category": "Controlador"
+            "category": "Iniciador"
         },
         {
             "ID":17,
@@ -93,6 +93,11 @@
         {
             "ID":18,
             "name": "Yoru",
+            "category": "Duelista"
+        },
+        {
+            "ID":19,
+            "name": "Harbor",
             "category": "Controlador"
         }
     ]
