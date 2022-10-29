@@ -26,6 +26,6 @@ export default {
     ContentP,
     MidP,
     HeaderP
-  }
+  },
 }
 </script>
