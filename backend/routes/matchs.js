@@ -58,15 +58,13 @@ router.put('/', async(req, res, _) => {
      *      Parametros: 
      *          -balanced (opcional) true/false - balancea el grupo
      *          -choosemap (opcional) true/false - Elige un mapa de los mapas seleccionados
-     *      
      */
     if(req.query.balance){
         console.log('balance')
-        balancedteams = balance(req.body.team1.concat(req.body.team2))
-        req.body.team1 = balancedteams.splice(req.body.team1.length)
-        req.body.team2 = balancedteams.splice(-req.body.team2.length)
+        req.body.team1 = balance(req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)}))
+        req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
     }
-    if(req.query.choosemap) req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
+    if(req.query.choosemap && typeof req.body.map !='string') req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
     console.log(req.body)
     try{
         await db.update(req.body.id, req.body)
@@ -74,8 +72,8 @@ router.put('/', async(req, res, _) => {
     catch(e){
         console.log(e)
     }
-    res.send('Resource updated')
-    //res.json(req.body)
+    //res.send('Resource updated')
+    res.json(req.body)
 });
 module.exports = router
 
@@ -105,13 +103,10 @@ var balance = function(players){
         }
     })
     const res = []
-    console.log('players es')
-    console.log(players)
     for(var i = 0; i<players.length; i+=2){
         res[i] = players[i/2]
         res[i+1] = players[players.length-1-(i/2)]
     }
-    console.log('nuevo res es')
-    console.log(res)
+    if(players.length != res.length) res.pop()
     return res
 }
