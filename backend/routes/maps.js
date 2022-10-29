@@ -13,6 +13,10 @@ router.get('/', function(req, res, _){
     req.query.name = req.query.name.replace("-"," ")
 
     if(req.query.name != null){
+        if(typeof req.query.name !== 'string'){
+            res.send('Debe entregar un id valida')
+            return
+        }
         db.findMap(req.query.name).then(result =>{
             res.json(result);
             console.log(result +"\nname="+req.query.name)

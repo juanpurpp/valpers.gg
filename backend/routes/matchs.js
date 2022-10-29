@@ -16,6 +16,10 @@ router.get('/', async(req, res, _) => {
      *      GET http://localost:3000/matchs Obtener las matchs que se estan trabajando o trabajaron
      *      Parametros: id (opcional) - Regresa una match por su id
      */
+    if(!Number.isInteger(req.query.id)){
+        res.send('Debe entregar un id valida')
+        return
+    }
     if(req.query.id != null){     
         res.json(await db.findOne(req.query.id));
 
@@ -59,6 +63,12 @@ router.put('/', async(req, res, _) => {
      *          -balanced (opcional) true/false - balancea el grupo
      *          -choosemap (opcional) true/false - Elige un mapa de los mapas seleccionados
      */
+    if(!Number.isInteger(req.body.id)){
+        res.send('Debe entregar un id valida')
+        return
+    }
+    req.query.balance = (req.query.balance == 'true')
+    req.query.choosemap = (req.query.choosemap == 'true')
     if(req.query.balance){
         console.log('balance')
         req.body.team1 = balance(req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)}))
