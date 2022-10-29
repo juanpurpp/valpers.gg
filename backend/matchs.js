@@ -4,7 +4,7 @@ const { mongoose, Schema, model } = require('mongoose');
 const MatchSchema = new Schema(
     {
         map:{
-            type: String
+            type: mongoose.Schema.Types.Mixed
         },
         team1:[{
             type: Array,
