@@ -16,11 +16,11 @@ router.get('/', async(req, res, _) => {
      *      GET http://localost:3000/matchs Obtener las matchs que se estan trabajando o trabajaron
      *      Parametros: id (opcional) - Regresa una match por su id
      */
-    if(!Number.isInteger(req.query.id)){
-        res.send('Debe entregar un id valida')
-        return
-    }
-    if(req.query.id != null){     
+    if(req.query.id != null){  
+        if(!Number.isInteger(req.query.id)){
+            res.send('Debe entregar un id valida')
+            return
+        }   
         res.json(await db.findOne(req.query.id));
 
         console.log("GET match id="+req.query.id)
