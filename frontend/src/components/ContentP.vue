@@ -1,13 +1,13 @@
 <template>
   <el-select 
-    v-model="value"
+    v-model="valueMap"
     multiple
     default-first-option
     size="large"
     placeholder="mapas"
   >
     <el-option
-      v-for="item in options"
+      v-for="item in optionsMap"
       :key="item.value"
       :label="item.label"
       :value="item.value"
@@ -18,9 +18,9 @@
         <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
         <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador" />
-        <!--<el-select v-model="value" placeholder="Rango" value-key="BJ1">
+        <el-select v-model="valueRango0" placeholder="Rango">
         <el-option-group
-            v-for="group in options"
+            v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
@@ -32,14 +32,70 @@
         />
          </el-option-group>
         </el-select>
-        -->
+      
         <el-input v-model="inputJugador1" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango1" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
 
         <el-input v-model="inputJugador2" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango2" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
 
         <el-input v-model="inputJugador3" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango3" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
 
         <el-input v-model="inputJugador4" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango4" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
         </div>
         </el-col>
         <el-col :span="8" :offset="1" >
@@ -55,10 +111,80 @@
       <div class="grid-content bg-puerple-dark">
 
         <el-input v-model="inputJugador5" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango5" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
         <el-input v-model="inputJugador6" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango6" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
         <el-input v-model="inputJugador7" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango7" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
         <el-input v-model="inputJugador8" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango8" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
         <el-input v-model="inputJugador9" placeholder="Nombre de jugador" />
+        <el-select v-model="valueRango9" placeholder="Rango">
+        <el-option-group
+            v-for="group in optionsRango"
+            :key="group.label"
+            :label="group.label"
+        >
+        <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+         </el-option-group>
+        </el-select>
       </div>
         </el-col>
     </el-row>
@@ -77,9 +203,9 @@ const inputJugador6 = ref()
 const inputJugador7 = ref()
 const inputJugador8 = ref()
 const inputJugador9 = ref()
-//Valores del select
-const value = ref([])
-const options = [
+//Valores del select de mapas
+const valueMap = ref([])
+const optionsMap = [
 {
   value:'Ascent',
   label:'Ascent'
@@ -113,58 +239,224 @@ const options = [
   label:'Split'
 }
 ]
+//select rango
+
+const valueRango0 = ref()
+const valueRango1 = ref()
+const valueRango2 = ref()
+const valueRango3 = ref()
+const valueRango4 = ref()
+const valueRango5 = ref()
+const valueRango6 = ref()
+const valueRango7 = ref()
+const valueRango8 = ref()
+const valueRango9 = ref()
+const optionsRango = [
+  {
+    label: 'Hierro',
+    options: [
+      {
+        value: 'Hierro 1',
+        label: 'Hierro 1',
+      },
+      {
+        value: 'Hierro 2',
+        label: 'Hierro 2',
+      },
+      {
+        value: 'Hierro 3',
+        label: 'Hierro 3',
+      },
+    ],
+  },
+  {
+    label: 'Bronce',
+    options: [
+      {
+        value: 'Bronce 1',
+        label: 'Bronce 1',
+      },
+      {
+        value: 'Bronce 2',
+        label: 'Bronce 2',
+      },
+      {
+        value: 'Bronce 3',
+        label: 'Bronce 3',
+      },
+
+    ],
+  },
+  {
+    label: 'plata',
+    options: [
+      {
+        value: 'plata 1',
+        label: 'plata 1',
+      },
+      {
+        value: 'plata 2',
+        label: 'plata 2',
+      },
+      {
+        value: 'plata 3',
+        label: 'plata 3',
+      },
+
+    ],
+  },
+  {
+    label: 'Oro',
+    options: [
+      {
+        value: 'Oro 1',
+        label: 'Oro 1',
+      },
+      {
+        value: 'Oro 2',
+        label: 'Oro 2',
+      },
+      {
+        value: 'Oro 3',
+        label: 'Oro 3',
+      },
+
+    ],
+  },
+  {
+    label: 'Platino',
+    options: [
+      {
+        value: 'Platino 1',
+        label: 'Platino 1',
+      },
+      {
+        value: 'Platino 2',
+        label: 'Platino 2',
+      },
+      {
+        value: 'Platino 3',
+        label: 'Platino 3',
+      },
+    ],
+  },
+  {
+    label: 'Diamante',
+    options: [
+      {
+        value: 'Diamante 1',
+        label: 'Diamante 1',
+      },
+      {
+        value: 'Diamante 2',
+        label: 'Diamante 2',
+      },
+      {
+        value: 'Diamante 3',
+        label: 'Diamante 3',
+      },
+    ],
+  },
+  {
+    label: 'Ascendente',
+    options: [
+      {
+        value: 'Ascendente 1',
+        label: 'Ascendente 1',
+      },
+      {
+        value: 'Ascendente 2',
+        label: 'Ascendente 2',
+      },
+      {
+        value: 'Ascendente 3',
+        label: 'Ascendente 3',
+      },
+
+    ],
+  },
+  {
+    label: 'Inmortal',
+    options: [
+      {
+        value: 'Inmortal 1',
+        label: 'Inmortal 1',
+      },
+      {
+        value: 'Inmortal 2',
+        label: 'Inmortal 2',
+      },
+      {
+        value: 'Inmortal 3',
+        label: 'Inmortal 3',
+      },
+
+    ],
+  },
+  {
+    label: 'Radiante',
+    options: [
+      {
+        value: 'Radiante',
+        label: 'Radiante',
+      },
+    ],
+  },
+]
+
+
 //Funcion asincrona de envio de datos con  metodo PUT
 const sendInfo = async()=>{
   try {const resp = await axios
 .put('http://localhost:3000/matchs?choosemap=true&balance=true',
 {
   id: 1,
-  map: value.value,
+  map: valueMap.value,
   ready: false,
   team1:
   [
       {
           name: inputJugador0.value,
-          rank: "Oro 2"
+          rank: valueRango0.value
       },
       {
           name: inputJugador1.value,
-          rank: "Oro 1"
+          rank: valueRango1.value
       },
       {
           name: inputJugador2.value,
-          rank: "Oro 1"
+          rank: valueRango2.value
       },
       {
           name: inputJugador3.value,
-          rank: "Oro 1"
+          rank: valueRango3.value
       },
       {
           name: inputJugador4.value,
-          rank: "Plata 1"
+          rank: valueRango4.value
       },
   ],
   team2:
   [
       {
           name: inputJugador5.value,
-          rank: "Plata 1"
+          rank: valueRango5.value
       },
       {
           name: inputJugador6.value,
-          rank: "Platino 1"
+          rank: valueRango6.value
       },
       {
           name: inputJugador7.value,
-          rank: "Plata 1"
+          rank: valueRango7.value
       },
       {
           name: inputJugador8.value,
-          rank: "Plata 1"
+          rank: valueRango8.value
       },
       {
           name: inputJugador9.value,
-          rank: "Diamante 3"
+          rank: valueRango9.value
       }
   ]
     }

@@ -5,7 +5,7 @@
     </el-col>
    <el-col :span="8" :offset="8">
     <div class="grid-content bg-puerple-dark">
-      <el-button >Filtros</el-button>
+      <!--<el-button >Filtros</el-button>-->
     </div>
    </el-col>
   </el-row>
