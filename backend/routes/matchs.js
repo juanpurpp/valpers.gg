@@ -13,11 +13,18 @@ dbranks.find().then(res => ranks = res)
 
 router.get('/', async(req, res, _) => { 
     /**
-     *      GET http://localhost:3000/matchs Obtener las matchs que se estan trabajando o trabajaron
+     *      GET http://localost:3000/matchs Obtener las matchs que se estan trabajando o trabajaron
      *      Parametros: id (opcional) - Regresa una match por su id
      */
-    if(req.query.id == null){     
-        res.json(await db.find());
+    if(req.query.id != null){  
+        console.log(req.query.id)
+        console.log(Number.isInteger(req.query.id))
+        /*if(!Number.isInteger(req.query.id)){
+            res.send('Debe entregar un id valida')
+            return
+        }*/  
+        res.json(await db.findOne(req.query.id));
+
         console.log("GET match id="+req.query.id)
     }
     else{   
@@ -28,7 +35,8 @@ router.get('/', async(req, res, _) => {
 module.exports = router;
 router.post('/', async(req, res) => {
     /**
-    *       POST http://localhost:3000/matchs crea una nueva resource vacia con id
+    *       POST http://localost:3000/matchs crea una nueva resource vacia con id
+    *       Sin parametros
     *      
     */
     var nid = 0;
@@ -48,23 +56,27 @@ router.post('/', async(req, res) => {
     db.add(data)
     console.log('added')
     console.log(data)
-    res.send('Resource created')
+    res.json(data)
 });
 router.put('/', async(req, res, _) => {
     /**
-     *      PUT http://localhost:3000/matchs actualiza una match
+     *      PUT http://localost:3000/matchs actualiza una match
      *      Parametros: 
      *          -balanced (opcional) true/false - balancea el grupo
      *          -choosemap (opcional) true/false - Elige un mapa de los mapas seleccionados
-     *      
      */
-    if(req.query.balanced){
-        console.log('balanced')
-        balancedteams = balance(req.body.team1.concat(req.body.team2))
-        req.body.team1 = balancedteams.splice(req.body.team1.length)
-        req.body.team2 = balancedteams.splice(-req.body.team2.length)
+    /*if(!Number.isInteger(req.body.id)){
+        res.send('Debe entregar un id valida')
+        return
+    }*/
+    req.query.balance = (req.query.balance == 'true')
+    req.query.choosemap = (req.query.choosemap == 'true')
+    if(req.query.balance){
+        console.log('balance')
+        req.body.team1 = balance(req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)}))
+        req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
     }
-    if(req.query.choosemap) req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
+    if(req.query.choosemap && typeof req.body.map !='string') req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
     console.log(req.body)
     try{
         await db.update(req.body.id, req.body)
@@ -72,8 +84,8 @@ router.put('/', async(req, res, _) => {
     catch(e){
         console.log(e)
     }
-    res.send('Resource updated')
-    //res.json(req.body)
+    //res.send('Resource updated')
+    res.json(req.body)
 });
 module.exports = router
 
@@ -103,13 +115,10 @@ var balance = function(players){
         }
     })
     const res = []
-    console.log('players es')
-    console.log(players)
     for(var i = 0; i<players.length; i+=2){
         res[i] = players[i/2]
         res[i+1] = players[players.length-1-(i/2)]
     }
-    console.log('nuevo res es')
-    console.log(res)
+    if(players.length != res.length) res.pop()
     return res
 }

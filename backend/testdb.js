@@ -124,17 +124,17 @@ sample =
             {
                 "name": "Player1",
                 "agent": "Reyna",
-                "rank": "Plata 1"
+                "rank": "Oro 3"
             },
             {
                 "name": "shalalala",
                 "agent": "Omen",
-                "rank": "Plata 2"
+                "rank": "Diamante 2"
             },
             {
                 "name": "AntiJuanpurpp",
                 "agent": "Reyna",
-                "rank": "Hierro 1"
+                "rank": "Radiante"
             },
             {
                 "name": "dios",
@@ -162,12 +162,12 @@ sample =
             {
                 "name": "rosel",
                 "agent": "Reyna",
-                "rank": "Ascendente 1"
+                "rank": "Hierro 2"
             },
             {
                 "name": "alfarazaso",
                 "agent": "Reyna",
-                "rank": "Hierro 2"
+                "rank": "Bronce 3"
             },
             {
                 "name": "kenznit",

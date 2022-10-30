@@ -45,8 +45,9 @@
         <el-col :span="8" :offset="1" >
 
             <div>
+              <el-button @click= "sendInfo()">guardar cambios</el-button>
               <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button @click="$router.push('game');sendInfo()">Start</el-button>
+      <el-button @click= "$router.push('game'),4;sendInfo()">Start</el-button>
         <router-view/>
             </div>  
         </el-col>
