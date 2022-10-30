@@ -17,10 +17,12 @@ router.get('/', async(req, res, _) => {
      *      Parametros: id (opcional) - Regresa una match por su id
      */
     if(req.query.id != null){  
-        if(!Number.isInteger(req.query.id)){
+        console.log(req.query.id)
+        console.log(Number.isInteger(req.query.id))
+        /*if(!Number.isInteger(req.query.id)){
             res.send('Debe entregar un id valida')
             return
-        }   
+        }*/  
         res.json(await db.findOne(req.query.id));
 
         console.log("GET match id="+req.query.id)
@@ -63,10 +65,10 @@ router.put('/', async(req, res, _) => {
      *          -balanced (opcional) true/false - balancea el grupo
      *          -choosemap (opcional) true/false - Elige un mapa de los mapas seleccionados
      */
-    if(!Number.isInteger(req.body.id)){
+    /*if(!Number.isInteger(req.body.id)){
         res.send('Debe entregar un id valida')
         return
-    }
+    }*/
     req.query.balance = (req.query.balance == 'true')
     req.query.choosemap = (req.query.choosemap == 'true')
     if(req.query.balance){
