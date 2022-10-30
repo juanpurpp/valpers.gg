@@ -1,6 +1,6 @@
 <template>
 <div>
-<ContentR :key="componentKey"></ContentR>
+<ContentR></ContentR>
 </div>
 </template>
 
@@ -13,16 +13,7 @@ export default{
   components:{
     ContentR
   },
-  data(){
-    return{
-      componentKey: 0
-    }
-  },
-  methods:{
-    forceRerender(){
-      this.componentKey +=1;
-    }
-  }
+
 }
 
 </script>
