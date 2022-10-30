@@ -10,8 +10,6 @@ var db = require('../agents.js');
  *      GET http://localost:3000/agents Obtener los agentes guardados
  */
 router.get('/', function(req, res, _){
-    req.query.name = req.query.name.replace("-"," ")
-
     if(req.query.name != null){
         if(typeof req.query.name !== 'string'){
             res.send('Debe entregar un id valida')

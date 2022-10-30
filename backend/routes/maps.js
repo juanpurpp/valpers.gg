@@ -10,8 +10,6 @@ var db = require('../maps.js');
  *      GET http://localost:3000/maps Obtener los mapas guardados
  */
 router.get('/', function(req, res, _){
-    req.query.name = req.query.name.replace("-"," ")
-
     if(req.query.name != null){
         if(typeof req.query.name !== 'string'){
             res.send('Debe entregar un id valida')

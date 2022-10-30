@@ -10,9 +10,9 @@ var db = require('../ranks.js');
  *      GET http://localost:3000/ranks Obtener los agentes guardados
  */
 router.get('/', function(req, res, _){
-    req.query.name = req.query.name.replace("-"," ")
 
     if(req.query.name != null){
+        req.query.name = req.query.name.replace("-"," ")
         if(typeof req.query.name !== 'string'){
             res.send('Debe entregar un id valida')
             return
