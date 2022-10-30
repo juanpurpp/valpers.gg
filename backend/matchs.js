@@ -6,7 +6,7 @@ const MatchSchema = new Schema(
         map:{
             type: mongoose.Schema.Types.Mixed
         },
-        team1:[{
+        team1:{
             type: Array,
             name:{
                 type: String
@@ -17,8 +17,8 @@ const MatchSchema = new Schema(
             rank:{
                 type: String
             }
-        }],
-        team2:[{
+        },
+        team2:{
             type: Array,
             name:{
                 type: String
@@ -29,7 +29,7 @@ const MatchSchema = new Schema(
             rank:{
                 type: String
             }
-        }],
+        },
         id:{
             type: Number,
             unique: true
