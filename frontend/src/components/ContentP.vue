@@ -21,18 +21,15 @@
         <div class="grid-content bg-puerple-dark">
         <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador" />
         <el-select v-model="valueRango0" placeholder="Rango">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
-         </el-option-group>
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+          <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
+            <img :src="item.img" width="30" height="30"> {{ item.label }}
+          </el-option>
+          </el-option-group>
         </el-select>
       
         <el-input v-model="inputJugador1" placeholder="Nombre de jugador" />
@@ -193,8 +190,11 @@
     </el-row>
   </template>
   <script setup>
+// add stylesheet
+
 import { ref } from 'vue'
 import axios from 'axios'
+require('vue-select-image/dist/vue-select-image.css')
 //valores de los inputs
 const inputJugador0 = ref()
 const inputJugador1 = ref()
@@ -258,218 +258,121 @@ const valueRango9 = ref()
 const optionsRango = [
   {
     label: 'Hierro',
-    options: [
-      {
-        value: 'Hierro 1',
-        label: 'Hierro 1',
-      },
-      {
-        value: 'Hierro 2',
-        label: 'Hierro 2',
-      },
-      {
-        value: 'Hierro 3',
-        label: 'Hierro 3',
-      },
-    ],
+    options: [],
   },
   {
     label: 'Bronce',
-    options: [
-      {
-        value: 'Bronce 1',
-        label: 'Bronce 1',
-      },
-      {
-        value: 'Bronce 2',
-        label: 'Bronce 2',
-      },
-      {
-        value: 'Bronce 3',
-        label: 'Bronce 3',
-      },
-
-    ],
+    options: []
   },
   {
-    label: 'plata',
-    options: [
-      {
-        value: 'plata 1',
-        label: 'plata 1',
-      },
-      {
-        value: 'plata 2',
-        label: 'plata 2',
-      },
-      {
-        value: 'plata 3',
-        label: 'plata 3',
-      },
-
-    ],
+    label: 'Plata',
+    options: [],
   },
   {
     label: 'Oro',
-    options: [
-      {
-        value: 'Oro 1',
-        label: 'Oro 1',
-      },
-      {
-        value: 'Oro 2',
-        label: 'Oro 2',
-      },
-      {
-        value: 'Oro 3',
-        label: 'Oro 3',
-      },
-
-    ],
+    options: [],
   },
   {
     label: 'Platino',
-    options: [
-      {
-        value: 'Platino 1',
-        label: 'Platino 1',
-      },
-      {
-        value: 'Platino 2',
-        label: 'Platino 2',
-      },
-      {
-        value: 'Platino 3',
-        label: 'Platino 3',
-      },
-    ],
+    options: [],
   },
   {
     label: 'Diamante',
-    options: [
-      {
-        value: 'Diamante 1',
-        label: 'Diamante 1',
-      },
-      {
-        value: 'Diamante 2',
-        label: 'Diamante 2',
-      },
-      {
-        value: 'Diamante 3',
-        label: 'Diamante 3',
-      },
-    ],
+    options: [],
   },
   {
     label: 'Ascendente',
-    options: [
-      {
-        value: 'Ascendente 1',
-        label: 'Ascendente 1',
-      },
-      {
-        value: 'Ascendente 2',
-        label: 'Ascendente 2',
-      },
-      {
-        value: 'Ascendente 3',
-        label: 'Ascendente 3',
-      },
-
-    ],
+    options: [],
   },
   {
     label: 'Inmortal',
-    options: [
-      {
-        value: 'Inmortal 1',
-        label: 'Inmortal 1',
-      },
-      {
-        value: 'Inmortal 2',
-        label: 'Inmortal 2',
-      },
-      {
-        value: 'Inmortal 3',
-        label: 'Inmortal 3',
-      },
-
-    ],
+    options: [],
   },
   {
     label: 'Radiante',
-    options: [
-      {
-        value: 'Radiante',
-        label: 'Radiante',
-      },
-    ],
+    options: [],
   },
 ]
-
+var ranks = []
+axios.get('http://localhost:3000/ranks').then(res=>{
+  console.log(res.data)
+  res.data.forEach(r=>{
+    optionsRango.forEach(group=>{
+      let newdata = {
+        id: r.ID,
+        img: require(r.img),
+        alt: r.name,
+        value: r.name,
+        label: r.name
+      }
+      if(group.label == r.name.substring(0,group.label.length)) group.options.push(newdata)
+    })
+    console.log(ranks)
+    console.log(optionsRango)
+  })
+})
 
 //Funcion asincrona de envio de datos con  metodo PUT
 const sendInfo = async()=>{
   try {const resp = await axios
-.put('http://localhost:3000/matchs?choosemap=true&balance=true',
-{
-  id: 1,
-  map: valueMap.value,
-  ready: false,
-  team1:
-  [
-      {
-          name: inputJugador0.value,
-          rank: valueRango0.value
-      },
-      {
-          name: inputJugador1.value,
-          rank: valueRango1.value
-      },
-      {
-          name: inputJugador2.value,
-          rank: valueRango2.value
-      },
-      {
-          name: inputJugador3.value,
-          rank: valueRango3.value
-      },
-      {
-          name: inputJugador4.value,
-          rank: valueRango4.value
-      },
-  ],
-  team2:
-  [
-      {
-          name: inputJugador5.value,
-          rank: valueRango5.value
-      },
-      {
-          name: inputJugador6.value,
-          rank: valueRango6.value
-      },
-      {
-          name: inputJugador7.value,
-          rank: valueRango7.value
-      },
-      {
-          name: inputJugador8.value,
-          rank: valueRango8.value
-      },
-      {
-          name: inputJugador9.value,
-          rank: valueRango9.value
-      }
-  ]
+  .put('http://localhost:3000/matchs?choosemap=true&balance=true',
+    {
+      id: 1,
+      map: valueMap.value,
+      ready: false,
+      team1:
+      [
+          {
+              name: inputJugador0.value,
+              rank: valueRango0.value
+          },
+          {
+              name: inputJugador1.value,
+              rank: valueRango1.value
+          },
+          {
+              name: inputJugador2.value,
+              rank: valueRango2.value
+          },
+          {
+              name: inputJugador3.value,
+              rank: valueRango3.value
+          },
+          {
+              name: inputJugador4.value,
+              rank: valueRango4.value
+          },
+      ],
+      team2:
+      [
+          {
+              name: inputJugador5.value,
+              rank: valueRango5.value
+          },
+          {
+              name: inputJugador6.value,
+              rank: valueRango6.value
+          },
+          {
+              name: inputJugador7.value,
+              rank: valueRango7.value
+          },
+          {
+              name: inputJugador8.value,
+              rank: valueRango8.value
+          },
+          {
+              name: inputJugador9.value,
+              rank: valueRango9.value
+          }
+      ]
     }
-)
-console.log(resp.data)
-console.log("peticion realizada")
-}catch(err){
-  console.error(err)
-}
+  )
+  console.log(resp.data)
+  console.log("peticion realizada")
+  }catch(err){
+    console.error(err)
+  }
 }
 </script>
 
