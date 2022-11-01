@@ -10,7 +10,7 @@
     <el-option
       v-for="item in optionsMap"
       :key="item.value"
-      :label="item.label"
+      
       :value="item.value"
     />
   </el-select>
@@ -26,8 +26,8 @@
               :key="group.label"
               :label="group.label"
           >
-          <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
-            <img :src="item.img" width="30" height="30"> {{ item.label }}
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
           </el-option>
           </el-option-group>
         </el-select>
@@ -39,12 +39,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
 
@@ -55,12 +52,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
 
@@ -71,12 +65,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
 
@@ -87,12 +78,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
         </div>
@@ -117,12 +105,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
         <el-input v-model="inputJugador6" placeholder="Nombre de jugador" />
@@ -132,12 +117,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
         <el-input v-model="inputJugador7" placeholder="Nombre de jugador" />
@@ -147,12 +129,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
         <el-input v-model="inputJugador8" placeholder="Nombre de jugador" />
@@ -162,12 +141,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
         <el-input v-model="inputJugador9" placeholder="Nombre de jugador" />
@@ -177,12 +153,9 @@
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="35"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
       </div>
