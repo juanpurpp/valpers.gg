@@ -293,24 +293,21 @@ const optionsRango = [
     options: [],
   },
 ]
-var ranks = []
-axios.get('http://localhost:3000/ranks').then(res=>{
-  console.log(res.data)
-  res.data.forEach(r=>{
+  const ranks = await axios.get('http://localhost:3000/ranks')
+  ranks.data.forEach(r=>{
     optionsRango.forEach(group=>{
+      console.log('ruta '+ r.img)
       let newdata = {
         id: r.ID,
-        img: require(r.img),
+        img: require('./../../../backend/img/'+r.img),
         alt: r.name,
         value: r.name,
         label: r.name
       }
       if(group.label == r.name.substring(0,group.label.length)) group.options.push(newdata)
     })
-    console.log(ranks)
     console.log(optionsRango)
   })
-})
 
 //Funcion asincrona de envio de datos con  metodo PUT
 const sendInfo = async()=>{
