@@ -4,16 +4,22 @@
     v-model="valueMap"
     multiple
     default-first-option
-    size="large"
+    size="medium"
     placeholder="mapas"
+    margin-bottom="0"
+    margin-right="10000000"
+    padding-right="2000"
+    padding-bottom="0"
   >
     <el-option
       v-for="item in optionsMap"
-      :key="item.value"
+      :key="item.name"
       
-      :value="item.value"
+      :value="item.name"
     />
   </el-select>
+  <el-checkbox v-model="valueBalance" label="Balancear equipos" size="default"/>
+
   <!--zona de inputs y seleccion de rango izquierda-->
     <el-row :gutter="20" >
 
@@ -27,7 +33,7 @@
               :label="group.label"
           >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
           </el-option-group>
         </el-select>
@@ -40,7 +46,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -53,7 +59,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -66,7 +72,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -79,7 +85,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -99,14 +105,14 @@
       <div class="grid-content bg-puerple-dark">
 
         <el-input v-model="inputJugador5" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango5" placeholder="Rango">
+        <el-select v-model="valueRango5" placeholder="Rango" width="100">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -118,7 +124,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -130,7 +136,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -142,7 +148,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -154,7 +160,7 @@
             :label="group.label"
         >
           <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="35"> {{ item.label }}
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
           </el-option>
          </el-option-group>
         </el-select>
@@ -182,42 +188,11 @@ const inputJugador9 = ref()
 
 //Valores del select de mapas
 const valueMap = ref([])
-const optionsMap = [
-{
-  value:'Ascent',
-  label:'Ascent'
-},
-{
-  value:'Bind',
-  label:'Bind'
-},
-{
-  value:'Breeze',
-  label:'Breeze'
-},
-{
-  value:'Fracture',
-  label:'Fracture'
-},
-{
-  value:'Haven',
-  label:'Haven'
-},
-{
-  value:'Icebox',
-  label:'Icebox'
-},
-{
-  value:'Pearl',
-  label:'Pearl'
-},
-{
-  value:'Split',
-  label:'Split'
-}
-]
+const optionsMap = (await axios.get('http://localhost:3000/maps')).data
+console.log('options maps es ')
+console.log(optionsMap)
 //valores de seleccion de rango
-
+const valueBalance = ref()
 const valueRango0 = ref()
 const valueRango1 = ref()
 const valueRango2 = ref()
@@ -285,7 +260,7 @@ const optionsRango = [
 //Funcion asincrona de envio de datos con  metodo PUT
 const sendInfo = async()=>{
   try {const resp = await axios
-  .put('http://localhost:3000/matchs?choosemap=true&balance=true',
+  .put('http://localhost:3000/matchs?choosemap=true&balance='+valueBalance.value,
     {
       id: 1,
       map: valueMap.value,
@@ -361,9 +336,6 @@ li {
 a {
   color: #42b983;
 }
-label{ 
-    border-style: solid;
-}
 .st{
     margin-bottom: 10px;
 }
@@ -384,13 +356,31 @@ label{
   
 }
 div{
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     
 }
-.el-input {width:270px;
-    margin-right: 5px;}
+.el-input {
+  width:200px;
+  margin-right: 5px;}
 
-    .select .v-input__slot {
-   padding-right: 4px
+.el-select .v-input_slot {
+   padding-right: 0px;
+   padding-bottom:0px;
+   margin: 1px;
   }
+.el-select {
+    margin: 0 px;
+    width: 130px;
+}
+.el-option{
+  margin: 10px;
+  padding: 0px 0px 0px 0px;
+}
+.el-checkbox{
+    margin: 0 px;
+    width: 0 px;
+    padding-left:25px;
+    padding-right: 0px;
+    padding-bottom:0px;
+}
 </style>
