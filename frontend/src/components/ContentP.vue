@@ -96,7 +96,7 @@
             <div>
               <el-button @click= "sendInfo()">guardar cambios</el-button>
               <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button @click= "sendInfo();$router.push('game'),4;">Start</el-button>
+      <el-button @click= "sendInfo();$router.push( { path: '/game/', query: { id: currentid } }),4;">Start</el-button>
         <router-view/>
             </div>  
         </el-col>
@@ -256,13 +256,14 @@ const optionsRango = [
     })
     console.log(optionsRango)
   })
-
+//Obtener una nueva id para trabajar
+const currentid = (await axios.post('http://localhost:3000/matchs')).data.id
 //Funcion asincrona de envio de datos con  metodo PUT
 const sendInfo = async()=>{
   try {const resp = await axios
   .put('http://localhost:3000/matchs?choosemap=true&balance='+valueBalance.value,
     {
-      id: 1,
+      id: currentid,
       map: valueMap.value,
       ready: false,
       team1:

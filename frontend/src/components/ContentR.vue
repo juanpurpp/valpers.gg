@@ -45,16 +45,18 @@
   </template>
   
   <script>
-  
+
   import axios from 'axios'
-  
   export default{
-   async created(){
-  
+  async created(){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  console.log('param'+urlParams.get('id'))
+  const currentid = urlParams.get('id')
       await axios
       .get('http://localhost:3000/matchs',{
         params: {
-          id: 1
+          id: currentid
         }
       })
       .then(response =>{ 
