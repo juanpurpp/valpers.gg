@@ -2,15 +2,16 @@
     <div>
       <div class="common-layout">
       <el-container>
+          <!--Parte superior de la pagina-->
         <el-header>
           <el-row :gutter="20" >
       <el-col :span="8">
         <img style="width: 100px; height: 100px" src="@/assets/logo.png"/>
-
       </el-col>
     </el-row>
         </el-header>
         <el-main>
+          <!--Nombre y imagen del mapa seleccionado-->
           <div :span="100">
             <h1>{{mapa}}</h1>
      <img style="width: 500px; height: 300px" :src='imagenMapa' />
@@ -22,18 +23,19 @@
   
         </el-main>
         <el-row :gutter="12" >
+          <!--Nombre y rango de los equipos 1-->
     <el-col :span="7" :offset="2" :name="B">
    
       <h1>equipo 1</h1>
           <el-card class="box-card">
-              <h1 v-for="(jugador, index) in jugadoresTeam1" :key="index">{{jugador.name}} ||| {{jugador.rank}}</h1>
+              <h1 v-for="(jugador, index) in jugadoresTeam1" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
           </el-card>
     </el-col>
-  
+          <!--Nombre y rango de los equipos 2-->
     <el-col :span="7" :offset="7" :name="R">
       <h1>equipo 2</h1>
           <el-card class="box-card">
-            <h1 v-for="(jugador, index) in jugadoresTeam2" :key="index">{{jugador.name}} ||| {{jugador.rank}}</h1>
+            <h1 v-for="(jugador, index) in jugadoresTeam2" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
           </el-card>
       </el-col>
               </el-row>

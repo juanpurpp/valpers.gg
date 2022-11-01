@@ -1,4 +1,5 @@
 <template> 
+<!--Parte superior de la pagina-->
   <el-row :gutter="20" >
     <el-col :span="8">
       <img style="width: 100px; height: 100px" src="@/assets/logo.png"/>

@@ -1,4 +1,5 @@
 <template>
+    <!--Parte inicial de la pagina-->
   <div>
     <div class="common-layout">
     <el-container>

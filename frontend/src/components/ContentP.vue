@@ -1,4 +1,5 @@
 <template>
+  <!--Seleccion de mapa-->
   <el-select 
     v-model="valueMap"
     multiple
@@ -13,6 +14,7 @@
       :value="item.value"
     />
   </el-select>
+  <!--zona de inputs y seleccion de rango izquierda-->
     <el-row :gutter="20" >
 
         <el-col :span="7">
@@ -103,10 +105,11 @@
             <div>
               <el-button @click= "sendInfo()">guardar cambios</el-button>
               <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button @click= "$router.push('game'),4;sendInfo()">Start</el-button>
+      <el-button @click= "sendInfo();$router.push('game'),4;">Start</el-button>
         <router-view/>
             </div>  
         </el-col>
+          <!--zona de inputs y seleccion de rango derecha-->
         <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
 
@@ -192,7 +195,7 @@
   <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-
+//valores de los inputs
 const inputJugador0 = ref()
 const inputJugador1 = ref()
 const inputJugador2 = ref()
@@ -203,6 +206,7 @@ const inputJugador6 = ref()
 const inputJugador7 = ref()
 const inputJugador8 = ref()
 const inputJugador9 = ref()
+
 //Valores del select de mapas
 const valueMap = ref([])
 const optionsMap = [
@@ -239,7 +243,7 @@ const optionsMap = [
   label:'Split'
 }
 ]
-//select rango
+//valores de seleccion de rango
 
 const valueRango0 = ref()
 const valueRango1 = ref()
