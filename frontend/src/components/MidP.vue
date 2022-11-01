@@ -1,6 +1,9 @@
 <template>
 
-    <div :span="100">
+    <div :span="100"               
+        :style="{
+          boxShadow: '--el-box-shadow-dark',
+        }">
       <img style="width: 500px; height: 300px" src="@/assets/maps.jpg"/>
     </div>
 </template>
@@ -32,5 +35,9 @@ a {
 }
 div{
   margin-bottom: 20px;
+}
+img{
+  border-radius: 15%;
+  
 }
 </style>

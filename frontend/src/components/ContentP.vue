@@ -18,7 +18,7 @@
       :value="item.name"
     />
   </el-select>
-  <el-checkbox v-model="valueBalance" label="Balancear equipos" size="default"/>
+  <el-checkbox v-model="valueBalance" text-color="ffffff" label="Balancear equipos" size="default"/>
 
   <!--zona de inputs y seleccion de rango izquierda-->
     <el-row :gutter="20" >
@@ -94,9 +94,9 @@
         <el-col :span="8" :offset="1" >
 
             <div>
-              <el-button @click= "sendInfo()">guardar cambios</el-button>
+              <el-button type="info" @click= "sendInfo()">guardar cambios</el-button>
               <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button @click= "sendInfo();$router.push( { path: '/game/', query: { id: currentid } }),4;">Start</el-button>
+      <el-button type="primary" @click= "sendInfo();$router.push( { path: '/game/', query: { id: currentid } }),4;">Start</el-button>
         <router-view/>
             </div>  
         </el-col>
@@ -323,6 +323,19 @@ const sendInfo = async()=>{
 </script>
 
 <style scoped>
+  body {
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 4), 
+          rgba(0, 0, 0, 4)
+        ),
+        /* bottom, image */
+        url(../assets/backg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 h3 {
   margin: 40px 0 0;
 }
@@ -362,7 +375,11 @@ div{
 }
 .el-input {
   width:200px;
-  margin-right: 5px;}
+  margin-right: 5px;
+  opacity: 0.9;
+  
+  }
+  
 
 .el-select .v-input_slot {
    padding-right: 0px;
@@ -372,6 +389,7 @@ div{
 .el-select {
     margin: 0 px;
     width: 130px;
+    opacity: 0.9;
 }
 .el-option{
   margin: 10px;
@@ -384,4 +402,5 @@ div{
     padding-right: 0px;
     padding-bottom:0px;
 }
+
 </style>

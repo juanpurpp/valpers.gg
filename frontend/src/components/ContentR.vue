@@ -19,7 +19,7 @@
         </el-main>
         <el-main>
           <!--Boton para crear otra partica-->
-          <el-button @click="$router.push('/')">Crear una nueva partida</el-button>
+          <el-button type="primary" @click="$router.push('/')">Crear una nueva partida</el-button>
   
         </el-main>
         <el-row :gutter="12" >
@@ -118,6 +118,19 @@
 
 </script>
   <style>
+    body {
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url(../assets/backg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
   .el-row {
     margin-bottom: 20px;
   }

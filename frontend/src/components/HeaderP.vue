@@ -21,7 +21,20 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
+  body {
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url(../assets/backg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 h3 {
   margin: 40px 0 0;
 }
