@@ -4,7 +4,7 @@
   "description": "Pagina creadora de personalizadas de valorant.",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd frontend && npm install && npm run serve -- --port 80\" \"cd backend && npm install && npm i @vue/cli-service && npm run start\" "
+    "start": "concurrently \"cd frontend && npm run serve -- --port 80\" \"cd backend && npm run start\" "
   },
   "repository": {
     "type": "git",
