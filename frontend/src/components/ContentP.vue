@@ -1,25 +1,28 @@
-<template>
+<template><div>
   <!--Seleccion de mapa-->
   <el-select 
     v-model="valueMap"
     multiple
     default-first-option
-    size="medium"
+    size="large"
     placeholder="mapas"
-    margin-bottom="0"
-    margin-right="10000000"
-    padding-right="2000"
-    padding-bottom="0"
+
   >
     <el-option
       v-for="item in optionsMap"
       :key="item.name"
-      
+      :label="item.label"
       :value="item.name"
     />
-  </el-select>
-  <el-checkbox v-model="valueBalance" text-color="ffffff" label="Balancear equipos" size="default"/>
 
+  </el-select>
+
+  <el-switch
+    v-model="valueBalance"
+    class="ml-2"
+    style="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+  />
+</div>
   <!--zona de inputs y seleccion de rango izquierda-->
     <el-row :gutter="20" >
 
@@ -96,8 +99,9 @@
             <div>
               <el-button type="info" @click= "sendInfo()">guardar cambios</el-button>
               <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button type="primary" @click= "sendInfo();$router.push( { path: '/game/', query: { id: currentid } }),4;">Start</el-button>
+      <el-button type="primary" color="#f5447e" @click= "sendInfo();$router.push( { path: '/game/', query: { id: currentid } }),4;">Start</el-button>
         <router-view/>
+              
             </div>  
         </el-col>
           <!--zona de inputs y seleccion de rango derecha-->
@@ -192,7 +196,9 @@ const optionsMap = (await axios.get('http://localhost:3000/maps')).data
 console.log('options maps es ')
 console.log(optionsMap)
 //valores de seleccion de rango
-const valueBalance = ref()
+
+const valueBalance = ref(true)
+
 const valueRango0 = ref()
 const valueRango1 = ref()
 const valueRango2 = ref()
@@ -395,12 +401,6 @@ div{
   margin: 10px;
   padding: 0px 0px 0px 0px;
 }
-.el-checkbox{
-    margin: 0 px;
-    width: 0 px;
-    padding-left:25px;
-    padding-right: 0px;
-    padding-bottom:0px;
-}
+
 
 </style>

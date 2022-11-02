@@ -19,22 +19,31 @@
         </el-main>
         <el-main>
           <!--Boton para crear otra partica-->
-          <el-button type="primary" @click="$router.push('/')">Crear una nueva partida</el-button>
+          <el-button type="primary" color="#f5447e" @click="$router.push('/')">Crear una nueva partida</el-button>
   
         </el-main>
         <el-row :gutter="12" >
           <!--Nombre y rango de los equipos 1-->
-    <el-col :span="7" :offset="2" :name="B">
+    <el-col :span="7" :offset="1" :name="B">
    
-      <h1>equipo 1</h1>
+
           <el-card class="box-card">
+            <template #header>
+              <div class="card-header">
+              <h1>EQUIPO 1</h1>
+              </div>
+            </template>
               <h1 v-for="(jugador, index) in jugadoresTeam1" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
           </el-card>
     </el-col>
           <!--Nombre y rango de los equipos 2-->
     <el-col :span="7" :offset="7" :name="R">
-      <h1>equipo 2</h1>
           <el-card class="box-card">
+            <template #header>
+              <div class="card-header">
+              <h1>EQUIPO 2</h1>
+              </div>
+            </template>
             <h1 v-for="(jugador, index) in jugadoresTeam2" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
           </el-card>
       </el-col>
@@ -118,6 +127,9 @@
 
 </script>
   <style>
+  h1{
+    color:#f5447e
+  }
     body {
     background:
         /* top, transparent black, faked with gradient */ 
