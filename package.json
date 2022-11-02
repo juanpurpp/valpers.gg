@@ -4,7 +4,7 @@
   "description": "Pagina creadora de personalizadas de valorant.",
   "main": "index.js",
   "scripts": {
-    "start": "dir && cd frontend && dir && cd ../backend && dir"
+    "start": "concurrently \"cd frontend && npm install && npm run serve\" \"cd backend && npm install && npm run start\" "
   },
   "repository": {
     "type": "git",
