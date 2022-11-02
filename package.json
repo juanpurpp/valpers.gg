@@ -4,7 +4,7 @@
   "description": "Pagina creadora de personalizadas de valorant.",
   "main": "index.js",
   "scripts": {
-    "valpers": "cd frontend && npm run valpers"
+    "start": "cd frontend && npm run valpers"
   },
   "repository": {
     "type": "git",
