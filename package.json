@@ -4,7 +4,7 @@
   "description": "Pagina creadora de personalizadas de valorant.",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm i @vue/cli-service -g\" \"cd frontend && npm install && npm i @vue/cli-service && npm i @vue/cli-plugin-babel -g && npm i @vue/cli-plugin-eslint -g&& npm run serve\" \"cd backend && npm install && npm run start\""
+    "start": "concurrently \"npm i @vue/cli-service -g\" \"cd frontend && npm install && npm i @vue/cli-service -g && npm i @vue/cli-plugin-babel -g && npm i @vue/cli-plugin-eslint -g&& npm run serve\" \"cd backend && npm install && npm run start\""
   },
   "repository": {
     "type": "git",
