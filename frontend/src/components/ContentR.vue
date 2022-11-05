@@ -19,22 +19,31 @@
         </el-main>
         <el-main>
           <!--Boton para crear otra partica-->
-          <el-button @click="$router.push('/')">Crear una nueva partida</el-button>
+          <el-button type="primary" color="#f5447e" @click="$router.push('/')">Crear una nueva partida</el-button>
   
         </el-main>
         <el-row :gutter="12" >
           <!--Nombre y rango de los equipos 1-->
-    <el-col :span="7" :offset="2" :name="B">
+    <el-col :span="7" :offset="1" :name="B">
    
-      <h1>equipo 1</h1>
+
           <el-card class="box-card">
+            <template #header>
+              <div class="card-header">
+              <h1>EQUIPO 1</h1>
+              </div>
+            </template>
               <h1 v-for="(jugador, index) in jugadoresTeam1" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
           </el-card>
     </el-col>
           <!--Nombre y rango de los equipos 2-->
     <el-col :span="7" :offset="7" :name="R">
-      <h1>equipo 2</h1>
           <el-card class="box-card">
+            <template #header>
+              <div class="card-header">
+              <h1>EQUIPO 2</h1>
+              </div>
+            </template>
             <h1 v-for="(jugador, index) in jugadoresTeam2" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
           </el-card>
       </el-col>
@@ -45,16 +54,18 @@
   </template>
   
   <script>
-  
+
   import axios from 'axios'
-  
   export default{
-   async created(){
-  
+  async created(){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  console.log('param'+urlParams.get('id'))
+  const currentid = urlParams.get('id')
       await axios
       .get('http://localhost:3000/matchs',{
         params: {
-          id: 1
+          id: currentid
         }
       })
       .then(response =>{ 
@@ -116,6 +127,22 @@
 
 </script>
   <style>
+  h1{
+    color:#f5447e
+  }
+    body {
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url(../assets/backg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
   .el-row {
     margin-bottom: 20px;
   }
