@@ -5,7 +5,7 @@
   "main": "frontend/src/main.js",
   "devDependencies": {},
   "scripts": {
-    "start": "heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false && cd frontend && npm install && npm run serve"
+    "start": "cd frontend && npm install && npm run serve"
   },
   "repository": {
     "type": "git",
