@@ -5,7 +5,7 @@
   "main": "frontend/src/main.js",
   "devDependencies": {},
   "scripts": {
-    "start": "cd frontend && npm install && npm run serve"
+    "start": "npm install @vue/cli && cd frontend && npm install && npm run serve"
   },
   "repository": {
     "type": "git",
