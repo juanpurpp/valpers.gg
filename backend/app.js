@@ -22,7 +22,7 @@ const database = 'valpers';
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://valpersdev:carF89vzcba6aOhr@cluster0.pjndt11.mongodb.net/valpers`)
+        await mongoose.connect(config.DB_HOST);
         console.log('MongoDB connected!!');
         console.log('Adding resources')
         await dbagents.addAgent();
