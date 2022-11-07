@@ -30,8 +30,8 @@
 
         <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
-        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango0" placeholder="Rango">
+        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango0" placeholder="Rango"  @change = "sendInfo()">
           <el-option-group
               v-for="group in optionsRango"
               :key="group.label"
@@ -43,8 +43,8 @@
           </el-option-group>
         </el-select>
       
-        <el-input v-model="inputJugador1" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango1" placeholder="Rango">
+        <el-input v-model="inputJugador1" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango1" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -56,8 +56,8 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador2" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango2" placeholder="Rango">
+        <el-input v-model="inputJugador2" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango2" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -69,8 +69,8 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador3" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango3" placeholder="Rango">
+        <el-input v-model="inputJugador3" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango3" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -82,8 +82,8 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador4" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango4" placeholder="Rango">
+        <el-input v-model="inputJugador4" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango4" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -110,8 +110,8 @@
         <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
 
-        <el-input v-model="inputJugador5" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango5" placeholder="Rango" width="100">
+        <el-input v-model="inputJugador5" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango5" placeholder="Rango"  @change = "sendInfo()" width="100">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -122,8 +122,8 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador6" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango6" placeholder="Rango">
+        <el-input v-model="inputJugador6" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango6" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -134,8 +134,8 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador7" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango7" placeholder="Rango">
+        <el-input v-model="inputJugador7" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango7" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -146,8 +146,8 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador8" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango8" placeholder="Rango">
+        <el-input v-model="inputJugador8" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango8" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
@@ -158,8 +158,8 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador9" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango9" placeholder="Rango">
+        <el-input v-model="inputJugador9" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-select v-model="valueRango9" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
