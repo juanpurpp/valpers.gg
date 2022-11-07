@@ -21,6 +21,8 @@
     v-model="valueBalance"
     class="ml-2"
     style="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+    active-text="Balancear equipos"
+    active-color="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
   />
 </div>
   <!--zona de inputs y seleccion de rango izquierda-->
@@ -263,10 +265,16 @@ const optionsRango = [
     console.log(optionsRango)
   })
 //Obtener una nueva id para trabajar
-const currentid = (await axios.post('http://localhost:3000/matchs')).data.id
 //Funcion asincrona de envio de datos con  metodo PUT
+var iniciado = false;
+var currentid=-1
 const sendInfo = async()=>{
-  try {const resp = await axios
+  try {
+  if(!iniciado) {
+    currentid = (await axios.post('http://localhost:3000/matchs')).data.id 
+    iniciado = true;
+  }
+   const resp = await axios
   .put('http://localhost:3000/matchs?choosemap=true&balance='+valueBalance.value,
     {
       id: currentid,
@@ -320,8 +328,8 @@ const sendInfo = async()=>{
       ]
     }
   )
+  console.log("cambios guardados")
   console.log(resp.data)
-  console.log("peticion realizada")
   }catch(err){
     console.error(err)
   }
@@ -395,7 +403,7 @@ div{
 .el-select {
     margin: 0 px;
     width: 130px;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 .el-option{
   margin: 10px;
