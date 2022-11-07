@@ -4,13 +4,13 @@ Pagina web que ayuda a organizar partidas personalizadas de valorant.
 Para usar la página localmente debe usar el siguiente comando
 `npm run start`
 En la misma consola será dada la ip local para hacer prueba del página.
-
+<br/>
 La página también estará disponible de vez en cuando en [valpers.gg](https://valpers.herokuapp.com/).
 
 Este proyecto hace uso de herramientas como vue, expressjs, mongodb y mongoose.
 
 Los creadores y contribuidores de este proyecto son:<br/>
-Juan Sandoval<br/>
+Juan Sandovalc
 Sebastián Araus<br/>
 Dieter Heim<br/>
 José Velásquez<br/>
