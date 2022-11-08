@@ -87,7 +87,7 @@
     console.log('param'+urlParams.get('id'))
     const currentid = urlParams.get('id')
     await axios
-      .get('http://localhost:3000/matchs',{
+      .get('https://valpers-api.herokuapp.com/matchs',{
         params: {
           id: currentid
           }
@@ -104,7 +104,7 @@
           //Ingreso de datos Equipo 2
       })
   for(var j1 of this.jugadoresTeam1){
-    let imgget = (await axios.get('http://localhost:3000/ranks/image?name='+j1.rank.replace(' ','-'), {
+    let imgget = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+j1.rank.replace(' ','-'), {
       responseType: 'arraybuffer'
     }) ).data
     console.log('img let es' + imgget)
@@ -112,7 +112,7 @@
     j1.imgrank = 'data:image/png;base64, '+j1.imgrank
   }
   for(var j2 of this.jugadoresTeam2){
-    let imgget = (await axios.get('http://localhost:3000/ranks/image?name='+j2.rank.replace(' ','-'), {
+    let imgget = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+j2.rank.replace(' ','-'), {
       responseType: 'arraybuffer'
     }) ).data
     console.log('img let es' + imgget)

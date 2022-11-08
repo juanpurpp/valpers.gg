@@ -195,7 +195,7 @@ const inputJugador9 = ref()
 
 //Valores del select de mapas
 const valueMap = ref([])
-const optionsMap = (await axios.get('http://localhost:3000/maps')).data
+const optionsMap = (await axios.get('https://valpers-api.herokuapp.com/maps')).data
 console.log('options maps es ')
 console.log(optionsMap)
 //valores de seleccion de rango
@@ -250,7 +250,7 @@ const optionsRango = [
     options: [],
   },
 ]
-  const ranks = await axios.get('http://localhost:3000/ranks')
+  const ranks = await axios.get('https://valpers-api.herokuapp.com/ranks')
   ranks.data.forEach(r=>{
     optionsRango.forEach(group=>{
       console.log('ruta '+ r.img)
@@ -271,11 +271,11 @@ var currentid=-1
 const sendInfo = async(redirect = false)=>{
   try {
   if(currentid == -1) {
-    currentid = (await axios.post('http://localhost:3000/matchs')).data.id
+    currentid = (await axios.post('https://valpers-api.herokuapp.com/matchs')).data.id
     console.log('Id match: '+currentid)
   }
    const resp = await axios
-  .put('http://localhost:3000/matchs?choosemap=true' +'&balance='+valueBalance.value,
+  .put('https://valpers-api.herokuapp.com/matchs?choosemap=true' +'&balance='+valueBalance.value,
     {
       id: currentid,
       map: valueMap.value,
