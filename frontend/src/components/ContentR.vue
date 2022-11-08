@@ -37,9 +37,9 @@
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
                   </el-col>
-                  <el-col align="right" style="max-width:100px">
+                  <el-col align="right" style="max-width:150px">
+                  <img :src="jugador.imgrank" width="23" height="23">
                     <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
-                      <img src="https://cdn.ligadegamers.com/imagenes/hierro-1-rango-valorant-0.jpg" width="25" height="30">
                     </el-input>
                   </el-col>
                 </el-row>
@@ -60,9 +60,9 @@
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
                   </el-col>
-                  <el-col align="right" style="max-width:100px">
+                  <el-col align="right" style="max-width:150px">
+                  <img :src="jugador.imgrank" width="23" height="23">
                     <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
-                      <img src="https://cdn.ligadegamers.com/imagenes/hierro-1-rango-valorant-0.jpg" width="25" height="30">
                     </el-input>
                   </el-col>
                 </el-row>
@@ -76,7 +76,7 @@
   </template>
   
   <script>
-
+  var Buffer = require('buffer/').Buffer
   import axios from 'axios'
   export default{
   async created(){
@@ -101,7 +101,24 @@
           //Ingreso de datos Equipo 2
           //Ingreso de datos Equipo 2
       })
-
+  for(var j1 of this.jugadoresTeam1){
+    let imgget = (await axios.get('http://localhost:3000/ranks/image?name='+j1.rank.replace(' ','-'), {
+      responseType: 'arraybuffer'
+    }) ).data
+    console.log('img let es' + imgget)
+    j1.imgrank = Buffer.from(imgget, 'binary').toString('base64')
+    j1.imgrank = 'data:image/png;base64, '+j1.imgrank
+  }
+  for(var j2 of this.jugadoresTeam2){
+    let imgget = (await axios.get('http://localhost:3000/ranks/image?name='+j2.rank.replace(' ','-'), {
+      responseType: 'arraybuffer'
+    }) ).data
+    console.log('img let es' + imgget)
+    j2.imgrank = Buffer.from(imgget, 'binary').toString('base64')
+    j2.imgrank = 'data:image/png;base64, '+j2.imgrank
+  }
+  console.log('jugadoresTeam1')
+  console.log(this.jugadoresTeam1)
   //Seleccion de imagen del mapa
       switch (this.mapa) {
             case "Icebox": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltde02911a015d7ef9/5f80d2851f5f6d4173b4e49d/Icebox_transparentbg_for_Web.png'
