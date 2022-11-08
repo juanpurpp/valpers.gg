@@ -1,32 +1,36 @@
 <template><div>
   <!--Seleccion de mapa-->
-  <el-select 
-    v-model="valueMap"
-    multiple
-    default-first-option
-    size="large"
-    placeholder="mapas"
-    @change = "sendInfo()"
+  <el-row gutter="20" justify="space-evenly">
+    <el-col span="20">
+      <el-select 
+        v-model="valueMap"
+        multiple
+        default-first-option
+        size="large"
+        placeholder="mapas"
+        @change = "sendInfo()"
 
-  >
-    <el-option
-      v-for="item in optionsMap"
-      :key="item.name"
-      :label="item.label"
-      :value="item.name"
-      
-    />
+      >
+        <el-option
+          v-for="item in optionsMap"
+          :key="item.name"
+          :label="item.label"
+          :value="item.name"
+          
+        />
 
-  </el-select>
+      </el-select>
 
-  <el-switch
-    v-model="valueBalance"
-    class="ml-2"
-    style="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
-    active-text="Balancear equipos"
-    active-color="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
-    @change = "sendInfo()"
-  />
+      <el-switch
+        v-model="valueBalance"
+        class="ml-2"
+        style="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+        active-text="Balancear equipos"
+        active-color="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+        @change = "sendInfo()"
+      />
+    </el-col>
+  </el-row>
 </div>
   <!--zona de inputs y seleccion de rango izquierda-->
     <el-row :gutter="20" >
