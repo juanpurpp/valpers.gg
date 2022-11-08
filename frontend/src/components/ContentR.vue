@@ -25,15 +25,22 @@
         <el-row :gutter="12" >
           <!--Nombre y rango de los equipos 1-->
     <el-col :span="7" :offset="1" :name="B">
-   
-
           <el-card class="box-card">
             <template #header>
               <div class="card-header">
               <h1>EQUIPO 1</h1>
               </div>
             </template>
-              <h1 v-for="(jugador, index) in jugadoresTeam1" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
+              <div v-for="(jugador,index) in jugadoresTeam1" :key="index">
+                <el-row>
+                  <el-col align="right" style="max-width:200px">
+                    <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
+                    {{jugador.name}}</label>
+                  </el-col><el-col align="left" style="max-width:200px">
+                    <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30"/>
+                  </el-col>
+                </el-row>
+              </div>
           </el-card>
     </el-col>
           <!--Nombre y rango de los equipos 2-->
@@ -44,7 +51,18 @@
               <h1>EQUIPO 2</h1>
               </div>
             </template>
-            <h1 v-for="(jugador, index) in jugadoresTeam2" :key="index">{{jugador.name}}    |||    {{jugador.rank}}</h1>
+            <div v-for="(jugador,index) in jugadoresTeam2" :key="index">
+                <el-row>
+                  <el-col align="right" style="max-width:200px">
+                    <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
+                    {{jugador.name}}</label>
+                  </el-col><el-col align="left" style="max-width:200px">
+                    <el-input style="max-width: 150px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
+                      <img src="https://cdn.ligadegamers.com/imagenes/hierro-1-rango-valorant-0.jpg" width="25" height="30">
+                    </el-input>
+                  </el-col>
+                </el-row>
+              </div>
           </el-card>
       </el-col>
               </el-row>
@@ -128,7 +146,9 @@
 </script>
   <style>
   h1{
-    color:#f5447e
+    width: fit-content;
+    color:#f5447e;
+    font-family: 'Microsoft YaHei', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', '????', Arial, sans-serif;
   }
     body {
     background:
@@ -173,5 +193,11 @@
     margin-bottom: 20px;
     padding: 8px;
     border: 1px solid var(--el-border-color);
+  }
+  .el-input{
+    margin-left: 10px;
+  }
+  .label{
+    color:#f5447e;
   }
   </style>
