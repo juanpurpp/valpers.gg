@@ -5,26 +5,26 @@
           <!--Parte superior de la pagina-->
         <el-header>
           <el-row :gutter="20" >
-      <el-col :span="8">
-        <img style="width: 100px; height: 100px" src="@/assets/logo.png"/>
-      </el-col>
-    </el-row>
+            <el-col :span="8">
+            <img style="width: 100px; height: 100px" src="@/assets/logo.png"/>
+            </el-col>
+          </el-row>
         </el-header>
         <el-main>
           <!--Nombre y imagen del mapa seleccionado-->
-          <div :span="100">
+          <div :span="100" align="center">
             <h1>{{mapa}}</h1>
-     <img style="width: 500px; height: 300px" :src='imagenMapa' />
-      </div>
+            <img style="width: 500px; height: 300px" :src='imagenMapa' />
+          </div>
         </el-main>
         <el-main>
           <!--Boton para crear otra partica-->
           <el-button type="primary" color="#f5447e" @click="$router.push('/')">Crear una nueva partida</el-button>
   
         </el-main>
-        <el-row :gutter="12" >
+        <el-row gutter="2" justify="space-between" >
           <!--Nombre y rango de los equipos 1-->
-    <el-col :span="7" :offset="1" :name="B">
+        <el-col span :name="B">
           <el-card class="box-card">
             <template #header>
               <div class="card-header">
@@ -33,7 +33,7 @@
             </template>
               <div v-for="(jugador,index) in jugadoresTeam1" :key="index">
                 <el-row justify="end">
-                  <el-col align="right" style="max-width:225px">
+                  <el-col align="right" style="max-width:200px">
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
                   </el-col>
@@ -45,31 +45,33 @@
                 </el-row>
               </div>
           </el-card>
-    </el-col>
+          </el-col>
           <!--Nombre y rango de los equipos 2-->
-    <el-col :span="7" :offset="7" :name="R">
+          <el-col span :name="R">
           <el-card class="box-card">
             <template #header>
-              <div class="card-header">
-              <h1>EQUIPO 2</h1>
-              </div>
+              <el-row justify="end">
+                <div class="card-header">
+                  <h1 align="right">EQUIPO 2</h1>
+                </div>
+              </el-row>
             </template>
             <div v-for="(jugador,index) in jugadoresTeam2" :key="index">
-                <el-row justify="end">
-                  <el-col align="right" style="max-width:225px">
-                    <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
-                    {{jugador.name}}</label>
-                  </el-col>
-                  <el-col align="right" style="max-width:150px">
+              <el-row>
+                <el-col align="left" style="max-width:150px">
+                  <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
+                  </el-input>
                   <img :src="jugador.imgrank" width="23" height="23">
-                    <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
-                    </el-input>
-                  </el-col>
-                </el-row>
-              </div>
-          </el-card>
-      </el-col>
+                </el-col>
+                <el-col align="left" style="max-width:200px">
+                  <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
+                  {{jugador.name}}</label>
+                </el-col>
               </el-row>
+            </div>
+          </el-card>
+          </el-col>
+          </el-row>
       </el-container>
       </div>
     </div>
@@ -211,6 +213,7 @@
   }
   .el-input{
     margin-left: 10px;
+    margin-right: 10px;
   }
   .label{
     color:#f5447e;
