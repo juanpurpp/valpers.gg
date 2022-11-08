@@ -19,10 +19,8 @@ const server = '127.0.0.1:27017';
 const database = 'valpers';
 const config = require('./config.js');
 
-
 const connectDB = async () => {
     try {
-        //console.log('DB_HOST='+config.DB_HOST);
         await mongoose.connect(config.DB_HOST);
         console.log('MongoDB connected!!');
         console.log('Adding resources')

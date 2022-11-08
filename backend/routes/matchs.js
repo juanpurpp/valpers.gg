@@ -28,7 +28,13 @@ router.get('/', async(req, res, _) => {
         console.log("GET match id="+req.query.id)
     }
     else{   
-        res.json(await db.find());
+        try {
+            res.json(await db.find());
+        }
+        catch(e){
+            console.log('error recibiendo matchs de la base de datos')
+            console.log('error: ' + e)
+        }
     }
 });
 
@@ -53,7 +59,13 @@ router.post('/', async(req, res) => {
         "team1": null,
         "team2": null
     }
-    db.add(data)
+    try{
+        db.add(data)
+    }
+    catch(e){
+        console.log('POST MATCH ERROR ADDING DATA')
+        console.log('error: '+e)
+    }
     console.log('added')
     console.log(data)
     res.json(data)
@@ -79,7 +91,12 @@ router.put('/', async(req, res, _) => {
     if(req.query.choosemap && typeof req.body.map !='string') req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
     console.log(req.body)
     try{
-        await db.update(req.body.id, req.body)
+        try{ await db.update(req.body.id, req.body)
+        }
+        catch(e){
+            console.log('PUT MATCH ERROR UPDATING')
+            console.log('error: '+e)
+        }
     }
     catch(e){
         console.log(e)
