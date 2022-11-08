@@ -6,6 +6,7 @@
     default-first-option
     size="large"
     placeholder="mapas"
+    @change = "sendInfo()"
 
   >
     <el-option
@@ -13,6 +14,7 @@
       :key="item.name"
       :label="item.label"
       :value="item.name"
+      
     />
 
   </el-select>
@@ -23,6 +25,7 @@
     style="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
     active-text="Balancear equipos"
     active-color="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+    @change = "sendInfo()"
   />
 </div>
   <!--zona de inputs y seleccion de rango izquierda-->
@@ -30,7 +33,7 @@
 
         <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
-        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango0" placeholder="Rango"  @change = "sendInfo()">
           <el-option-group
               v-for="group in optionsRango"
@@ -43,7 +46,7 @@
           </el-option-group>
         </el-select>
       
-        <el-input v-model="inputJugador1" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador1" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango1" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -56,7 +59,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador2" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador2" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango2" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -69,7 +72,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador3" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador3" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango3" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -82,7 +85,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador4" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador4" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango4" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -99,18 +102,15 @@
         <el-col :span="8" :offset="1" >
 
             <div>
-              <el-button type="info" @click= "sendInfo()">guardar cambios</el-button>
-              <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button type="primary" color="#f5447e" @click= "sendInfo();$router.push( { path: '/game/', query: { id: currentid } }),4;">Start</el-button>
-        <router-view/>
-              
+              <el-button type="primary" color="#f5447e" @click= "sendInfo(true);">Start</el-button>
+              <router-view/>     
             </div>  
         </el-col>
           <!--zona de inputs y seleccion de rango derecha-->
         <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
 
-        <el-input v-model="inputJugador5" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador5" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango5" placeholder="Rango"  @change = "sendInfo()" width="100">
         <el-option-group
             v-for="group in optionsRango"
@@ -122,7 +122,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador6" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador6" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango6" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -134,7 +134,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador7" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador7" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango7" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -146,7 +146,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador8" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador8" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango8" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -158,7 +158,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador9" placeholder="Nombre de jugador"  @change = "sendInfo()"/>
+        <el-input v-model="inputJugador9" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango9" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -179,6 +179,7 @@
 
 import { ref } from 'vue'
 import axios from 'axios'
+import router from '../router'
 require('vue-select-image/dist/vue-select-image.css')
 //valores de los inputs
 const inputJugador0 = ref()
@@ -266,16 +267,15 @@ const optionsRango = [
   })
 //Obtener una nueva id para trabajar
 //Funcion asincrona de envio de datos con  metodo PUT
-var iniciado = false;
 var currentid=-1
-const sendInfo = async()=>{
+const sendInfo = async(redirect = false)=>{
   try {
-  if(!iniciado) {
-    currentid = (await axios.post('http://localhost:3000/matchs')).data.id 
-    iniciado = true;
+  if(currentid == -1) {
+    currentid = (await axios.post('http://localhost:3000/matchs')).data.id
+    console.log('Id match: '+currentid)
   }
    const resp = await axios
-  .put('http://localhost:3000/matchs?choosemap=true&balance='+valueBalance.value,
+  .put('http://localhost:3000/matchs?choosemap=true' +'&balance='+valueBalance.value,
     {
       id: currentid,
       map: valueMap.value,
@@ -330,6 +330,10 @@ const sendInfo = async()=>{
   )
   console.log("cambios guardados")
   console.log(resp.data)
+  if(redirect){
+    console.log('redireccionando...')
+    router.push( { path: '/game/', query: { id: currentid } })
+  }
   }catch(err){
     console.error(err)
   }
