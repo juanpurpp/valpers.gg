@@ -1,7 +1,7 @@
 <template><div>
   <!--Seleccion de mapa-->
-  <el-row gutter="20" justify="space-evenly">
-    <el-col span="20">
+  <el-row gutter="15" justify="center">
+    <el-col span>
       <el-select 
         v-model="valueMap"
         multiple
@@ -9,18 +9,15 @@
         size="large"
         placeholder="mapas"
         @change = "sendInfo()"
-
       >
         <el-option
           v-for="item in optionsMap"
           :key="item.name"
           :label="item.label"
           :value="item.name"
-          
         />
-
       </el-select>
-
+    </el-col><el-col span>
       <el-switch
         v-model="valueBalance"
         class="ml-2"
@@ -33,8 +30,7 @@
   </el-row>
 </div>
   <!--zona de inputs y seleccion de rango izquierda-->
-    <el-row :gutter="20" >
-
+    <el-row :gutter="15" >
         <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
         <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
@@ -367,16 +363,16 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 25px;
 }
 a {
   color: #42b983;
 }
 .st{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 .el-row {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
 }
 .el-row:last-child {
@@ -388,11 +384,11 @@ a {
 
 .grid-content {
   border-radius: 4px;
-  min-height: 36px;
+  min-height: 0px;
   
 }
 div{
-    margin-bottom: 15px;
+    margin-bottom: 6px;
     
 }
 .el-input {
