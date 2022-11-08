@@ -32,12 +32,15 @@
               </div>
             </template>
               <div v-for="(jugador,index) in jugadoresTeam1" :key="index">
-                <el-row>
-                  <el-col align="right" style="max-width:200px">
+                <el-row justify="end">
+                  <el-col align="right" style="max-width:225px">
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
-                  </el-col><el-col align="left" style="max-width:200px">
-                    <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30"/>
+                  </el-col>
+                  <el-col align="right" style="max-width:100px">
+                    <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
+                      <img src="https://cdn.ligadegamers.com/imagenes/hierro-1-rango-valorant-0.jpg" width="25" height="30">
+                    </el-input>
                   </el-col>
                 </el-row>
               </div>
@@ -52,12 +55,13 @@
               </div>
             </template>
             <div v-for="(jugador,index) in jugadoresTeam2" :key="index">
-                <el-row>
-                  <el-col align="right" style="max-width:200px">
+                <el-row justify="end">
+                  <el-col align="right" style="max-width:225px">
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
-                  </el-col><el-col align="left" style="max-width:200px">
-                    <el-input style="max-width: 150px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
+                  </el-col>
+                  <el-col align="right" style="max-width:100px">
+                    <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
                       <img src="https://cdn.ligadegamers.com/imagenes/hierro-1-rango-valorant-0.jpg" width="25" height="30">
                     </el-input>
                   </el-col>
