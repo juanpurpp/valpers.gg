@@ -81,12 +81,14 @@ router.put('/', async(req, res, _) => {
         res.send('Debe entregar un id valida')
         return
     }*/
-    req.query.randomize = ((req.query.balance == 'true'))
+    req.query.randomize = (req.query.randomize == 'true')
     req.query.balance = (req.query.balance == 'true')
     req.query.choosemap = (req.query.choosemap == 'true')
     if(req.query.randomize){
         req.body.team1 = req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)})
         req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
+        console.log('randomize: ')
+        console.log(req.query.randomize)
     }
     if(req.query.balance){
         console.log('balance')
