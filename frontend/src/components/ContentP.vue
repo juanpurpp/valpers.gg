@@ -276,7 +276,7 @@ const sendInfo = async(redirect = false)=>{
     console.log('Id match: '+currentid)
   }
    const resp = await axios
-  .put('https://valpers-api.herokuapp.com/matchs?choosemap=true' +'&balance='+valueBalance.value,
+  .put('https://valpers-api.herokuapp.com/matchs?randomize=true&choosemap=true' +'&balance='+valueBalance.value,
     {
       id: currentid,
       map: valueMap.value,
