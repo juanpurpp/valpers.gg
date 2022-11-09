@@ -85,8 +85,8 @@ router.put('/', async(req, res, _) => {
     req.query.balance = (req.query.balance == 'true')
     req.query.choosemap = (req.query.choosemap == 'true')
     if(req.query.randomize){
-        req.body.team1.sort(function() {return (Math.random()-0.5)})
-        req.body.team2.sort(function() {return (Math.random()-0.5)})
+        req.body.team1 = req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)})
+        req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
     }
     if(req.query.balance){
         console.log('balance')
