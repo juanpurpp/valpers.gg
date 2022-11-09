@@ -271,6 +271,7 @@ var currentid=-1
 const sendInfo = async(redirect = false)=>{
   try {
   if(currentid == -1) {
+    currentid = -2;
     currentid = (await axios.post('https://valpers-api.herokuapp.com/matchs')).data.id
     console.log('Id match: '+currentid)
   }
