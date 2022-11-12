@@ -27,4 +27,4 @@ front.on('error', (error) => {
 front.on("close", code => {
     console.log(`child process exited with code ${code}`);
 });
-console.log('Recordar que esta ejecución solo esta planeada para usuarios y no para desarrollo')
+console.log('Recordar que esta ejecucion solo esta planeada para usuarios y no para desarrollo')
