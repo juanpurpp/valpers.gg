@@ -28,7 +28,17 @@
           <el-card class="box-card">
             <template #header>
               <div class="card-header">
-              <h1>EQUIPO 1</h1>
+                <el-row>
+                    <div>
+                      <h1 align="right">EQUIPO 1</h1>
+                        <p
+                        v-if="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
+                        style="color:#ccaaa9; font-size:12px;">
+                          Rango medio: {{meta.avgRankTeam1}}
+                          <img :src="meta.imgAvgRankTeam1" width="23" height="23">
+                        </p>
+                    </div>
+                </el-row>
               </div>
             </template>
               <div v-for="(jugador,index) in jugadoresTeam1" :key="index">
@@ -50,11 +60,19 @@
           <el-col span :name="R">
           <el-card class="box-card">
             <template #header>
-              <el-row justify="end">
-                <div class="card-header">
-                  <h1 align="right">EQUIPO 2</h1>
-                </div>
-              </el-row>
+              <div class="card-header">
+                <el-row justify="end">
+                    <div>
+                      <h1 align="right">EQUIPO 2</h1>
+                      <p
+                      v-if="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
+                      style="color:#ccaaa9; font-size:12px;">
+                          Rango medio: {{meta.avgRankTeam2}}
+                          <img :src="meta.imgAvgRankTeam2" width="23" height="23">
+                      </p>
+                    </div>
+                </el-row>
+              </div>
             </template>
             <div v-for="(jugador,index) in jugadoresTeam2" :key="index">
               <el-row>
@@ -93,58 +111,42 @@
           }
         })
         .then(response =>{ 
-          this.match = response.data
-          console.log(this.match)
           this.mapa  = response.data.map
-          //Ingreso de datos Equipo 1
           this.jugadoresTeam1 = response.data.team1
           this.jugadoresTeam2 = response.data.team2
-          //Ingreso de datos Equipo 1
-          //Ingreso de datos Equipo 2
-          //Ingreso de datos Equipo 2
+          this.meta = response.data.meta
+          this.imagenMapa = require('../assets/'+response.data.map.concat('.png').toLowerCase())
+          console.log(this.match)
       })
-  for(var j1 of this.jugadoresTeam1){
-    let imgget = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+j1.rank.replace(' ','-'), {
-      responseType: 'arraybuffer'
-    }) ).data
-    console.log('img let es' + imgget)
-    j1.imgrank = Buffer.from(imgget, 'binary').toString('base64')
-    j1.imgrank = 'data:image/png;base64, '+j1.imgrank
-  }
-  for(var j2 of this.jugadoresTeam2){
-    let imgget = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+j2.rank.replace(' ','-'), {
-      responseType: 'arraybuffer'
-    }) ).data
-    console.log('img let es' + imgget)
-    j2.imgrank = Buffer.from(imgget, 'binary').toString('base64')
-    j2.imgrank = 'data:image/png;base64, '+j2.imgrank
-  }
-  console.log('jugadoresTeam1')
-  console.log(this.jugadoresTeam1)
-  //Seleccion de imagen del mapa
-      switch (this.mapa) {
-            case "Icebox": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltde02911a015d7ef9/5f80d2851f5f6d4173b4e49d/Icebox_transparentbg_for_Web.png'
-            break;
-            case "Bind": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8538036a309525ae/5ebc470bfd85ad7411ce6b50/bind-featured.png'
-            break;
-            case "Haven": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8afb5b8145f5e9b2/5ebc46f7b8c49976b71c0bc5/haven-featured.png'
-            break;
-            case "Split": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd188c023f88f7d91/5ebc46db20f7727335261fcd/split-featured.png'
-            break;
-            case "Ascent": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta9b912e1a1b59aa4/5ebc471cfa550001f72bcb13/ascent-featured.png'
-            break;           
-            case "Pearl": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd0a2437fb09ebde4/62a2805b58931557ed9f7c9e/PearlLoadingScreen_MapFeaturedImage_930x522.png'
-            break;
-            case "Fracture": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf4485163c8c5873c/6131b23e9db95e7ff74b6393/Valorant_FRACTURE_Minimap_Alpha_web.png'
-            break;
-            case "Breeze": this.imagenMapa ='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltb03d2e4867f2e324/607f995892f0063e5c0711bd/breeze-featured_v1.png'
-            break;
-            default:   this.imagenMapa='https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltb03d2e4867f2e324/607f995892f0063e5c0711bd/breeze-featured_v1.png'
+    for(var j1 of this.jugadoresTeam1){
+      let imgget = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+j1.rank.replace(' ','-'), {
+        responseType: 'arraybuffer'
+      }) ).data
+      console.log('img let es' + imgget)
+      j1.imgrank = Buffer.from(imgget, 'binary').toString('base64')
+      j1.imgrank = 'data:image/png;base64, '+j1.imgrank
+    }
+    for(var j2 of this.jugadoresTeam2){
+      let imgget = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+j2.rank.replace(' ','-'), {
+        responseType: 'arraybuffer'
+      }) ).data
+      console.log('img let es' + imgget)
+      j2.imgrank = Buffer.from(imgget, 'binary').toString('base64')
+      j2.imgrank = 'data:image/png;base64, '+j2.imgrank
+    }
+    this.meta.imgAvgRankTeam1 = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+this.meta.avgRankTeam1.replace(' ','-'), {
+        responseType: 'arraybuffer'
+      }) ).data;
+    this.meta.imgAvgRankTeam2 = (await axios.get('https://valpers-api.herokuapp.com/ranks/image?name='+this.meta.avgRankTeam2.replace(' ','-'), {
+        responseType: 'arraybuffer'
+      }) ).data;
+     this.meta.imgAvgRankTeam1 = 'data:image/png;base64, ' + Buffer.from(this.meta.imgAvgRankTeam1, 'binary').toString('base64')
+     this.meta.imgAvgRankTeam2 = 'data:image/png;base64, ' + Buffer.from(this.meta.imgAvgRankTeam2, 'binary').toString('base64')
+    console.log('jugadoresTeam1')
+    console.log(this.jugadoresTeam1)
 
-              break;
-          }
-        
-    },
+  //Seleccion de imagen del mapa
+  },
 
       data(){
         return{
@@ -153,6 +155,10 @@
           imagenMapa: "",
           jugadoresTeam1:[],
           jugadoresTeam2:[],
+          meta: {
+            avgRankTeam1: null,
+            avgRankTeam2: null
+          }
         }
       },
   
@@ -217,5 +223,9 @@
   }
   .label{
     color:#f5447e;
+  }
+  .p{
+    color:red;
+    font-size:10;
   }
   </style>
