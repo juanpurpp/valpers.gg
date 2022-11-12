@@ -6,6 +6,15 @@ const MatchSchema = new Schema(
         map:{
             type: mongoose.Schema.Types.Mixed
         },
+        meta:{
+            type: Object,
+            avgRankTeam1: {
+                type:  Number
+            },
+            avgRankTeam2: {
+                type:  Number
+            },
+        },
         team1:{
             type: Array,
             name:{

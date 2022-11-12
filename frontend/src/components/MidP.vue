@@ -1,10 +1,9 @@
 <template>
-
-    <div :span="100"               
+    <div :span="0"               
         :style="{
           boxShadow: '--el-box-shadow-dark',
         }">
-      <img style="width: 500px; height: 300px" src="@/assets/maps.jpg"/>
+      <img style="width: 350px; height: 225px" src="@/assets/maps.jpg"/>
     </div>
 </template>
 
@@ -20,7 +19,7 @@ label{
     border-style: solid;
 }
 h3 {
-  margin: 40px 0 0;
+  margin: 15px 0 0;
 }
 ul {
   list-style-type: none;
@@ -34,7 +33,7 @@ a {
   color: #42b983;
 }
 div{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 img{
   border-radius: 15%;

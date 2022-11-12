@@ -4,12 +4,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var cors = require('cors')
-
 var dbagents = require('./agents.js');
 var dbmaps = require('./maps.js');
 var dbmatchs = require('./matchs.js');
 var dbranks = require('./ranks.js');
-
 var matchsRouter = require('./routes/matchs');
 var mapsRouter = require('./routes/maps');
 var agentsRouter = require('./routes/agents');
@@ -19,10 +17,11 @@ var app = express();
 
 const server = '127.0.0.1:27017';
 const database = 'valpers';
+const config = require('./config.js');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://valpersdev:carF89vzcba6aOhr@cluster0.pjndt11.mongodb.net/valpers`)
+        await mongoose.connect(config.DB_HOST);
         console.log('MongoDB connected!!');
         console.log('Adding resources')
         await dbagents.addAgent();

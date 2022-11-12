@@ -28,7 +28,13 @@ router.get('/', async(req, res, _) => {
         console.log("GET match id="+req.query.id)
     }
     else{   
-        res.json(await db.find());
+        try {
+            res.json(await db.find());
+        }
+        catch(e){
+            console.log('error recibiendo matchs de la base de datos')
+            console.log('error: ' + e)
+        }
     }
 });
 
@@ -48,12 +54,22 @@ router.post('/', async(req, res) => {
     }
     data={
         "id": nid,
+        "meta": {
+            "avgRankTeam1": null,
+            "avgRankTeam2": null
+        },
         "map": null, 
         "ready": false,
         "team1": null,
         "team2": null
     }
-    db.add(data)
+    try{
+        db.add(data)
+    }
+    catch(e){
+        console.log('POST MATCH ERROR ADDING DATA')
+        console.log('error: '+e)
+    }
     console.log('added')
     console.log(data)
     res.json(data)
@@ -69,35 +85,53 @@ router.put('/', async(req, res, _) => {
         res.send('Debe entregar un id valida')
         return
     }*/
+    req.query.randomize = (req.query.randomize == 'true')
     req.query.balance = (req.query.balance == 'true')
     req.query.choosemap = (req.query.choosemap == 'true')
+    if(req.query.randomize){
+        req.body.team1 = req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)})
+        req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
+        console.log('randomize: ')
+        console.log(req.query.randomize)
+    }
     if(req.query.balance){
         console.log('balance')
         req.body.team1 = balance(req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)}))
         req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
     }
     if(req.query.choosemap && typeof req.body.map !='string') req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
+    req.body.meta.avgRankTeam1 = avgRank(req.body.team1)
+    req.body.meta.avgRankTeam2 = avgRank(req.body.team2)
     console.log(req.body)
-    try{
-        await db.update(req.body.id, req.body)
+    try{ await db.update(req.body.id, req.body)
     }
     catch(e){
-        console.log(e)
+        console.log('PUT MATCH ERROR UPDATING')
+        console.log('error: '+e)
     }
     //res.send('Resource updated')
     res.json(req.body)
 });
 module.exports = router
 
+const avgRank = function(team){ //calcula el rango promedio en valor
+    var avg = 0;
+    for(var player of team) {avg += rankToNumber(player.rank);}
+    return numberToRank(avg/=team.length)
+}
 var rankToNumber = function(rank){
     /**
      * Combierte un rango a un valor numerico
      */
-    var res = -1;
-    ranks.forEach(elem =>{
-        if(elem.name == rank) res = elem.ID
-    })
-    return res
+    for(var r of ranks) if(r.name == rank) return r.ID
+    return -1
+}
+var numberToRank = function(valor){
+    /**
+     * Combierte un numero a rango, aproxima si es flotante
+     */
+    for(var r of ranks) if(r.ID == Math.round(valor)) return r.name
+    return -1
 }
 var balance = function(players){
     /**
