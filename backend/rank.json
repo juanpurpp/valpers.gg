@@ -3,127 +3,127 @@
         {
             "ID":0,
             "name":"Hierro 1",
-            "img":"../../backend/img/hierro-1.jpg"
+            "img":"hierro-1.png"
         },
         {
             "ID":1,
             "name":"Hierro 2",
-            "img":"../../backend/img/hierro-2.jpg"
+            "img":"hierro-2.png"
         },
         {
             "ID":2,
             "name":"Hierro 3",
-            "img":"../../backend/img/hierro-3.jpg"
+            "img":"hierro-3.png"
         },
         {
             "ID":3,
             "name":"Bronce 1",
-            "img":"../../backend/img/bronce-1.jpg"
+            "img":"bronce-1.png"
         },
         {
             "ID":4,
             "name":"Bronce 2",
-            "img":"../../backend/img/bronce-2.jpg"
+            "img":"bronce-2.png"
         },
         {
             "ID":5,
             "name":"Bronce 3",
-            "img":"../../backend/img/bronce-3.jpg"
+            "img":"bronce-3.png"
         },
         {
             "ID":6,
             "name":"Plata 1",
-            "img":"../../backend/img/plata-1.jpg"
+            "img":"plata-1.png"
         },
         {
             "ID":7,
             "name":"Plata 2",
-            "img":"../../backend/img/plata-2.jpg"
+            "img":"plata-2.png"
         },
         {
             "ID":8,
             "name":"Plata 3",
-            "img":"../../backend/img/plata-3.jpg"
+            "img":"plata-3.png"
         },
         {
             "ID":9,
             "name":"Oro 1",
-            "img":"../../backend/img/oro-1.jpg"
+            "img":"oro-1.png"
         },
         {
             "ID":10,
             "name":"Oro 2",
-            "img":"../../backend/img/oro-2.jpg"
+            "img":"oro-2.png"
         },
         {
             "ID":11,
             "name":"Oro 3",
-            "img":"../../backend/img/oro-3.jpg"
+            "img":"oro-3.png"
         },
         {
             "ID":12,
             "name":"Platino 1",
-            "img":"../../backend/img/platino-1.jpg"
+            "img":"platino-1.png"
         },
         {
             "ID":13,
             "name":"Platino 2",
-            "img":"../../backend/img/platino-2.jpg"
+            "img":"platino-2.png"
         },
         {
             "ID":14,
             "name":"Platino 3",
-            "img":"../../backend/img/platino-3.jpg"
+            "img":"platino-3.png"
         },
         {
             "ID":15,
             "name":"Diamante 1",
-            "img":"../../backend/img/diamante-1.jpg"
+            "img":"diamante-1.png"
         },
         {
             "ID":16,
             "name":"Diamante 2",
-            "img":"../../backend/img/diamante-2.jpg"
+            "img":"diamante-2.png"
         },
         {
             "ID":17,
             "name":"Diamante 3",
-            "img":"../../backend/img/diamante-3.jpg"
+            "img":"diamante-3.png"
         },
         {
             "ID":18,
             "name":"Ascendente 1",
-            "img":"../../backend/img/asendente-1.jpg"
+            "img":"ascendente-1.png"
         },
         {
             "ID":19,
             "name":"Ascendente 2",
-            "img":"../../backend/img/asendente-2.jpg"
+            "img":"ascendente-2.png"
         },
         {
             "ID":20,
             "name":"Ascendente 3",
-            "img":"../../backend/img/asendente-3.jpg"
+            "img":"ascendente-3.png"
         },
         {
             "ID":21,
             "name":"Inmortal 1",
-            "img":"../../backend/img/inmortal-1.jpg"
+            "img":"inmortal-1.png"
         },
         {
             "ID":22,
             "name":"Inmortal 2",
-            "img":"../../backend/img/inmortal-2.jpg"
+            "img":"inmortal-2.png"
         },
         {
             "ID":23,
             "name":"Inmortal 3",
-            "img":"../../backend/img/inmortal-3.jpg"
+            "img":"inmortal-3.png"
         },
         {
             "ID":24,
             "name":"Radiante",
-            "img":"../../backend/img/radiante.jpg"
+            "img":"radiante.png"
         }
     ]
 }

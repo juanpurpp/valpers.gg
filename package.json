@@ -1,0 +1,23 @@
+{
+  "name": "valpers.gg",
+  "version": "1.0.0",
+  "description": "Pagina creadora de personalizadas de valorant.",
+  "main": "frontend/src/main.js",
+  "scripts": {
+    "start": "cd frontend && npm install && npm run serve",
+    "dev": "concurrently \" cd backend && npm install && npm run start\" \"cd frontend && npm install && npm run serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanpurpp/valpers.gg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanpurpp/valpers.gg/issues"
+  },
+  "homepage": "https://github.com/juanpurpp/valpers.gg#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
+}

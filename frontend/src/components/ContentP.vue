@@ -1,200 +1,179 @@
-<template>
+<template><div>
   <!--Seleccion de mapa-->
-  <el-select 
-    v-model="valueMap"
-    multiple
-    default-first-option
-    size="large"
-    placeholder="mapas"
-  >
-    <el-option
-      v-for="item in optionsMap"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    />
-  </el-select>
-  <!--zona de inputs y seleccion de rango izquierda-->
-    <el-row :gutter="20" >
-
-        <el-col :span="7">
-        <div class="grid-content bg-puerple-dark">
-        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango0" placeholder="Rango">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
+  <el-row gutter="15" justify="center">
+    <el-col span>
+      <el-select 
+        v-model="valueMap"
+        multiple
+        default-first-option
+        size="large"
+        placeholder="mapas"
+        @change = "sendInfo()"
+      >
         <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
+          v-for="item in optionsMap"
+          :key="item.name"
+          :label="item.label"
+          :value="item.name"
         />
-         </el-option-group>
+      </el-select>
+    </el-col><el-col span>
+      <el-switch
+        v-model="valueBalance"
+        class="ml-2"
+        style="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+        active-text="Balancear equipos"
+        active-color="--el-switch-on-color: #f5447e; --el-switch-off-color: #B5B2B2"
+        @change = "sendInfo()"
+      />
+    </el-col>
+  </el-row>
+</div>
+  <!--zona de inputs y seleccion de rango izquierda-->
+    <el-row :gutter="5" >
+        <el-col :span="6">
+        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango0" placeholder="Rango"  @change = "sendInfo()">
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
+          </el-option-group>
         </el-select>
       
-        <el-input v-model="inputJugador1" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango1" placeholder="Rango">
+        <el-input v-model="inputJugador1" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango1" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador2" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango2" placeholder="Rango">
+        <el-input v-model="inputJugador2" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango2" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador3" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango3" placeholder="Rango">
+        <el-input v-model="inputJugador3" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango3" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador4" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango4" placeholder="Rango">
+        <el-input v-model="inputJugador4" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango4" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
-        </div>
         </el-col>
-        <el-col :span="8" :offset="1" >
-
-            <div>
-              <el-button @click= "sendInfo()">guardar cambios</el-button>
-              <!--Boton de envio de datos al backend y cambio de pagina-->
-      <el-button @click= "sendInfo();$router.push('game'),4;">Start</el-button>
-        <router-view/>
-            </div>  
+        <el-col :span="12" >
+              <el-button type="primary" color="#f5447e" @click= "sendInfo(true);">Start</el-button>
+              <router-view/>     
         </el-col>
           <!--zona de inputs y seleccion de rango derecha-->
-        <el-col :span="7" :offset="1">
-      <div class="grid-content bg-puerple-dark">
-
-        <el-input v-model="inputJugador5" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango5" placeholder="Rango">
+        <el-col :span="6">
+        <el-input v-model="inputJugador5" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango5" placeholder="Rango"  @change = "sendInfo()" width="100">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador6" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango6" placeholder="Rango">
+        <el-input v-model="inputJugador6" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango6" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador7" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango7" placeholder="Rango">
+        <el-input v-model="inputJugador7" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select  v-show="valueBalance" v-model="valueRango7" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador8" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango8" placeholder="Rango">
+        <el-input v-model="inputJugador8" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango8" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador9" placeholder="Nombre de jugador" />
-        <el-select v-model="valueRango9" placeholder="Rango">
+        <el-input v-model="inputJugador9" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-select v-show="valueBalance" v-model="valueRango9" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
             :key="group.label"
             :label="group.label"
         >
-        <el-option
-            v-for="item in group.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
+          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <img :src="item.img" width="25" height="30"> {{ item.label }}
+          </el-option>
          </el-option-group>
         </el-select>
-      </div>
         </el-col>
     </el-row>
   </template>
   <script setup>
+// add stylesheet
+
 import { ref } from 'vue'
 import axios from 'axios'
+import router from '../router'
+require('vue-select-image/dist/vue-select-image.css')
+
 //valores de los inputs
 const inputJugador0 = ref()
 const inputJugador1 = ref()
@@ -209,41 +188,12 @@ const inputJugador9 = ref()
 
 //Valores del select de mapas
 const valueMap = ref([])
-const optionsMap = [
-{
-  value:'Ascent',
-  label:'Ascent'
-},
-{
-  value:'Bind',
-  label:'Bind'
-},
-{
-  value:'Breeze',
-  label:'Breeze'
-},
-{
-  value:'Fracture',
-  label:'Fracture'
-},
-{
-  value:'Haven',
-  label:'Haven'
-},
-{
-  value:'Icebox',
-  label:'Icebox'
-},
-{
-  value:'Pearl',
-  label:'Pearl'
-},
-{
-  value:'Split',
-  label:'Split'
-}
-]
+const optionsMap = (await axios.get('https://valpers-api.herokuapp.com/maps')).data
+console.log('options maps es ')
+console.log(optionsMap)
 //valores de seleccion de rango
+
+const valueBalance = ref(true)
 
 const valueRango0 = ref()
 const valueRango1 = ref()
@@ -258,222 +208,146 @@ const valueRango9 = ref()
 const optionsRango = [
   {
     label: 'Hierro',
-    options: [
-      {
-        value: 'Hierro 1',
-        label: 'Hierro 1',
-      },
-      {
-        value: 'Hierro 2',
-        label: 'Hierro 2',
-      },
-      {
-        value: 'Hierro 3',
-        label: 'Hierro 3',
-      },
-    ],
+    options: [],
   },
   {
     label: 'Bronce',
-    options: [
-      {
-        value: 'Bronce 1',
-        label: 'Bronce 1',
-      },
-      {
-        value: 'Bronce 2',
-        label: 'Bronce 2',
-      },
-      {
-        value: 'Bronce 3',
-        label: 'Bronce 3',
-      },
-
-    ],
+    options: []
   },
   {
-    label: 'plata',
-    options: [
-      {
-        value: 'plata 1',
-        label: 'plata 1',
-      },
-      {
-        value: 'plata 2',
-        label: 'plata 2',
-      },
-      {
-        value: 'plata 3',
-        label: 'plata 3',
-      },
-
-    ],
+    label: 'Plata',
+    options: [],
   },
   {
     label: 'Oro',
-    options: [
-      {
-        value: 'Oro 1',
-        label: 'Oro 1',
-      },
-      {
-        value: 'Oro 2',
-        label: 'Oro 2',
-      },
-      {
-        value: 'Oro 3',
-        label: 'Oro 3',
-      },
-
-    ],
+    options: [],
   },
   {
     label: 'Platino',
-    options: [
-      {
-        value: 'Platino 1',
-        label: 'Platino 1',
-      },
-      {
-        value: 'Platino 2',
-        label: 'Platino 2',
-      },
-      {
-        value: 'Platino 3',
-        label: 'Platino 3',
-      },
-    ],
+    options: [],
   },
   {
     label: 'Diamante',
-    options: [
-      {
-        value: 'Diamante 1',
-        label: 'Diamante 1',
-      },
-      {
-        value: 'Diamante 2',
-        label: 'Diamante 2',
-      },
-      {
-        value: 'Diamante 3',
-        label: 'Diamante 3',
-      },
-    ],
+    options: [],
   },
   {
     label: 'Ascendente',
-    options: [
-      {
-        value: 'Ascendente 1',
-        label: 'Ascendente 1',
-      },
-      {
-        value: 'Ascendente 2',
-        label: 'Ascendente 2',
-      },
-      {
-        value: 'Ascendente 3',
-        label: 'Ascendente 3',
-      },
-
-    ],
+    options: [],
   },
   {
     label: 'Inmortal',
-    options: [
-      {
-        value: 'Inmortal 1',
-        label: 'Inmortal 1',
-      },
-      {
-        value: 'Inmortal 2',
-        label: 'Inmortal 2',
-      },
-      {
-        value: 'Inmortal 3',
-        label: 'Inmortal 3',
-      },
-
-    ],
+    options: [],
   },
   {
     label: 'Radiante',
-    options: [
-      {
-        value: 'Radiante',
-        label: 'Radiante',
-      },
-    ],
+    options: [],
   },
 ]
-
-
-//Funcion asincrona de envio de datos con  metodo PUT
-const sendInfo = async()=>{
-  try {const resp = await axios
-.put('http://localhost:3000/matchs?choosemap=true&balance=true',
-{
-  id: 1,
-  map: valueMap.value,
-  ready: false,
-  team1:
-  [
-      {
-          name: inputJugador0.value,
-          rank: valueRango0.value
-      },
-      {
-          name: inputJugador1.value,
-          rank: valueRango1.value
-      },
-      {
-          name: inputJugador2.value,
-          rank: valueRango2.value
-      },
-      {
-          name: inputJugador3.value,
-          rank: valueRango3.value
-      },
-      {
-          name: inputJugador4.value,
-          rank: valueRango4.value
-      },
-  ],
-  team2:
-  [
-      {
-          name: inputJugador5.value,
-          rank: valueRango5.value
-      },
-      {
-          name: inputJugador6.value,
-          rank: valueRango6.value
-      },
-      {
-          name: inputJugador7.value,
-          rank: valueRango7.value
-      },
-      {
-          name: inputJugador8.value,
-          rank: valueRango8.value
-      },
-      {
-          name: inputJugador9.value,
-          rank: valueRango9.value
+  const ranks = await axios.get('https://valpers-api.herokuapp.com/ranks')
+  ranks.data.forEach(r=>{
+    optionsRango.forEach(group=>{
+      console.log('ruta '+ r.img)
+      let newdata = {
+        id: r.ID,
+        img: require('./../../../backend/img/'+r.img),
+        alt: r.name,
+        value: r.name,
+        label: r.name
       }
-  ]
+      if(group.label == r.name.substring(0,group.label.length)) group.options.push(newdata)
+    })
+    console.log(optionsRango)
+  })
+//Obtener una nueva id para trabajar
+//Funcion asincrona de envio de datos con  metodo PUT
+var currentid=-1
+const sendInfo = async(redirect = false)=>{
+  try {
+  if(currentid == -1) {
+    currentid = -2;
+    currentid = (await axios.post('https://valpers-api.herokuapp.com/matchs')).data.id
+    console.log('Id match: '+currentid)
+  }
+   const resp = await axios
+  .put('https://valpers-api.herokuapp.com/matchs?randomize=true&choosemap=true' +'&balance='+valueBalance.value,
+    {
+      id: currentid,
+      map: valueMap.value,
+      ready: false,
+      team1:
+      [
+          {
+              name: inputJugador0.value,
+              rank: valueRango0.value
+          },
+          {
+              name: inputJugador1.value,
+              rank: valueRango1.value
+          },
+          {
+              name: inputJugador2.value,
+              rank: valueRango2.value
+          },
+          {
+              name: inputJugador3.value,
+              rank: valueRango3.value
+          },
+          {
+              name: inputJugador4.value,
+              rank: valueRango4.value
+          },
+      ],
+      team2:
+      [
+          {
+              name: inputJugador5.value,
+              rank: valueRango5.value
+          },
+          {
+              name: inputJugador6.value,
+              rank: valueRango6.value
+          },
+          {
+              name: inputJugador7.value,
+              rank: valueRango7.value
+          },
+          {
+              name: inputJugador8.value,
+              rank: valueRango8.value
+          },
+          {
+              name: inputJugador9.value,
+              rank: valueRango9.value
+          }
+      ]
     }
-)
-console.log(resp.data)
-console.log("peticion realizada")
-}catch(err){
-  console.error(err)
-}
+  )
+  console.log("cambios guardados")
+  console.log(resp.data)
+  if(redirect){
+    console.log('redireccionando...')
+    router.push( { path: '/game/', query: { id: currentid } })
+  }
+  }catch(err){
+    console.error(err)
+  }
 }
 </script>
 
 <style scoped>
+  body {
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 4), 
+          rgba(0, 0, 0, 4)
+        ),
+        /* bottom, image */
+        url(../assets/backg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 h3 {
   margin: 40px 0 0;
 }
@@ -483,19 +357,16 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 25px;
 }
 a {
   color: #42b983;
 }
-label{ 
-    border-style: solid;
-}
 .st{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 .el-row {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
 }
 .el-row:last-child {
@@ -507,17 +378,35 @@ label{
 
 .grid-content {
   border-radius: 4px;
-  min-height: 36px;
+  min-height: 0px;
   
 }
 div{
-    margin-bottom: 50px;
+    margin-bottom: 6px;
     
 }
-.el-input {width:270px;
-    margin-right: 5px;}
-
-    .select .v-input__slot {
-   padding-right: 4px
+.el-input {
+  width:200px;
+  margin-right: 5px;
+  opacity: 0.9;
+  
   }
+  
+
+.el-select .v-input_slot {
+   padding-right: 0px;
+   padding-bottom:0px;
+   margin: 1px;
+  }
+.el-select {
+    margin: 0 px;
+    width: 130px;
+    opacity: 0.85;
+}
+.el-option{
+  margin: 10px;
+  padding: 0px 0px 0px 0px;
+}
+
+
 </style>

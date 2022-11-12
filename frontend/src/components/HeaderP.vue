@@ -1,10 +1,10 @@
 <template> 
 <!--Parte superior de la pagina-->
-  <el-row :gutter="20" >
-    <el-col :span="8">
-      <img style="width: 100px; height: 100px" src="@/assets/logo.png"/>
+  <el-row  align="top">
+    <el-col :span="1">
+      <img style="width: 70px; height: 70px" src="@/assets/logo.png"/>
     </el-col>
-   <el-col :span="8" :offset="8">
+   <el-col>
     <div class="grid-content bg-puerple-dark">
       <!--<el-button >Filtros</el-button>-->
     </div>
@@ -21,9 +21,22 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
+  body {
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url(../assets/backg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 h3 {
-  margin: 40px 0 0;
+  margin: 0px 0 0;
 }
 ul {
   list-style-type: none;
@@ -31,7 +44,7 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 a {
   color: #42b983;
@@ -41,7 +54,7 @@ label{
 }
 
 .el-row {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .el-row:last-child {
   margin-bottom: 0;
@@ -52,7 +65,7 @@ label{
 
 .grid-content {
   border-radius: 4px;
-  min-height: 36px;
+  min-height: 15px;
 }
 
 </style>
