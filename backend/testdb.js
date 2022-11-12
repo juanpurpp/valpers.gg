@@ -24,7 +24,7 @@ connectDB();
 var testAdd = async () =>{
     console.log('testing maxid');
     let newid = (await dbmatchs.maxId()).id +1
-    console.log('nueva id será ' + newid);
+    console.log('nueva id serï¿½ ' + newid);
     data={
         "id": newid,
         "map": "Split", 
@@ -82,7 +82,7 @@ var testUpdate = async function(){
             {
                 "jugador":[
                     {
-                        "name": "Antijuanúrpp",
+                        "name": "Antijuanrpp",
                         "agent": "Reyna",
                         "rank": "Cripton 2"
                     },
