@@ -180,7 +180,6 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import router from '../router'
-require('vue-select-image/dist/vue-select-image.css')
 //valores de los inputs
 const inputJugador0 = ref()
 const inputJugador1 = ref()
