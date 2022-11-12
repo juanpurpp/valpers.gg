@@ -47,21 +47,21 @@
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
                   </el-col>
-                  <el-col v-if="jugador.rank != null" align="right" style="max-width:150px">
+                  <el-col v-if="jugador.rank == null" align="right" style="max-width:150px">
+                    <el-input
+                      style="max-width: 123px"
+                      class="w-30 m-2"
+                      v-model="name" placeholder="No rank" disabled width="30">
+                    </el-input>
+                  </el-col>
+                  <el-col v-else align="right" style="max-width:150px">
                     <img :src="jugador.imgrank" width="23" height="23"/>
                     <el-input
                       style="max-width: 100px"
                       class="w-30 m-2"
                       v-model="name" :placeholder="jugador.rank" disabled width="30">
                     </el-input>
-                  </el-col>
-                  <el-col v-else align="right" style="max-width:150px">
-                    <el-input
-                      style="max-width: 130px"
-                      class="w-30 m-2"
-                      v-model="name" placeholder="No rank" disabled width="30">
-                    </el-input>
-                  </el-col>
+                </el-col>
                 </el-row>
               </div>
           </el-card>
@@ -86,21 +86,21 @@
             </template>
             <div v-for="(jugador,index) in jugadoresTeam2" :key="index">
               <el-row>
-                <el-col v-if="jugador.rank != null" align="right" style="max-width:150px">
-                    <img :src="jugador.imgrank" width="23" height="23"/>
-                    <el-input
-                      style="max-width: 100px"
-                      class="w-30 m-2"
-                      v-model="name" :placeholder="jugador.rank" disabled width="30">
-                    </el-input>
-                  </el-col>
-                  <el-col v-else align="right" style="max-width:150px">
-                    <el-input
-                      style="max-width: 123px"
-                      class="w-30 m-2"
-                      v-model="name" placeholder="No rank" disabled width="30">
-                    </el-input>
-                  </el-col>
+                <el-col v-if="jugador.rank == null" align="right" style="max-width:150px">
+                  <el-input
+                    style="max-width: 123px"
+                    class="w-30 m-2"
+                    v-model="name" placeholder="No rank" disabled width="30">
+                  </el-input>
+                </el-col>
+                <el-col v-else align="right" style="max-width:150px">
+                  <img :src="jugador.imgrank" width="23" height="23"/>
+                  <el-input
+                    style="max-width: 100px"
+                    class="w-30 m-2"
+                    v-model="name" :placeholder="jugador.rank" disabled width="30">
+                  </el-input>
+                </el-col>
                 <el-col align="left" style="max-width:200px">
                   <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                   {{jugador.name}}</label>
