@@ -85,7 +85,10 @@ router.put('/', async(req, res, _) => {
         res.send('Debe entregar un id valida')
         return
     }*/
-    req.body.meta = null;
+    req.body.meta = {
+        "avgRankTeam1": null,
+        "avgRankTeam2": null
+    }
     req.query.randomize = (req.query.randomize == 'true')
     req.query.balance = (req.query.balance == 'true')
     req.query.choosemap = (req.query.choosemap == 'true')
