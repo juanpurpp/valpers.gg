@@ -55,8 +55,8 @@ router.post('/', async(req, res) => {
     data={
         "id": nid,
         "meta": {
-            avgRankTeam1: null,
-            avgRankTeam2: null
+            "avgRankTeam1": null,
+            "avgRankTeam2": null
         },
         "map": null, 
         "ready": false,
