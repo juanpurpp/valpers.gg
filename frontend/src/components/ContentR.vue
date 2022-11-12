@@ -32,7 +32,7 @@
                     <div>
                       <h1 align="right">EQUIPO 1</h1>
                         <p
-                        v-if="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
+                        v-show="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
                         style="color:#ccaaa9; font-size:12px;">
                           Rango medio: {{meta.avgRankTeam1}}
                           <img :src="meta.imgAvgRankTeam1" width="23" height="23">
@@ -47,9 +47,19 @@
                     <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                     {{jugador.name}}</label>
                   </el-col>
-                  <el-col align="right" style="max-width:150px">
-                  <img :src="jugador.imgrank" width="23" height="23">
-                    <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
+                  <el-col v-if="jugador.rank != null" align="right" style="max-width:150px">
+                    <img :src="jugador.imgrank" width="23" height="23"/>
+                    <el-input
+                      style="max-width: 100px"
+                      class="w-30 m-2"
+                      v-model="name" :placeholder="jugador.rank" disabled width="30">
+                    </el-input>
+                  </el-col>
+                  <el-col v-else align="right" style="max-width:150px">
+                    <el-input
+                      style="max-width: 130px"
+                      class="w-30 m-2"
+                      v-model="name" placeholder="No rank" disabled width="30">
                     </el-input>
                   </el-col>
                 </el-row>
@@ -65,10 +75,10 @@
                     <div>
                       <h1 align="right">EQUIPO 2</h1>
                       <p
-                      v-if="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
+                      v-show="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
                       style="color:#ccaaa9; font-size:12px;">
                           Rango medio: {{meta.avgRankTeam2}}
-                          <img :src="meta.imgAvgRankTeam2" width="23" height="23">
+                          <img :src="meta.imgAvgRankTeam2" width="23" height="23" class="center"/>
                       </p>
                     </div>
                 </el-row>
@@ -76,11 +86,21 @@
             </template>
             <div v-for="(jugador,index) in jugadoresTeam2" :key="index">
               <el-row>
-                <el-col align="left" style="max-width:150px">
-                  <el-input style="max-width: 100px" class="w-30 m-2" type="text" id="name" name="name" v-model="name" :placeholder="jugador.rank" disabled width="30">
-                  </el-input>
-                  <img :src="jugador.imgrank" width="23" height="23">
-                </el-col>
+                <el-col v-if="jugador.rank != null" align="right" style="max-width:150px">
+                    <img :src="jugador.imgrank" width="23" height="23"/>
+                    <el-input
+                      style="max-width: 100px"
+                      class="w-30 m-2"
+                      v-model="name" :placeholder="jugador.rank" disabled width="30">
+                    </el-input>
+                  </el-col>
+                  <el-col v-else align="right" style="max-width:150px">
+                    <el-input
+                      style="max-width: 123px"
+                      class="w-30 m-2"
+                      v-model="name" placeholder="No rank" disabled width="30">
+                    </el-input>
+                  </el-col>
                 <el-col align="left" style="max-width:200px">
                   <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
                   {{jugador.name}}</label>
@@ -112,8 +132,8 @@
         })
         .then(response =>{ 
           this.mapa  = response.data.map
-          this.jugadoresTeam1 = response.data.team1
-          this.jugadoresTeam2 = response.data.team2
+          this.jugadoresTeam1 = response.data.team1.filter(p=>p.rank!=null).concat(response.data.team1.filter(p=>p.rank==null))
+          this.jugadoresTeam2 = response.data.team2.filter(p=>p.rank!=null).concat(response.data.team2.filter(p=>p.rank==null))
           this.meta = response.data.meta
           this.imagenMapa = require('../assets/'+response.data.map.concat('.png').toLowerCase())
           console.log(this.match)
@@ -228,4 +248,5 @@
     color:red;
     font-size:10;
   }
+  
   </style>
