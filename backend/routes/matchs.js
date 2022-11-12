@@ -55,8 +55,8 @@ router.post('/', async(req, res) => {
     data={
         "id": nid,
         "meta": {
-            avgRankTeam1: null,
-            avgRankTeam2: null
+            "avgRankTeam1": null,
+            "avgRankTeam2": null
         },
         "map": null, 
         "ready": false,
@@ -114,12 +114,9 @@ router.put('/', async(req, res, _) => {
 });
 module.exports = router
 
-const avgRank = function(team){
+const avgRank = function(team){ //calcula el rango promedio en valor
     var avg = 0;
-    for(var player of team) {avg += rankToNumber(player.rank);
-    console.log('player rank ' + player.rank)
-    console.log('rank to number es '  + rankToNumber(player.rank))}
-    console.log('avg final es ' + (avg / team.length))
+    for(var player of team) {avg += rankToNumber(player.rank);}
     return numberToRank(avg/=team.length)
 }
 var rankToNumber = function(rank){
