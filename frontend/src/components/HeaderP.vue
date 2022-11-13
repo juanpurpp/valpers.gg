@@ -1,8 +1,8 @@
 <template> 
 <!--Parte superior de la pagina-->
-  <el-row  align="top">
+  <el-row  :align="top">
     <el-col :span="1">
-      <img style="width: 70px; height: 70px" src="@/assets/logo.png"/>
+      <img style="width: 247px; height: 70px" src="@/assets/logo.png"/>
     </el-col>
    <el-col>
     <div class="grid-content bg-puerple-dark">
