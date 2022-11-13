@@ -2,21 +2,11 @@
   <!--Seleccion de mapa-->
   <el-row gutter="15" justify="center">
     <el-col span>
-      <el-select 
-        v-model="valueMap"
-        multiple
-        default-first-option
-        size="large"
-        placeholder="mapas"
-        @change = "sendInfo()"
-      >
-        <el-option
-          v-for="item in optionsMap"
-          :key="item.name"
-          :label="item.label"
-          :value="item.name"
-        />
-      </el-select>
+      <div>
+              <el-button type="primary" color="#f5447e" @click= "sendInfo(true);">Start</el-button>
+              <router-view/>     
+            </div>  
+      
     </el-col><el-col span>
       <el-switch
         v-model="valueBalance"
@@ -100,11 +90,14 @@
         </div>
         </el-col>
         <el-col :span="8" :offset="1" >
-
-            <div>
-              <el-button type="primary" color="#f5447e" @click= "sendInfo(true);">Start</el-button>
-              <router-view/>     
-            </div>  
+          <div class="check-button-style">  
+            <el-checkbox-group v-model="valueMap" @change="sendInfo()">
+              <el-checkbox-button v-for="map in optionsMap" :key="map.name" :label="map.name">
+                {{ map.name }}
+              </el-checkbox-button >
+            </el-checkbox-group>
+          </div>  
+          
         </el-col>
           <!--zona de inputs y seleccion de rango derecha-->
         <el-col :span="7" :offset="1">
@@ -192,8 +185,8 @@ const inputJugador7 = ref()
 const inputJugador8 = ref()
 const inputJugador9 = ref()
 
-//Valores del select de mapas
-const valueMap = ref([])
+//Valores del checkbox de mapas
+const valueMap = ref(['Ascent'])
 const optionsMap = (await axios.get('https://valpers-api.herokuapp.com/maps')).data
 console.log('options maps es ')
 console.log(optionsMap)
@@ -412,6 +405,9 @@ div{
 .el-option{
   margin: 10px;
   padding: 0px 0px 0px 0px;
+}
+.check-button-style{
+  margin-top: 24px;
 }
 
 
