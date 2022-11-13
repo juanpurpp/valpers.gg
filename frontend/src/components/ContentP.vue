@@ -92,7 +92,7 @@
         <!--checkboxes mapas-->
         <el-col :span="8" :offset="1" >
           <div class="check-button-style">  
-            <el-checkbox-group v-model="valueMap" min="1" @change="sendInfo()">
+            <el-checkbox-group v-model="valueMap" :min="1" @change="sendInfo()"  fill="#f5447e">
               <el-checkbox-button v-for="map in optionsMap" checked="true" :key="map.name" :label="map.name">
                 {{ map.name }}
               </el-checkbox-button >
