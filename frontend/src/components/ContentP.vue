@@ -29,10 +29,12 @@
                 v-for="group in optionsRango"
                 :key="group.label"
                 :label="group.label"
+                style="text-align:left;"
             >
-            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+            <el-row justify="center"> <el-option v-for="item in group.options" :key="item.value"  :value="item.value" style="min-width: 200px;">
               <img :src="item.img" width="25" height="30"> {{ item.label }}
             </el-option>
+            </el-row>
             </el-option-group>
           </el-select>
       
@@ -268,7 +270,7 @@ const sendInfo = async(redirect = false)=>{
     currentid = (await axios.post('https://valpers-api.herokuapp.com/matchs')).data.id
     console.log('Id match: '+currentid)
   }
-   const resp = await axios
+  const resp = await axios
   .put('https://valpers-api.herokuapp.com/matchs?randomize=true&choosemap=true' +'&balance='+valueBalance.value,
     {
       id: currentid,
