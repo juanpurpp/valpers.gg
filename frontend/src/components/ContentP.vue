@@ -29,6 +29,7 @@
                 v-for="group in optionsRango"
                 :key="group.label"
                 :label="group.label"
+                default-first-option
             >
             <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
               <img :src="item.img" width="25" height="30"> {{ item.label }}
@@ -195,20 +196,24 @@ console.log(optionsMap)
 
 const valueBalance = ref(true)
 
-const valueRango0 = ref()
-const valueRango1 = ref()
-const valueRango2 = ref()
-const valueRango3 = ref()
-const valueRango4 = ref()
-const valueRango5 = ref()
-const valueRango6 = ref()
-const valueRango7 = ref()
-const valueRango8 = ref()
-const valueRango9 = ref()
+const valueRango0 = ref('Unranked')
+const valueRango1 = ref('Unranked')
+const valueRango2 = ref('Unranked')
+const valueRango3 = ref('Unranked')
+const valueRango4 = ref('Unranked')
+const valueRango5 = ref('Unranked')
+const valueRango6 = ref('Unranked')
+const valueRango7 = ref('Unranked')
+const valueRango8 = ref('Unranked')
+const valueRango9 = ref('Unranked')
 const optionsRango = [
   {
+    label: 'Unranked',
+    options: []
+  },
+  {
     label: 'Hierro',
-    options: [],
+    options: []
   },
   {
     label: 'Bronce',
