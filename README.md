@@ -6,6 +6,8 @@ Para usar la página localmente debe usar el siguiente comando
 En la misma consola será dada la ip local para hacer prueba del página.
 La página también estará disponible de vez en cuando en [valpers.gg](https://valpers.herokuapp.com/).
 
+Cabe destacar que si quiere iniciar el backend localmente deberá especificar un DB_HOST en las variables de entorno,
+no es necesario si solo usará el frontend de la página
 Este proyecto hace uso de herramientas como vue, expressjs, mongodb y mongoose.
 
 Los creadores y contribuidores de este proyecto son:<br/>
