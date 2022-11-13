@@ -89,17 +89,18 @@
         </el-select>
         </div>
         </el-col>
+        <!--checkboxes mapas-->
         <el-col :span="8" :offset="1" >
           <div class="check-button-style">  
-            <el-checkbox-group v-model="valueMap" @change="sendInfo()">
-              <el-checkbox-button v-for="map in optionsMap" :key="map.name" :label="map.name">
+            <el-checkbox-group v-model="valueMap" min="1" @change="sendInfo()">
+              <el-checkbox-button v-for="map in optionsMap" checked="true" :key="map.name" :label="map.name">
                 {{ map.name }}
               </el-checkbox-button >
             </el-checkbox-group>
           </div>  
-          
         </el-col>
-          <!--zona de inputs y seleccion de rango derecha-->
+        <!--checkboxes mapa-->
+        <!--zona de inputs y seleccion de rango derecha-->
         <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
 
