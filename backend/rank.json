@@ -1,6 +1,11 @@
 {
     "Ranks":[
         {
+            "ID":-1,
+            "name":"Unranked",
+            "img":"unranked.png"
+        },
+        {
             "ID":0,
             "name":"Hierro 1",
             "img":"hierro-1.png"
