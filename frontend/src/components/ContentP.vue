@@ -29,12 +29,10 @@
                 v-for="group in optionsRango"
                 :key="group.label"
                 :label="group.label"
-                style="text-align:left;"
             >
-            <el-row justify="center"> <el-option v-for="item in group.options" :key="item.value"  :value="item.value" style="min-width: 200px;">
+            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
               <img :src="item.img" width="25" height="30"> {{ item.label }}
             </el-option>
-            </el-row>
             </el-option-group>
           </el-select>
       
@@ -99,7 +97,11 @@
                 {{ map.name }}
               </el-checkbox-button >
             </el-checkbox-group>
-          </div>  
+          </div>
+          <div style="margin:50px">
+            <label id="error"></label>
+          </div>
+
         </el-col>
         <!--checkboxes mapa-->
         <!--zona de inputs y seleccion de rango derecha-->
@@ -264,13 +266,39 @@ const optionsRango = [
 //Funcion asincrona de envio de datos con  metodo PUT
 var currentid=-1
 const sendInfo = async(redirect = false)=>{
+  const jugadorinput = new Array(10);
+  jugadorinput[0] = inputJugador0.value
+  jugadorinput[1] = inputJugador1.value
+  jugadorinput[2] = inputJugador2.value
+  jugadorinput[3] = inputJugador3.value
+  jugadorinput[4] = inputJugador4.value
+  jugadorinput[5] = inputJugador5.value
+  jugadorinput[6] = inputJugador6.value
+  jugadorinput[7] = inputJugador7.value
+  jugadorinput[8] = inputJugador8.value
+  jugadorinput[9] = inputJugador9.value
+
+  
+
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      if(jugadorinput[i]!=""&&jugadorinput[j]!=""&&i!=j&&jugadorinput[i]==jugadorinput[j]){
+        document.getElementById("error").innerHTML="No se pueden repetir nombres de jugador"
+        return
+      }
+      else{
+        document.getElementById("error").innerHTML=""
+      }
+    }
+  } 
+  
   try {
   if(currentid == -1) {
     currentid = -2;
     currentid = (await axios.post('https://valpers-api.herokuapp.com/matchs')).data.id
     console.log('Id match: '+currentid)
   }
-  const resp = await axios
+   const resp = await axios
   .put('https://valpers-api.herokuapp.com/matchs?randomize=true&choosemap=true' +'&balance='+valueBalance.value,
     {
       id: currentid,
@@ -413,5 +441,9 @@ div{
   margin-top: 24px;
 }
 
+label{
+  border: 0px;
+  color: #f00000;
+}
 
 </style>
