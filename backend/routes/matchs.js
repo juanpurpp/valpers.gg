@@ -147,7 +147,7 @@ var balance = function(players){
 
     players.forEach(r => {
         for(var i = 0; i<players.length-1; i++){
-            if(rankToNumber(players[i].rank,rankToNumber(midRank))>rankToNumber(players[i+1].rank,rankToNumber(midRank))){
+            if(rankToNumber(players[i].rank)>rankToNumber(players[i+1].rank)){
 
                 temp = players[i];
                 players[i] = players[i+1];
