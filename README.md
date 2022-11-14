@@ -1,7 +1,7 @@
 # valpers.gg 
 Pagina web que ayuda a organizar partidas personalizadas de valorant.
 
-Para usar la página localmente debe usar el siguiente comando
+Para usar la página localmente debe usar el siguiente comando en la carpeta raiz
 `npm run start`<br/>
 En la misma consola será dada la ip local para hacer prueba del página.
 La página también estará disponible de vez en cuando en [valpers.gg](https://valpers.herokuapp.com/).
