@@ -23,13 +23,13 @@
     <el-row :gutter="15" >
         <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
-        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input type="text" v-model="inputJugador0" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
           <el-select v-model="valueRango0" :disabled="(inputJugador0=='')" placeholder="Rango"  @change = "sendInfo()">
             <el-option-group
                 v-for="group in optionsRango"
                 :key="group.label"
                 :label="group.label"
-                default-first-option
+                style="width: fit-content"
             >
             <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
               <img :src="item.img" width="25" height="30"> {{ item.label }}
@@ -37,7 +37,7 @@
             </el-option-group>
           </el-select>
       
-        <el-input v-model="inputJugador1" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador1" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango1" :disabled="(inputJugador1=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -50,7 +50,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador2" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador2" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango2" :disabled="(inputJugador2=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -63,7 +63,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador3" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador3" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango3" :disabled="(inputJugador3=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -76,7 +76,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador4" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador4" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango4" :disabled="(inputJugador4=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -108,67 +108,68 @@
         <!--zona de inputs y seleccion de rango derecha-->
         <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
-
-        <el-input v-model="inputJugador5" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango5" :disabled="(inputJugador5=='')" placeholder="Rango"  @change = "sendInfo()" width="100">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
-          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="30"> {{ item.label }}
-          </el-option>
-         </el-option-group>
-        </el-select>
-        <el-input v-model="inputJugador6" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+              <img :src="item.img" width="25" height="30"> {{ item.label }}
+            </el-option>
+           </el-option-group>
+          </el-select>
+        <el-input v-model="inputJugador5" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+
         <el-select v-model="valueRango6" :disabled="(inputJugador6=='')" placeholder="Rango"  @change = "sendInfo()">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
-          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="30"> {{ item.label }}
-          </el-option>
-         </el-option-group>
-        </el-select>
-        <el-input v-model="inputJugador7" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+              <img :src="item.img" width="25" height="30"> {{ item.label }}
+            </el-option>
+           </el-option-group>
+          </el-select>
+        <el-input v-model="inputJugador6" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+
         <el-select v-model="valueRango7" :disabled="(inputJugador7=='')" placeholder="Rango"  @change = "sendInfo()">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
-          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="30"> {{ item.label }}
-          </el-option>
-         </el-option-group>
-        </el-select>
-        <el-input v-model="inputJugador8" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+              <img :src="item.img" width="25" height="30"> {{ item.label }}
+            </el-option>
+           </el-option-group>
+          </el-select>
+        <el-input v-model="inputJugador7" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango8" :disabled="(inputJugador8=='')" placeholder="Rango"  @change = "sendInfo()">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
-          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="30"> {{ item.label }}
-          </el-option>
-         </el-option-group>
-        </el-select>
-        <el-input v-model="inputJugador9" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+              <img :src="item.img" width="25" height="30"> {{ item.label }}
+            </el-option>
+           </el-option-group>
+          </el-select>
+        <el-input v-model="inputJugador8" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango9" :disabled="(inputJugador9=='')" placeholder="Rango"  @change = "sendInfo()">
-        <el-option-group
-            v-for="group in optionsRango"
-            :key="group.label"
-            :label="group.label"
-        >
-          <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
-            <img :src="item.img" width="25" height="30"> {{ item.label }}
-          </el-option>
-         </el-option-group>
+          <el-option-group
+              v-for="group in optionsRango"
+              :key="group.label"
+              :label="group.label"
+          >
+            <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
+              <img :src="item.img" width="25" height="30"> {{ item.label }}
+            </el-option>
+          </el-option-group>
         </el-select>
+        <el-input v-model="inputJugador9" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
       </div>
         </el-col>
     </el-row>
@@ -422,7 +423,7 @@ div{
 }
 .el-input {
   width:200px;
-  margin-right: 5px;
+  margin-right: 0px;
   opacity: 0.9;
   
   }
@@ -431,7 +432,10 @@ div{
 .el-select .v-input_slot {
    padding-right: 0px;
    padding-bottom:0px;
-   margin: 1px;
+
+   width: fit-content;
+   margin: 50px;
+   text-align: center;
   }
 .el-select {
     margin: 0 px;
@@ -439,8 +443,9 @@ div{
     opacity: 0.85;
 }
 .el-option{
-  margin: 10px;
-  padding: 0px 0px 0px 0px;
+  margin: 50px;
+  text-align: center;
+  width: fit-content;
 }
 .check-button-style{
   margin-top: 24px;

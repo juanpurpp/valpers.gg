@@ -43,8 +43,8 @@
             </template>
               <div v-for="(jugador,index) in jugadoresTeam1" :key="index">
                 <el-row justify="end">
-                  <el-col align="right" style="max-width:200px">
-                    <label style="font-family: 'Helvetica Neue',sans-serif; color:#df4a64; max-width: 1px; font-size: 25px; border: 0px">
+                  <el-col align="right" style="max-width:220px">
+                    <label style="font-family: 'Helvetica Neue', sans-serif; color:#df4a64; max-width: 1px; font-size: 22px; border: 0px">
                     {{jugador.name}}</label>
                   </el-col>
                   <el-col v-if="jugador.name != '' " align="right" style="max-width:150px">
@@ -52,7 +52,7 @@
                     <el-input
                       style="max-width: 100px"
                       class="w-30 m-2"
-                      v-model="name" :placeholder="jugador.rank" disabled width="30">
+                      v-model="name" :placeholder="jugador.rank" readonly width="30">{{jugador.rank}}
                     </el-input>
                   </el-col>
                 </el-row>
@@ -84,11 +84,11 @@
                   <el-input
                     style="max-width: 100px"
                     class="w-30 m-2"
-                    v-model="name" :placeholder="jugador.rank" disabled width="30">
+                    v-model="name" :placeholder="jugador.rank" readonly width="30">
                   </el-input>
                 </el-col>
-                <el-col align="left" style="max-width:200px">
-                  <label style="font-family: 'Helvetica Neue', sans-serif;color:#df4a64;max-width: 1px; font-size: 25px; border: 0px;">
+                <el-col align="left" style="max-width:220px">
+                  <label style="font-family: 'Helvetica Neue',sans-serif; color:#df4a64; max-width: 1px; font-size: 22px; border: 0px">
                   {{jugador.name}}</label>
                 </el-col>
               </el-row>
