@@ -100,6 +100,7 @@ router.put('/', async(req, res, _) => {
     }
     if(req.query.balance){
         console.log('balance')
+        console.log(req.query.balance)
         req.body.team1 = balance(req.body.team1.concat(req.body.team2).sort(function() {return (Math.random()-0.5)}))
         req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
     }
