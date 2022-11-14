@@ -32,7 +32,6 @@
                     <div>
                       <h1 align="right">EQUIPO 1</h1>
                         <p
-                        v-show="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
                         style="color:#ccaaa9; font-size:12px;">
                           Rango medio: {{meta.avgRankTeam1}}
                           <img :src="meta.imgAvgRankTeam1" width="23" height="23">
@@ -68,7 +67,6 @@
                     <div>
                       <h1 align="right">EQUIPO 2</h1>
                       <p
-                      v-show="meta.avgRankTeam2 !== -1 && meta.avgRankTeam2 != null"
                       style="color:#ccaaa9; font-size:12px;">
                           Rango medio: {{meta.avgRankTeam2}}
                           <img :src="meta.imgAvgRankTeam2" width="23" height="23" class="center"/>
