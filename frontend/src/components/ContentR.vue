@@ -6,7 +6,7 @@
         <el-header>
           <el-row :gutter="20" >
             <el-col :span="8">
-            <img style="width: 100px; height: 100px" src="@/assets/logo.png"/>
+            <img style="width: 351.5px; height: 100px" src="@/assets/logo.png"/>
             </el-col>
           </el-row>
         </el-header>
