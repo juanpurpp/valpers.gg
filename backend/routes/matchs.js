@@ -85,8 +85,8 @@ router.put('/', async(req, res, _) => {
         res.send('Debe entregar un id valida')
         return
     }*/
-    req.body.team1 = req.body.team1.filter(p => p.name !=' ')
-    req.body.team2 = req.body.team2.filter(p => p.name !=' ')
+    req.body.team1 = req.body.team1.filter(p => p.name !='')
+    req.body.team2 = req.body.team2.filter(p => p.name !='')
     req.body.meta = {
         "avgRankTeam1": null,
         "avgRankTeam2": null
