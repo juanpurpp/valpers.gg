@@ -104,8 +104,8 @@ router.put('/', async(req, res, _) => {
         req.body.team2 = req.body.team1.splice(req.body.team1.length/2)
     }
     if(req.query.choosemap && typeof req.body.map !='string') req.body.map = req.body.map[Math.floor(Math.random() * req.body.map.length)];
-    req.body.meta.avgRankTeam1 = avgRank(req.body.team1)
-    req.body.meta.avgRankTeam2 = avgRank(req.body.team2)
+    req.body.meta.avgRankTeam1 = avgRank(req.body.team1, avgRank(req.body.team1.filter(p=>p.rank!='Unranked')))
+    req.body.meta.avgRankTeam2 = avgRank(req.body.team2, avgRank(req.body.team2.filter(p=>p.rank!='Unranked')))
     console.log(req.body)
     try{ await db.update(req.body.id, req.body)
     }
@@ -118,17 +118,18 @@ router.put('/', async(req, res, _) => {
 });
 module.exports = router
 
-const avgRank = function(team){ //calcula el rango promedio en valor
+const avgRank = function(team,midRank = ranks[0].ID){ //calcula el rango promedio en valor
     var avg = 0;
-    for(var player of team) {avg += rankToNumber(player.rank);}
+    for(var player of team) {avg += rankToNumber(player.rank,rankToNumber(midRank));}
     return numberToRank(avg/=team.length)
 }
-var rankToNumber = function(rank){
+var rankToNumber = function(rank, unrankedSetValue = ranks[0].ID){
     /**
      * Combierte un rango a un valor numerico
      */
+    if(rank == 'Unranked') return unrankedSetValue
     for(var r of ranks) if(r.name == rank) return r.ID
-    return -1
+    return -2
 }
 var numberToRank = function(valor){
     /**
@@ -142,9 +143,11 @@ var balance = function(players){
      * Balancea un array de players, retorna a un arreglo intercalado de bueno con malo.
      * Dividir el retorno a la mitad dar� dos teams balanceados
      */
+    var midRank=avgRank(players.filter(p=>p.rank!='Unranked'))
+
     players.forEach(r => {
         for(var i = 0; i<players.length-1; i++){
-            if(rankToNumber(players[i].rank)>rankToNumber(players[i+1].rank)){
+            if(rankToNumber(players[i].rank,rankToNumber(midRank))>rankToNumber(players[i+1].rank,rankToNumber(midRank))){
 
                 temp = players[i];
                 players[i] = players[i+1];
