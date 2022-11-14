@@ -23,13 +23,12 @@
     <el-row :gutter="15" >
         <el-col :span="7">
         <div class="grid-content bg-puerple-dark">
-        <el-input type="text" v-model="inputJugador0" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input type="text" v-model="inputJugador0" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
           <el-select v-model="valueRango0" :disabled="(inputJugador0=='')" placeholder="Rango"  @change = "sendInfo()">
             <el-option-group
                 v-for="group in optionsRango"
                 :key="group.label"
                 :label="group.label"
-                default-first-option
             >
             <el-option v-for="item in group.options" :key="item.value"  :value="item.value">
               <img :src="item.img" width="25" height="30"> {{ item.label }}
@@ -37,7 +36,7 @@
             </el-option-group>
           </el-select>
       
-        <el-input v-model="inputJugador1" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador1" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango1" :disabled="(inputJugador1=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -50,7 +49,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador2" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador2" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango2" :disabled="(inputJugador2=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -63,7 +62,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador3" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador3" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango3" :disabled="(inputJugador3=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -76,7 +75,7 @@
          </el-option-group>
         </el-select>
 
-        <el-input v-model="inputJugador4" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador4" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango4" :disabled="(inputJugador4=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -109,7 +108,7 @@
         <el-col :span="7" :offset="1">
       <div class="grid-content bg-puerple-dark">
 
-        <el-input v-model="inputJugador5" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador5" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango5" :disabled="(inputJugador5=='')" placeholder="Rango"  @change = "sendInfo()" width="100">
         <el-option-group
             v-for="group in optionsRango"
@@ -121,7 +120,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador6" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador6" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango6" :disabled="(inputJugador6=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -133,7 +132,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador7" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador7" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango7" :disabled="(inputJugador7=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -145,7 +144,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador8" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador8" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango8" :disabled="(inputJugador8=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
@@ -157,7 +156,7 @@
           </el-option>
          </el-option-group>
         </el-select>
-        <el-input v-model="inputJugador9" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
+        <el-input v-model="inputJugador9" show-word-limit maxlength="16" placeholder="Nombre de jugador"  @input = "sendInfo()"/>
         <el-select v-model="valueRango9" :disabled="(inputJugador9=='')" placeholder="Rango"  @change = "sendInfo()">
         <el-option-group
             v-for="group in optionsRango"
