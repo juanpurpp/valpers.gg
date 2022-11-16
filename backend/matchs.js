@@ -9,10 +9,10 @@ const MatchSchema = new Schema(
         meta:{
             type: Object,
             avgRankTeam1: {
-                type:  Number
+                type:  String
             },
             avgRankTeam2: {
-                type:  Number
+                type:  String
             },
         },
         team1:{
