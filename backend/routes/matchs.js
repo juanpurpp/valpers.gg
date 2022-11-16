@@ -139,7 +139,7 @@ var numberToRank = function(valor){
      * Combierte un numero a rango, aproxima si es flotante
      */
     for(var r of ranks) if(r.ID == Math.round(valor)) return r.name
-    return -1
+    return 'Not found'
 }
 var balance = function(players){
     /**
