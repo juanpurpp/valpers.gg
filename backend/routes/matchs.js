@@ -121,7 +121,7 @@ router.put('/', async(req, res, _) => {
 });
 module.exports = router
 
-const avgRank = function(team,midRank = ranks[0].ID){ //calcula el rango promedio en valor
+const avgRank = function(team,midRank = ranks[0].name){ //calcula el rango promedio en valor
     var avg = 0;
     for(var player of team) {avg += rankToNumber(player.rank,rankToNumber(midRank));}
     return numberToRank(avg/=team.length)
