@@ -190,6 +190,12 @@
     background-attachment: fixed;
     background-size: cover;
   }
+  label{
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
   .el-row {
     margin-bottom: 20px;
   }
@@ -222,8 +228,8 @@
     border: 1px solid var(--el-border-color);
   }
   .el-input{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .label{
     color:#f5447e;

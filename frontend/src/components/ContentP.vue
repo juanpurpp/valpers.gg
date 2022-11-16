@@ -440,10 +440,13 @@ div{
 .el-input {
   width:200px;
   opacity: 0.9;
-  margin-right:none;
-  }
+  margin-left: none;
+  margin-right: none;
+}
   
-
+.el-checkbox-group{
+  margin: 1px;
+}
 .el-select .v-input_slot {
    padding-right: 0px;
    padding-bottom:0px;
