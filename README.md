@@ -6,8 +6,11 @@ Para usar la página localmente debe usar el siguiente comando en la carpeta rai
 En la misma consola será dada la ip local para hacer prueba del página.
 La página también estará disponible de vez en cuando en [valpers.gg](https://valpers.herokuapp.com/).
 
-Cabe destacar que si quiere iniciar el backend localmente deberá especificar un DB_HOST en las variables de entorno,
-no es necesario si solo usará el frontend de la página
+Cabe destacar que si quiere iniciar el backend localmente deberá especificar un DB_HOST en las variables de entorno, que corresponde a la MongoDB con la que se trabajará. Después de asegurarse de esto deberá instalar las dependencias con el comando `npm install` y el ejecutar el programa con el comando `npm run start`
+en la carpeta backend<br/>
+no es necesario si solo usará el frontend de la página y el backend montado en heroku esta funcionando.
+
+
 Este proyecto hace uso de herramientas como vue, expressjs, mongodb y mongoose.
 
 Los creadores y contribuidores de este proyecto son:<br/>
