@@ -39,20 +39,25 @@ router.get('/image', async(req, res, _) =>{
             res.send('Debe entregar un id valida')
             return
         }
-        db.findRank(req.query.name).then(result =>{
-            console.log('result.img es '+ result.img)
-            res.sendFile(result.img,{ root: path.join(__dirname, '../img') })
-            console.log('imagen enviada')
-        });
+        try{
+            db.findRank(req.query.name).then(result =>{
+                try{
+                    console.log('result.img es '+ result.img)
+                    res.sendFile(result.img,{ root: path.join(__dirname, '../img') })
+                    console.log('imagen enviada')
+                }
+                catch(e){
+                    console.log('error '+e)
+                    res.status(404).send('No se encontró la imagen')
+                    return
+                }
+            });
+        }
+        catch(e){
+            console.log('error encontrando imagen e : '+e)
+        }
     }
-    else{
-        db.find().then(result =>{
-            res.json(result);
-            console.log(result +"\nname="+req.query.name)
-            console.log('LA CONCHAAA')
-        });
-    }
-    
+    else res.send('especifique una nombre de rango')
 });
 
 module.exports = router;
