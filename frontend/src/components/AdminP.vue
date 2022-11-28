@@ -105,7 +105,7 @@
         console.log('entry user ' + VueCookies.get("valpersUsername"))
         console.log('entry token ' + VueCookies.get("userToken"))
     }
-    if (!VueCookies.get("valpersUsername") || !VueCookies.get("userToken") ) router.push('/',{})
+    if (!VueCookies.get("valpersUsername") || !VueCookies.get("userToken") ) router.push('/Error401View',{})
     const data ={
             name:VueCookies.get("valpersUsername"),
             token:VueCookies.get("userToken"),
@@ -120,7 +120,7 @@
         //endbody
         ).then(response => {auth_res=response
             console.log(auth_res)
-        if(auth_res.data  != "authorized user") router.push('/',{})}
+        if(auth_res.data  != "authorized user") router.push('/Error401View',{})}
     )
     
 

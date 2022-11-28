@@ -21,6 +21,12 @@ const routes = [
     name: 'admin',
     component: () => import('../views/AdminView.vue')
   }
+  ,{
+  
+    path: '/Error401View',
+    name: 'Error401View',
+    component: () => import('../components/Error401View.vue')
+  }
 ]
 
 const router = createRouter({
