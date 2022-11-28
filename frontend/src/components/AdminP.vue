@@ -120,8 +120,11 @@
         //endbody
         ).then(response => {auth_res=response
             console.log(auth_res)
-        if(auth_res.data  != "authorized user") router.push('/Error401View',{})}
-    )
+            console.log('vo eri el papu')}
+        ).catch(function (error) {
+            if(error.response.status == 401 || error.response.status == 403) router.push('/Error401View',{})
+
+        })
     
 
     
