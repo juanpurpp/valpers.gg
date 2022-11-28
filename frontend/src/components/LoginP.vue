@@ -61,60 +61,87 @@ const formLabelAlign = reactive({
 })
 
 const login = async() =>{
+
     console.log('name es '+formLabelAlign.name+ "  y pass es " +formLabelAlign.password  )
-    var loginData = (await axios.post('https://valpers-api.herokuapp.com/users/login',
+    axios.post('https://valpers-api.herokuapp.com/users/login',
         //body
         {
             name: formLabelAlign.name,
             password: formLabelAlign.password 
         }
         //endbody
-    )).data;
-    console.log(loginData);
-    ElMessageBox({
-        title: 'Logueado!',
-        message: h('p', null, [
-        h('span', null, 'Ha sido logueado con '),
-        h('i', { style: 'color: green' }, 'Exito'),
-        ]),
-        confirmButtonText: 'OK',
-        beforeClose: (action, instance, done) => {
-        if (action === 'confirm') {
-            instance.confirmButtonLoading = true
-            instance.confirmButtonText = 'volviendo...'
-            setTimeout(() => {
-                done()
-                router.push( { path: '/'})
-            }, 1000)
-        } else {
-            done()
+    ).then(loginData => {
+        if(loginData.status == 200){
+            msgcomplex('Logueado!', 'Has sido logueado con ', 'exito', 'green', 'Ok', true,'cargando...', 1000, 'success', 'volviendo al inicio...')
+            VueCookies.set("valpersUsername", formLabelAlign.name , "7d")
+            VueCookies.set("userToken", loginData.token , "7d")
         }
-        },
-    }).then(() => {
-        ElMessage({
-        type: 'success',
-        message: `Volviendo a la página principal`,
-        })
     })
-    VueCookies.set("valpersUsername", formLabelAlign.name , "7d")
-    VueCookies.set("userToken", loginData.token , "7d")
-}
+    .catch(function (error) {
+        if (error.response) {
+            if(error.response.status == 401) msg('Erroneo', 'La contraseña o el usuario ','no coinciden', 'red', 'Ok')
+        }
+        else msg('Error', 'ha habido un ','error','red','Ok')
+    });
+    console.log('logueado');
 
+}
 const register = async() =>{
     console.log('name es '+formLabelAlign.name+ "  y pass es " +formLabelAlign.password  )
-    var res = (await axios.post('https://valpers-api.herokuapp.com/users',
+    axios.post('https://valpers-api.herokuapp.com/users',
         //body
         {
             name: formLabelAlign.name,
             password: formLabelAlign.password 
         }
         //endbody
-    )).data;
-    console.log(res);
+    ).then(response =>{
+        if(response.status == 200) msg('Exito!','Te has registrado ','satisfactoriamente :V','green','ok')
+    }).catch.catch(function (error) {
+            msg('Oh no!', 'Ha ocurrido un ','problema', 'red','Ok')
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+    })
+    console.log('registrado');
+}
+var msgcomplex = function(titulo, msg1, msg2, color, butonmsg, cargando,cargandomsg, tiempo, tipo, finalmsg){ //mensaje complejo
     ElMessageBox({
-        title: 'Registrado!',
-        message: 'Puede loguearse :v',
-        confirmButtonText: 'OK'
+        title: titulo,
+        message: h('p', null, [
+        h('span', null, msg1),
+        h('i', { style: 'color: '+color }, msg2),
+        ]),
+        confirmButtonText: butonmsg,
+        beforeClose: (action, instance, done) => {
+            if (action === 'confirm') {
+                instance.confirmButtonLoading = cargando
+                instance.confirmButtonText = cargandomsg
+                setTimeout(() => {
+                    done()
+                    router.push( { path: '/'})
+                }, tiempo)
+            } else {
+                done()
+            }
+        },
+        }).then(() => {
+            ElMessage({
+            type: tipo,
+            message: finalmsg,
+        })
+    })
+}
+var msg = function(titulo, msg1,msg2, color, botontxt){ //mensaje simple
+    ElMessageBox({
+        title: titulo,
+        message: h('p', null, [
+        h('span', null, msg1),
+        h('i', { style: 'color: '+color }, msg2),
+        ]),
+        confirmButtonText: botontxt
     })
 }
 </script>
