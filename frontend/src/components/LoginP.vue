@@ -54,6 +54,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { h } from 'vue'
 import axios from 'axios';
 import router from '../router'
+import VueCookies from 'vue-cookies'
 const formLabelAlign = reactive({
   name: '',
   password: '',
@@ -93,8 +94,10 @@ const login = async() =>{
         ElMessage({
         type: 'success',
         message: `Volviendo a la página principal`,
+        })
     })
-  })
+    VueCookies.set("valpersUsername", formLabelAlign.name , "7d")
+    VueCookies.set("userToken", loginData.token , "7d")
 }
 
 const register = async() =>{
