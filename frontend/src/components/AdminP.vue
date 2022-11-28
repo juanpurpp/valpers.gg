@@ -115,7 +115,7 @@
     var auth_res;
     console.log('data es')
     console.log(data)
-    axios.post('http://localhost:3000/users/auth',
+    axios.post('https://valpers-api.herokuapp.com/users/auth',
     //body
         data
     //endbody
