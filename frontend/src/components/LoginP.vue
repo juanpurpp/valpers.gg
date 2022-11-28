@@ -62,7 +62,7 @@ const formLabelAlign = reactive({
 
 const login = async() =>{
 
-    console.log('name es '+formLabelAlign.name+ "  y pass es " +formLabelAlign.password  )
+    //console.log('name es '+formLabelAlign.name+ "  y pass es " +formLabelAlign.password  )
     axios.post('https://valpers-api.herokuapp.com/users/login',
         //body
         {
@@ -97,13 +97,9 @@ const register = async() =>{
         //endbody
     ).then(response =>{
         if(response.status == 200) msg('Exito!','Te has registrado ','satisfactoriamente :V','green','ok')
-    }).catch.catch(function (error) {
-            msg('Oh no!', 'Ha ocurrido un ','problema', 'red','Ok')
-            if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            }
+    }).catch(function (error) {
+            if(error.response.status == 409) msg('Ya existe', 'La cuenta ' ,'ya existe', 'red','Ok')
+            else msg('Oh no!', 'Ha ocurrido un ','problema', 'red','Ok')
     })
     console.log('registrado');
 }
