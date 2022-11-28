@@ -105,8 +105,7 @@
         console.log('entry user ' + VueCookies.get("valpersUsername"))
         console.log('entry token ' + VueCookies.get("userToken"))
     }
-    
-    else auth_res = "unauthorized"
+    if (!VueCookies.get("valpersUsername") || !VueCookies.get("userToken") ) router.push('/',{})
     const data ={
             name:VueCookies.get("valpersUsername"),
             token:VueCookies.get("userToken"),
@@ -116,12 +115,13 @@
     console.log('data es')
     console.log(data)
     axios.post('https://valpers-api.herokuapp.com/users/auth',
-    //body
-        data
-    //endbody
-    ).then(response => {auth_res=response
-        console.log(auth_res)
-    if(auth_res.data  != "authorized user") router.push('/',{})})
+        //body
+            data
+        //endbody
+        ).then(response => {auth_res=response
+            console.log(auth_res)
+        if(auth_res.data  != "authorized user") router.push('/',{})}
+    )
     
 
     
