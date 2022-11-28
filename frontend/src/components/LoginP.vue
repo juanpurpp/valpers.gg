@@ -29,15 +29,16 @@
                                 v-model="formLabelAlign.password"
                                 type="password"
                                 autocomplete="off"
+                                :disabled="(formLabelAlign.name=='')"
                             />
                         </el-form-item>
                         <el-form-item>
                             <el-row :gutter="90">
                                 <el-col span="1">
-                                    <el-button color="#f5447e" type="primary" @click="login">Iniciar sesion</el-button>   
+                                    <el-button color="#f5447e" type="primary" :disabled="(formLabelAlign.password =='' || formLabelAlign.name =='')" @click="login">Iniciar sesion</el-button>   
                                 </el-col>
                                 <el-col span="3">
-                                    <el-button  color="#f5447e" type="primary" @click="register">Registrarse</el-button>
+                                    <el-button  color="#f5447e" type="primary" :disabled="(formLabelAlign.password =='' || formLabelAlign.name =='')" @click="register">Registrarse</el-button>
                                 </el-col>
                             </el-row>
                         </el-form-item>
