@@ -18,6 +18,5 @@
   },
   "homepage": "https://github.com/juanpurpp/valpers.gg#readme",
   "dependencies": {
-    "concurrently": "^7.5.0"
   }
 }

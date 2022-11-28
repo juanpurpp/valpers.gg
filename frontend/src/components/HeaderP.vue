@@ -6,7 +6,8 @@
     </el-col>
    <el-col>
     <div class="grid-content bg-puerple-dark">
-      <!--<el-button >Filtros</el-button>-->
+      <el-button type="primary" color="#f5447e" @click="$router.push('/login')">Login</el-button>
+      <router-view/>  
     </div>
    </el-col>
   </el-row>
