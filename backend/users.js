@@ -63,7 +63,11 @@ module.exports = {
         return await User.find()
     },
     add : add = async(data)=>{
-        return await User.create(data)
+
+        if(User.findOne({ name: data.name })) {
+          return 409;
+        }
+        else await User.create(data)
     },
     del : del = async(username)=>{
         return await User.findOneAndDelete({name: username})
