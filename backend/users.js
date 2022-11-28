@@ -64,7 +64,7 @@ module.exports = {
     },
     add : add = async(data)=>{
 
-        if(User.findOne({ name: data.name })) {
+        if(await User.findOne({ name: data.name })) {
           return 409;
         }
         else await User.create(data)
