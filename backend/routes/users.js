@@ -9,12 +9,10 @@ router.post('/auth', authorize(), function(req, res, next) {
 });
 
 router.post('/', async(req,res) => {
-  try{ db.add({"name": req.body.name,"password": req.body.password, "roles": "usuario"});
+  if(await db.add({"name": req.body.name,"password": req.body.password, "roles": "usuario"}) == 409){
+    res.status(409).send('Ya existe')
   }
-  catch(e){
-    console.log(e)
-  }
-  res.send('Usuario creado :v')
+  else res.status(200).send('perfectirijillo')
 } );
 router.post('/login', function(req, res) {
   console.log(req.body)
