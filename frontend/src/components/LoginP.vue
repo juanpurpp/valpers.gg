@@ -74,7 +74,7 @@ const login = async() =>{
         if(loginData.status == 200){
             msgcomplex('Logueado!', 'Has sido logueado con ', 'exito', 'green', 'Ok', true,'cargando...', 1000, 'success', 'volviendo al inicio...')
             VueCookies.set("valpersUsername", formLabelAlign.name , "7d")
-            VueCookies.set("userToken", loginData.token , "7d")
+            VueCookies.set("userToken", loginData.data.token , "7d")
         }
     })
     .catch(function (error) {
