@@ -1,15 +1,12 @@
 <template> 
 <!--Parte superior de la pagina-->
-  <el-row  :align="top" :span="7">
-    <el-col :span="1">
+  <el-row class="row-bg" justify="space-between">
+    <el-col :span="6">
       <img style="width: 247px; height: 70px" src="@/assets/logo.png"/>
     </el-col>
-   <el-col :offset="8">
-    <div class="grid-content bg-puerple-dark">
-      <el-button type="primary" color="#f5447e" @click="$router.push('/login')">Login</el-button>
-      <router-view/>  
-    </div>
-   </el-col>
+    <el-col :span="6">
+        <el-button type="primary" color="#f5447e" @click="$router.push('/login')">Login</el-button>
+    </el-col>
   </el-row>
 </template>
 
