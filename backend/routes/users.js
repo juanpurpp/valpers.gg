@@ -4,7 +4,7 @@ var router = express.Router();
 var jwt = require('jsonwebtoken')
 var authorize = require('../controllers/auth_controller.js')
 var db = require('../users.js');
-router.get('/', authorize(), function(req, res, next) {
+router.post('/auth', authorize(), function(req, res, next) {
   res.send('authorized user');
 });
 
@@ -23,9 +23,9 @@ router.post('/login', function(req, res) {
    if (!user || !user.comparePassword(req.body.password)) {
        return res.status(401).json({ message: 'Usuario o contraseña erroneos' });
    }
-   const token = jwt.sign({ email: user.email, user_id: user._id, roles: user.roles}, process.env.JWT_KEY, {expiresIn: "7d"})
+   const token = jwt.sign({  user_id: user._id, roles: user.roles}, process.env.JWT_KEY, {expiresIn: "7d"})
    user.token = token
-   return res.status(200).json({ token: token, email: user.email, roles: user.roles, id: user._id});
+   return res.status(200).json({ token: token, roles: user.roles, id: user._id});
  }))
  .catch ((error) => {
   console.log(error) 
