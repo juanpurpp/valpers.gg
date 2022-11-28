@@ -61,7 +61,7 @@ const formLabelAlign = reactive({
 
 const login = async() =>{
     console.log('name es '+formLabelAlign.name+ "  y pass es " +formLabelAlign.password  )
-    var loginData = (await axios.post('http://localhost:3000/users/login',
+    var loginData = (await axios.post('https://valpers-api.herokuapp.com/users/login',
         //body
         {
             name: formLabelAlign.name,
@@ -99,7 +99,7 @@ const login = async() =>{
 
 const register = async() =>{
     console.log('name es '+formLabelAlign.name+ "  y pass es " +formLabelAlign.password  )
-    var res = (await axios.post('http://localhost:3000/users',
+    var res = (await axios.post('https://valpers-api.herokuapp.com/users',
         //body
         {
             name: formLabelAlign.name,
