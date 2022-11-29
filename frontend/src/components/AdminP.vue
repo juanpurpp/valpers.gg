@@ -11,7 +11,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input placeholder="Añadir Rango"/>
+                    <el-input disabled placeholder="Proximamente Añadir Rango"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="primary" :icon="Edit" circle />
@@ -19,7 +19,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input placeholder="Añadir agente"/>
+                    <el-input disabled placeholder="Proximamente Añadir agente"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="primary" :icon="Edit" circle />
@@ -35,7 +35,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input placeholder="Añadir partida"/>
+                    <el-input disabled placeholder="Proximamente partida"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="primary" :icon="Edit" circle />
@@ -55,7 +55,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input placeholder="Quitar rango"/>
+                    <el-input disabled placeholder="Proximamente Quitar rango"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="danger" :icon="Delete" circle />
@@ -63,7 +63,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input placeholder="Quitar agente"/>
+                    <el-input disabled placeholder="Proximamente Quitar agente"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="danger" :icon="Delete" circle />
@@ -79,7 +79,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input placeholder="Quitar partida"/>
+                    <el-input disabled placeholder="Proximamente quitar partida"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="danger" :icon="Delete" circle />
