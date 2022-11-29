@@ -73,6 +73,9 @@ module.exports = {
         return await User.findOneAndDelete({name: username})
     },
     update : update = async(username, data)=>{
-        return await User.updateOne({name: username},data)
+      if(!await User.findOne({name: data.name})) {
+        return 404;
+      }
+      else return await User.updateOne({name: username},data)
     }
 }
