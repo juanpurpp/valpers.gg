@@ -21,7 +21,7 @@ Maps = model('maps', MapSchema)
 
 //Se exportan las funciones que se ocuparan en el backend
 module.exports = {
-    addAll : addAll= async (maps)=>{
+    editMaps : editMaps= async (maps)=>{
         await Maps.deleteMany({});
         await Maps.insertMany(maps);
     },
