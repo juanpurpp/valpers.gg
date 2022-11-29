@@ -15,5 +15,7 @@
   "bugs": {
     "url": "https://github.com/juanpurpp/valpers.gg/issues"
   },
-  "homepage": "https://github.com/juanpurpp/valpers.gg#readme"
+  "homepage": "https://github.com/juanpurpp/valpers.gg#readme",
+  "dependencies": {
+  }
 }
