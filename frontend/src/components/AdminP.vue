@@ -35,7 +35,7 @@
             </el-row>
             <el-row justify="space-between">
                 <el-col :span ="6">
-                    <el-input disabled placeholder="Proximamente partida"/>
+                    <el-input disabled placeholder="Proximamente añadir partida"/>
                 </el-col>
                 <el-col :span ="6">
                     <el-button type="primary" :icon="Edit" circle />
