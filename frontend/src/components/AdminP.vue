@@ -137,7 +137,7 @@
             name: username,
             roles: ["usuario", "admin"]
         }).then(response=> {
-            if(response.status==200) msg('Actualizado','Ahora '+username+' es', 'admin','green','Entendido')})
+            if(response.status==200) msg('Actualizado','Ahora '+username+' es', ' admin','green','Entendido')})
         .catch(function (error) {
             if(error.response.status == 404) msg('Error', 'El usuario' ,'no se pudo encontar', 'red','Ok')
             else msg('Oh no!', 'Ha ocurrido un ','problema', 'red','Ok')
@@ -150,7 +150,7 @@
             roles: ["usuario"]
         })
         .then(response=> {
-            if(response.status==200) msg('Actualizado','Ahora '+username+' ya no es', 'admin','red','Entendido')})
+            if(response.status==200) msg('Actualizado','Ahora '+username+' ya no es', ' admin','red','Entendido')})
         .catch(function (error) {
             if(error.response.status == 404) msg('Error', 'El usuario' ,'no se pudo encontar', 'red','Ok')
             else msg('Oh no!', 'Ha ocurrido un ','problema', 'red','Ok')
