@@ -29,7 +29,7 @@ router.get('/', function(req, res, _){
     
 });
 router.post('/', function(req,res, _){
-        db.addAll(req.body)
+        db.edit(req.body)
         .then(res.status(200).send('Mapas cambiados'))
         .catch(function(error){console.log(error)})
 })

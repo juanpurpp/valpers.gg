@@ -26,7 +26,7 @@ const connectDB = async () => {
         console.log('MongoDB connected!!');
         console.log('Adding resources')
         await dbagents.addAgent();
-        await dbmaps.addMap();
+        //await dbmaps.edit();
         await dbranks.addRank();
     } catch (err) {
         console.log('Failed to connect to MongoDB', err);
