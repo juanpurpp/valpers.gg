@@ -18,13 +18,12 @@ const MapSchema = new Schema(
 Maps = model('maps', MapSchema)
 
 //Se ingresa el archivo que contiene los datos que se guardaran 
-dataMap = require('./maps.json')
 
 //Se exportan las funciones que se ocuparan en el backend
 module.exports = {
-    addMap : addMap = async ()=>{
+    editMaps : editMaps= async (maps)=>{
         await Maps.deleteMany({});
-        await Maps.insertMany(dataMap.Maps);
+        await Maps.insertMany(maps);
     },
     find : find= async ()=>{
         return await Maps.find({})

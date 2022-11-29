@@ -12,6 +12,7 @@ var matchsRouter = require('./routes/matchs');
 var mapsRouter = require('./routes/maps');
 var agentsRouter = require('./routes/agents');
 var ranksRouter = require('./routes/ranks');
+var usersRouter = require('./routes/users')
 
 var app = express();
 
@@ -25,7 +26,7 @@ const connectDB = async () => {
         console.log('MongoDB connected!!');
         console.log('Adding resources')
         await dbagents.addAgent();
-        await dbmaps.addMap();
+        //await dbmaps.edit();
         await dbranks.addRank();
     } catch (err) {
         console.log('Failed to connect to MongoDB', err);
@@ -42,5 +43,6 @@ app.use('/matchs', matchsRouter);
 app.use('/maps', mapsRouter);
 app.use('/agents', agentsRouter);
 app.use('/ranks', ranksRouter);
+app.use('/users', usersRouter)
 
 module.exports = app;

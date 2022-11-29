@@ -28,5 +28,9 @@ router.get('/', function(req, res, _){
     }
     
 });
-
+router.post('/', function(req,res, _){
+        db.editMaps(req.body)
+        .then(upd => res.status(200).send('Mapas cambiados'))
+        .catch(function(error){console.log(error)})
+})
 module.exports = router;
