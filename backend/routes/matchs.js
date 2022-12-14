@@ -50,7 +50,7 @@ router.post('/', async(req, res) => {
         nid = (await db.maxId()).id + 1
     }
     catch(e) {
-        console.log(e)
+        res.status(421).send('Ocurrió un error con la base de datos, el dieter lo tiene que arreglar :V')
     }
     data={
         "id": nid,
@@ -61,14 +61,14 @@ router.post('/', async(req, res) => {
         "map": null, 
         "ready": false,
         "team1": null,
-        "team2": null
+        "team2": null,
+        "invite": createInvite(),
     }
     try{
         db.add(data)
     }
     catch(e){
-        console.log('POST MATCH ERROR ADDING DATA')
-        console.log('error: '+e)
+        res.status(421).send('Ocurrió un error con la base de datos, el dieter lo tiene que arreglar :V')
     }
     console.log('added')
     console.log(data)
@@ -119,8 +119,18 @@ router.put('/', async(req, res, _) => {
     //res.send('Resource updated')
     res.json(req.body)
 });
+
 module.exports = router
 
+const createInvite = function(){
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    for (var i = 0; i < 8; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    return result;
+}
 const avgRank = function(team,midRank = ranks[0].name){ //calcula el rango promedio en valor
     var avg = 0;
     if (team.length == 0) return midRank

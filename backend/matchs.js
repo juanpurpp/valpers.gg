@@ -46,6 +46,10 @@ const MatchSchema = new Schema(
         ready:{
             type: Boolean
         }
+        ,
+        invite:{
+            type: String
+        }
     },
     { timestamps: true },
 )
