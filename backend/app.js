@@ -16,8 +16,6 @@ var usersRouter = require('./routes/users')
 
 var app = express();
 
-const server = '127.0.0.1:27017';
-const database = 'valpers';
 const config = require('./config.js');
 
 const connectDB = async () => {
