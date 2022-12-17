@@ -1,13 +1,21 @@
-module.exports=function(app){
-    const server = require('http').createServer(app);
+module.exports=function(server){
     const io = require('socket.io')(server);
-
     io.on('connection', socket => {
-        console.log('a user connected');
-    
-        socket.on('disconnect', () => {
-        console.log('user disconnected');
+        console.log('A user has connected');
+      
+        socket.on('subscribe', (channel) => {
+          console.log(`User has subscribed to channel "${channel}"`);
+          socket.join(channel);
         });
-    });
-    server.listen(3000);
+      
+        socket.on('unsubscribe', (channel) => {
+          console.log(`User has unsubscribed from channel "${channel}"`);
+          socket.leave(channel);
+        });
+      
+        socket.on('publish', (channel, message) => {
+          console.log(`Message "${message}" published to channel "${channel}"`);
+          io.to(channel).emit('message', message);
+        });
+    }); //crear un servidor socket.io
 }
