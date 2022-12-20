@@ -50,7 +50,7 @@ router.post('/', async(req, res) => {
         nid = (await db.maxId()).id + 1
     }
     catch(e) {
-        res.status(421).send('Ocurrió un error con la base de datos, el dieter lo tiene que arreglar :V')
+        res.status(421).send('Ocurrio un error con la base de datos, el dieter lo tiene que arreglar :V')
     }
     data={
         "id": nid,
@@ -68,7 +68,7 @@ router.post('/', async(req, res) => {
         db.add(data)
     }
     catch(e){
-        res.status(421).send('Ocurrió un error con la base de datos, el dieter lo tiene que arreglar :V')
+        res.status(421).send('Ocurrio un error con la base de datos, el dieter lo tiene que arreglar :V')
     }
     console.log('added')
     console.log(data)
