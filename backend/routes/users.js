@@ -19,7 +19,7 @@ router.post('/login', function(req, res) {
   db.findOne(req.body.name)
  .then(user => {
    if (!user || !user.comparePassword(req.body.password)) {
-       return res.status(401).json({ message: 'Usuario o contraseña erroneos' });
+       return res.status(401).json({ message: 'Usuario o contrasena erroneos' });
    }
    const token = jwt.sign({  user_id: user._id, roles: user.roles}, process.env.JWT_KEY, {expiresIn: "7d"})
    user.token = token
