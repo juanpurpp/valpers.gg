@@ -48,7 +48,6 @@ router.get('/', async(req, res, _) => {
             console.log('error: ' + e)
             res.status(404).send('No se encontró la match o hubo un error')
         }
-        res.status(400).send('')
     }
 });
 
@@ -84,9 +83,9 @@ router.post('/', async(req, res) => {
     catch(e){
         res.status(421).send('Ocurrio un error con la base de datos, el dieter lo tiene que arreglar :V')
     }
+    res.status(200).json(data);
     console.log('added')
     console.log(data)
-    res.json(data)
 });
 router.put('/', async(req, res, _) => {
     /**
