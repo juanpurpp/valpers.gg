@@ -8,7 +8,7 @@ var ranks
 dbranks.find().then(res => ranks = res)
 /**
  *      /matchs
- *      Control sobre las matchs que se estï¿½n trabajando en la pï¿½gina:
+ *      Control sobre las matchs que se estan trabajando en la pagina:
  */
 
 router.get('/', async(req, res, _) => { 
@@ -23,18 +23,32 @@ router.get('/', async(req, res, _) => {
             res.send('Debe entregar un id valida')
             return
         }*/  
-        res.json(await db.findOne(req.query.id));
+        res.status(200).json(await db.findOne(req.query.id));
 
         console.log("GET match id="+req.query.id)
     }
+    else if(req.query.invite != null){
+        console.log(req.query.invite)
+        /*if(!Number.isInteger(req.query.id)){
+            res.send('Debe entregar un id valida')
+            return
+        }*/  
+        try {res.status(200).json(await db.findOneByInvite(req.query.invite));}
+        catch(e){
+            res.status(404).send('No se encontró una partida con ese codigo de invitación')
+        }
+        console.log("GET match invite="+req.query.invite)
+    }
     else{   
         try {
-            res.json(await db.find());
+            res.status(200).json(await db.find());
         }
         catch(e){
             console.log('error recibiendo matchs de la base de datos')
             console.log('error: ' + e)
+            res.status(404).send('No se encontró la match o hubo un error')
         }
+        res.status(400).send('')
     }
 });
 
@@ -123,7 +137,7 @@ router.put('/', async(req, res, _) => {
 module.exports = router
 
 const createInvite = function(){
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     var result = '';
     for (var i = 0; i < 8; i++) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
@@ -155,7 +169,7 @@ var numberToRank = function(valor){
 var balance = function(players){
     /**
      * Balancea un array de players, retorna a un arreglo intercalado de bueno con malo.
-     * Dividir el retorno a la mitad darï¿½ dos teams balanceados
+     * Dividir el retorno a la mitad dara dos teams balanceados
      */
     var midRank=avgRank(players.filter(p=>p.rank!='Unranked'))
 

@@ -62,6 +62,9 @@ module.exports = {
     findOne : findOne = async (idMatch)=>{
         return await Match.findOne({id: idMatch})
     },
+    findOneByInvite : findOneByInvite = async (code)=>{
+        return await Match.findOne({invite: code})
+    },
     find : find = async ()=>{
         return await Match.find()
     },

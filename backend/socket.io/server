@@ -17,5 +17,13 @@ module.exports=function(server){
           console.log(`Message "${message}" published to channel "${channel}"`);
           io.to(channel).emit('message', message);
         });
+        socket.on('update', (objeto) => {
+          console.log(`Message "${objeto.message}" published to channel "${objeto.channel}"`);
+          io.to(objeto.channel).emit('message', objeto.message);
+        });
+        socket.on('join', (objeto) => {
+          console.log(`sujeto "${objeto.message}" entro to channel "${objeto.channel}"`);
+          io.to(objeto.channel).emit('joining', objeto.message);
+        });
     }); //crear un servidor socket.io
 }
