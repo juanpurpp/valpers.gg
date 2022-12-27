@@ -25,5 +25,13 @@ module.exports=function(server){
           console.log(`sujeto "${objeto.message}" entro to channel "${objeto.channel}"`);
           io.to(objeto.channel).emit('joining', objeto.message);
         });
+        socket.on('leave', (objeto) => {
+          console.log(`sujeto "${objeto.mesage}" dejó el canal "${objeto.channel}"`);
+          io.to(objeto.channel).emit('leaving', objeto.message);
+        });
+        socket.on('start', (channel) => {
+          console.log(`Empezó la partida de "${channel}"`);
+          io.to(channel).emit('starting');
+        });
     }); //crear un servidor socket.io
 }
