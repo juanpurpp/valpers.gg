@@ -46,6 +46,10 @@ const MatchSchema = new Schema(
         ready:{
             type: Boolean
         }
+        ,
+        invite:{
+            type: String
+        }
     },
     { timestamps: true },
 )
@@ -57,6 +61,9 @@ Match = model('match', MatchSchema)
 module.exports = {
     findOne : findOne = async (idMatch)=>{
         return await Match.findOne({id: idMatch})
+    },
+    findOneByInvite : findOneByInvite = async (code)=>{
+        return await Match.findOne({invite: code})
     },
     find : find = async ()=>{
         return await Match.find()
